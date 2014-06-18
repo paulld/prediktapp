@@ -1,70 +1,77 @@
 Prediktapi::Application.routes.draw do
-  resources :bets
 
-  resources :match_comments
+  scope defaults: { format: :json } do
 
-  resources :profile_comments
+    root 'api#index'
 
-  resources :follows
+    get 'uuids'         => 'uuids#create',            as: :uuid
+    get 'uuids/:num'    => 'uuids#create',            as: :uuids
 
-  resources :leagues
+    get 'rest'          => 'rest#index',              as: :rest
 
-  resources :matches
+    scope :bets do
+      get    ''         => 'bets#index',              as: :bets
+      get    ':ids'     => 'bets#index',              as: :bet
+      put    ':id'      => 'bets#create_or_replace'
+      patch  ':id'      => 'bets#update'
+      delete ':id'      => 'bets#destroy'
+    end
 
-  resources :users
+    scope :follows do
+      get    ''         => 'follows#index',           as: :follows
+      get    ':ids'     => 'follows#index',           as: :follow
+      put    ':id'      => 'follows#create_or_replace'
+      patch  ':id'      => 'follows#update'
+      delete ':id'      => 'follows#destroy'
+    end
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+    scope :leagues do
+      get    ''         => 'leagues#index',           as: :leagues
+      get    ':ids'     => 'leagues#index',           as: :league
+      put    ':id'      => 'leagues#create_or_replace'
+      patch  ':id'      => 'leagues#update'
+      delete ':id'      => 'leagues#destroy'
+    end
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+    scope :matches do
+      get    ''         => 'matches#index',           as: :matches
+      get    ':ids'     => 'matches#index',           as: :match
+      put    ':id'      => 'matches#create_or_replace'
+      patch  ':id'      => 'matches#update'
+      delete ':id'      => 'matches#destroy'
+    end
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+    scope :match_comments do
+      get    ''         => 'match_comments#index',    as: :match_comments
+      get    ':ids'     => 'match_comments#index',    as: :match_comment
+      put    ':id'      => 'match_comments#create_or_replace'
+      patch  ':id'      => 'match_comments#update'
+      delete ':id'      => 'match_comments#destroy'
+    end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+    scope :profile_comments do
+      get    ''         => 'profile_comments#index',  as: :profile_comments
+      get    ':ids'     => 'profile_comments#index',  as: :profile_comment
+      put    ':id'      => 'profile_comments#create_or_replace'
+      patch  ':id'      => 'profile_comments#update'
+      delete ':id'      => 'profile_comments#destroy'
+    end
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    scope :registrants do
+      get    ''         => 'registrants#index',       as: :registrants
+      get    ':ids'     => 'registrants#index',       as: :registrant
+      put    ':id'      => 'registrants#create_or_replace'
+      patch  ':id'      => 'registrants#update'
+      delete ':id'      => 'registrants#destroy'
+    end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    scope :users do
+      get    ''         => 'users#index',             as: :users
+      get    ':ids'     => 'users#index',             as: :user
+      put    ':id'      => 'users#create_or_replace'
+      patch  ':id'      => 'users#update'
+      delete ':id'      => 'users#destroy'
+    end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  end
 end
