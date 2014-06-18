@@ -10,15 +10,17 @@ class CreateMatches < ActiveRecord::Migration
       t.string :league_day
       t.boolean :accepts_bets
 
-      t.number :home_odds
-      t.number :draw_odds
-      t.number :away_odds
-      t.number :over_under_odds
-      t.number :home_handicap_odds
-      t.number :away_handicap_odds
+      t.decimal :home_odds
+      t.decimal :draw_odds
+      t.decimal :away_odds
+      t.decimal :over_under_odds
+      t.decimal :home_handicap_odds
+      t.decimal :away_handicap_odds
 
-      t.number :home_score
-      t.number :away_score
+      t.integer :home_score
+      t.integer :away_score
+
+      t.uuid :league_id
 
       t.timestamps
     end

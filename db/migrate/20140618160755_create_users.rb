@@ -13,9 +13,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :website
       t.string :reset_code
       t.time :reset_expires_at
-      t.number :coins
-      t.number :win_percentage
-      t.number :current_streak
+      t.decimal :coins
+      t.decimal :win_percentage
+      t.integer :current_streak
 
       t.timestamps
     end
