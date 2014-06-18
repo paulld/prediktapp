@@ -1,0 +1,2 @@
+class ProfileCommentsController < ApplicationController
+end
