@@ -2,8 +2,8 @@ class CreateProfileComments < ActiveRecord::Migration
   def change
     create_table :profile_comments, id: :uuid do |t|
       t.string :content
-      t.uuid :commentor #, index: true
-      t.uuid :commentee #, index: true
+      t.uuid :profile_commentor #, index: true
+      t.uuid :profile_commentee #, index: true
 
       t.timestamps
     end

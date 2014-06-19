@@ -7,7 +7,7 @@ child @objects do
     {
       bets: user.bets.map {|i| i.id },
       match_comments: user.match_comments.map {|j| j.id },
-      # follows: user.follows.map {|k| k.id },      # TODO: followers & followees ??
+      followers: user.followers.map {|k| k.id },      # TODO: followers & followeds ??
       # profile_comments: user.profile_comments.map {|l| l.id }     # TODO: commentors & commentees?
     }
   end
@@ -21,7 +21,7 @@ node :links do
   {
     "users.bets" => bets_url + "/{users.bets}",
     "users.match_comments" => match_comments_url + "/{users.match_comments}"
-    # TODO : links for follows and profile_comments
+    # TODO : links for followings and profile_comments
   }
 end
 

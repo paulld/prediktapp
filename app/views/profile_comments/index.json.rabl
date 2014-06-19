@@ -5,8 +5,8 @@ child @objects do
 
   node :links do |profile_comment|
     {
-      commentee: profile_comment.commentee,
-      commentor: profile_comment.commentor
+      profile_commentee: profile_comment.profile_commentee,
+      profile_commentor: profile_comment.profile_commentor
     }
   end
 
@@ -17,8 +17,8 @@ end
 
 node :links do
   {
-    "profile_comment.commentor" => users_url + "/{profile_comment.commentor}",
-    "profile_comment.commentee" => users_url + "/{profile_comment.commentee}"
+    "profile_comment.profile_commentor" => users_url + "/{profile_comment.profile_commentor}",
+    "profile_comment.profile_commentee" => users_url + "/{profile_comment.profile_commentee}"
   }
 end
 

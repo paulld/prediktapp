@@ -5,8 +5,8 @@ child @objects do
 
   node :links do |bet|
     {
-      user: bet.user.id,
-      match: bet.match.id
+      user: bet.user,     # only show id with user.id ??
+      match: bet.match     # only show id with match.id ??
     }
   end
 

@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20140618161119) do
     t.datetime "updated_at"
   end
 
-  create_table "follows", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "followings", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "follower"
-    t.uuid     "followee"
+    t.uuid     "followed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20140618161119) do
 
   create_table "profile_comments", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "content"
-    t.uuid     "commentor"
-    t.uuid     "commentee"
+    t.uuid     "profile_commentor"
+    t.uuid     "profile_commentee"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

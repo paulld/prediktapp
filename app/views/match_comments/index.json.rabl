@@ -5,8 +5,8 @@ child @objects do
 
   node :links do |match_comment|
     {
-      user: match_comment.user,
-      match: match_comment.match
+      user: match_comment.user,     # only show id with user.id ??
+      match: match_comment.match     # only show id with match.id ??
     }
   end
 

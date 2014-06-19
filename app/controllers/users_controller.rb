@@ -4,11 +4,11 @@ class UsersController < RestController
 
   def get_includes
     [ :bets, :match_comments ]
-    # [ :bets, :match_comments, :profile_comments, :follows ]
+    # [ :bets, :match_comments, :profile_comments, :followings ]
   end
 
   #  TODO : profile_comments made on user's own profile + meade on other profiles
-  #  TODO : follows made on user's own profile + meade on other profiles
+  #  TODO : followings made on user's own profile + meade on other profiles
 
   # def object_params
   #   params.require(:user).permit( :email,
@@ -26,8 +26,8 @@ class UsersController < RestController
   #                                          :coins,
   #                                          :win_percentage,
   #                                          :current_streak,
-  #                                          { follows: [ :followee ] },
-  #                                          { profile_comments: [ :commentor, :content ] },
+  #                                          { followings: [ :followed, follower ] },
+  #                                          { profile_comments: [ :profile_commentor, :profile_commentee, :content ] },
   #                                          { match_comments: [ :content ] },
   #                                          { bets: [ :bet_type, :wager ] }
   #                                         )

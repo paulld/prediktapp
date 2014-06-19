@@ -10,7 +10,7 @@ node :links do
     bets: bets_url,
     match_comments: match_comments_url,
     profile_comments: profile_comments_url,
-    follows: follows_url
+    followings: followings_url
   }
 end
 

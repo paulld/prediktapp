@@ -17,12 +17,12 @@ Prediktapi::Application.routes.draw do
       delete ':id'      => 'bets#destroy'
     end
 
-    scope :follows do
-      get    ''         => 'follows#index',           as: :follows
-      get    ':ids'     => 'follows#index',           as: :follow
-      put    ':id'      => 'follows#create_or_replace'
-      patch  ':id'      => 'follows#update'
-      delete ':id'      => 'follows#destroy'
+    scope :followings do
+      get    ''         => 'followings#index',           as: :followings
+      get    ':ids'     => 'followings#index',           as: :following
+      put    ':id'      => 'followings#create_or_replace'
+      patch  ':id'      => 'followings#update'
+      delete ':id'      => 'followings#destroy'
     end
 
     scope :leagues do

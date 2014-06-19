@@ -6,19 +6,19 @@ child @objects do
   node :links do |profile_comment|
     {
       follower: profile_comment.follower,
-      followee: profile_comment.followee
+      followed: profile_comment.followed
     }
   end
 
-  node :href do |follow|
-    follow_url(follow)
+  node :href do |following|
+    following_url(following)
   end
 end
 
 node :links do
   {
-    "follows.follower" => users_url + "/{follows.follower}",
-    "follows.followee" => users_url + "/{follows.followee}"
+    "followings.follower" => users_url + "/{followings.follower}",
+    "followings.followed" => users_url + "/{followings.followed}"
   }
 end
 

@@ -3,13 +3,13 @@ class ProfileCommentsController < RestController
   protected
 
   # def get_includes
-  #   [ :commentor, :commentee ]
+  #   [ :profile_commentor, :profile_commentee ]
   # end
 
 # TODO: Need get_includes ??
 
   # def object_params
-  #   params.require(:profile_comment).permit( :commentor, :commentee, :content )
+  #   params.require(:profile_comment).permit( :profile_commentor, :profile_commentee, :content )
   # end
 end
 

@@ -2,7 +2,7 @@ User.destroy_all
 Registrant.destroy_all
 Match.destroy_all
 League.destroy_all
-Follow.destroy_all
+Following.destroy_all
 ProfileComment.destroy_all
 MatchComment.destroy_all
 Bet.destroy_all
@@ -87,23 +87,23 @@ match_comments = MatchComment.create([
 profile_comments = ProfileComment.create([
   {
     content: "A comment on the first user",
-    commentor: users[1],
-    commentee: users[0]
+    profile_commentor: users[1],
+    profile_commentee: users[0]
   },
   {
     content: "A comment on the second user",
-    commentor: users[0],
-    commentee: users[1]
+    profile_commentor: users[0],
+    profile_commentee: users[1]
   }
 ])
 
-follows = Follow.create([
+followings = Following.create([
   {
     follower: users[1],
-    followee: users[0]
+    followed: users[0]
   },
   {
     follower: users[0],
-    followee: users[1]
+    followed: users[1]
   }
 ])
