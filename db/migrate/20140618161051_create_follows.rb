@@ -1,8 +1,8 @@
 class CreateFollows < ActiveRecord::Migration
   def change
     create_table :follows, id: :uuid do |t|
-      t.uuid :follower #, index: true
-      t.uuid :followee #, index: true
+      t.uuid :follower, index: true
+      t.uuid :followee, index: true
 
       t.timestamps
     end
