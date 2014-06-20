@@ -2,36 +2,12 @@ class BetsController < RestController
 
   protected
 
-  def get_includes
-    [ :match, :user ]
+  def configure_controller
+    config[:display] = [ :bet_type, :wager, :odds, :result, :gain, :status ]        # Fields to (optionally) include in the JSON
+    config[:require] = [ :id, :user_id, :match_id ]                                 # Fields that MUST be included in the JSON
+    config[:permit]  = [ :bet_type, :wager, :odds, :result, :gain, :status ]        # Permitted params for create/replace/update
+    config[:include] = [ :user, :match ]                                            # Associated objects to be eagerly loaded
   end
-
-  # def object_params
-  #   params.require(:bet).permit( :bet_type,
-  #                                :wager,
-  #                                :odds,
-  #                                :result,
-  #                                :gain,
-  #                                :status,
-  #                                { matches: [ :home_team, 
-  #                                                :away_team, 
-  #                                                :starts_at, 
-  #                                                :ends_at, 
-  #                                                :venue, 
-  #                                                :sport, 
-  #                                                :league_day, 
-  #                                                :accepts_bets,
-  #                                                :home_odds, 
-  #                                                :draw_odds, 
-  #                                                :away_odds, 
-  #                                                :over_under_odds, 
-  #                                                :home_handicap_odds, 
-  #                                                :away_handicap_odds,
-  #                                                :home_score, 
-  #                                                :away_score
-  #                                              ]
-  #                                   } 
-  #                                 )
-  # end
+     
 
 end

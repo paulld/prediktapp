@@ -2,15 +2,13 @@ class ProfileCommentsController < RestController
 
   protected
 
-  # def get_includes
-  #   [ :profile_commentor, :profile_commentee ]
-  # end
+  def configure_controller
+    config[:display] = [ :content  ]    # Fields to (optionally) include in the JSON
+    config[:require] = [ :id, :profile_commentor_id, :profile_commentee_id ]            # Fields that MUST be included in the JSON
+    config[:permit]  = [ :content ]            # Permitted params for create/replace/update
+    config[:include] = [ :profile_commentor, :profile_commentee ]            # Associated objects to be eagerly loaded
+  end
 
-# TODO: Need get_includes ??
-
-  # def object_params
-  #   params.require(:profile_comment).permit( :profile_commentor, :profile_commentee, :content )
-  # end
 end
 
-# ADD commentor and commentee names ?
+# ADD profile_commentor and profile_commentee names ?

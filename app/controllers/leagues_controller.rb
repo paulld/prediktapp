@@ -2,10 +2,17 @@ class LeaguesController < RestController
 
   protected
 
-  def get_includes
-    # [ :matches, { matches: [ :bets ] } ]
-    [ :matches ]
+  def configure_controller
+    config[:display] = [ :name ]            # Fields to (optionally) include in the JSON
+    config[:require] = [ :id ]            # Fields that MUST be included in the JSON
+    config[:permit]  = [ :name ]            # Permitted params for create/replace/update
+    config[:include] = [ :matches ]            # Associated objects to be eagerly loaded
   end
+
+  # def get_includes
+  #   # [ :matches, { matches: [ :bets ] } ]
+  #   [ :matches ]
+  # end
 
   # def object_params
   #   params.require(:league).permit( :name, 
