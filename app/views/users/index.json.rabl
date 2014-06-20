@@ -1,14 +1,17 @@
 object false
 
-child @objects do
+child @users => :users do
   attributes :id, :email, :user_name, :first_name, :last_name, :salt, :fish, :description, :home_country, :home_town, :website, :reset_code, :reset_expires_at, :coins, :win_percentage, :current_streak, :created_at, :updated_at
 
   node :links do |user|
     {
       bets: user.bets.map {|i| i.id },
       match_comments: user.match_comments.map {|j| j.id },
-      followers: user.followers.map {|k| k.id },      # TODO: followers & followeds ??
-      # profile_comments: user.profile_comments.map {|l| l.id }     # TODO: commentors & commentees?
+      followings_as_followers: user.followings_as_followers.map {|k| k.id },
+      followings_as_followeds: user.followings_as_followeds.map {|k| k.id },
+      followers: user.followers.map {|k| k.id },
+      followeds: user.followeds.map {|k| k.id }
+      # profile_comments: user.profile_comments.map {|l| l.id }
     }
   end
 

@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20140618161119) do
   end
 
   create_table "followings", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.uuid     "follower"
-    t.uuid     "followed"
+    t.uuid     "follower_id"
+    t.uuid     "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

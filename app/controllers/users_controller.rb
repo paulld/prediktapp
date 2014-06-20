@@ -4,10 +4,10 @@ class UsersController < RestController
 
   def configure_controller
     config[:display] = [ :salt, :fish, :description, :home_country, :home_town, :website,
-                         :reset_code, :reset_expires_at, :coins, :win_percentage, :current_streak ]            # Fields to (optionally) include in the JSON
-    config[:require] = [ :id ]            # Fields that MUST be included in the JSON
-    config[:permit]  = [ :email, :user_name, :first_name, :last_name ]            # Permitted params for create/replace/update
-    config[:include] = [ :bets, :match_comments, :followings, :profile_comments ]            # Associated objects to be eagerly loaded
+                         :reset_code, :reset_expires_at, :coins, :win_percentage, :current_streak ]    # Fields to (optionally) include in the JSON
+    config[:require] = [ :id ]                                                                         # Fields that MUST be included in the JSON
+    config[:permit]  = [ :email, :user_name, :first_name, :last_name ]                                 # Permitted params for create/replace/update
+    config[:include] = [ :bets, :match_comments ]  #                             # Associated objects to be eagerly loaded
   end
 
 end
