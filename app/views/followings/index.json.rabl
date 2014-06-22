@@ -7,8 +7,8 @@ child @followings => :followings do
 
   node :links do |profile_comment|
     {
-      follower: profile_comment.follower,
-      followed: profile_comment.followed
+      follower: profile_comment.follower.id,
+      followee: profile_comment.followee.id
     }
   end
 
@@ -21,7 +21,7 @@ end
 node :links do
   {
     "followings.follower" => users_url + "/{followings.follower}",
-    "followings.followed" => users_url + "/{followings.followed}"
+    "followings.followee" => users_url + "/{followings.followee}"
   }
 end
 

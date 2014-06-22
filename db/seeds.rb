@@ -24,6 +24,22 @@ users = User.create([
   {
     user_name: "Rage",
     email: "regis@predikt.com"
+  },
+  {
+    user_name: "Felix",
+    email: "felix@predikt.com"
+  },
+  {
+    user_name: "Tim",
+    email: "timmy@predikt.com"
+  },
+  {
+    user_name: "Vlad",
+    email: "vladimir@predikt.com"
+  },
+  {
+    user_name: "kate",
+    email: "missk@predikt.com"
   }
 ])
 
@@ -86,24 +102,114 @@ match_comments = MatchComment.create([
 
 profile_comments = ProfileComment.create([
   {
-    content: "A comment on the first user",
-    profile_commentor: users[1],
+    content: "Hello you",
+    profile_commentor: users[5],
+    profile_commentee: users[4]
+  },
+  {
+    content: "Hi!",
+    profile_commentor: users[5],
+    profile_commentee: users[3]
+  },
+  {
+    content: "Lorem",
+    profile_commentor: users[5],
+    profile_commentee: users[2]
+  },
+  {
+    content: "Ipsum",
+    profile_commentor: users[5],
+    profile_commentee: users[1]
+  },
+  {
+    content: "You're the best",
+    profile_commentor: users[5],
     profile_commentee: users[0]
   },
   {
-    content: "A comment on the second user",
-    profile_commentor: users[0],
+    content: "I hate you",
+    profile_commentor: users[4],
+    profile_commentee: users[3]
+  },
+  {
+    content: "Let's have dinner together",
+    profile_commentor: users[4],
+    profile_commentee: users[2]
+  },
+  {
+    content: "Hi dude",
+    profile_commentor: users[4],
     profile_commentee: users[1]
+  },
+  {
+    content: "Do you bet?",
+    profile_commentor: users[4],
+    profile_commentee: users[0]
+  },
+  {
+    content: "I win!",
+    profile_commentor: users[3],
+    profile_commentee: users[2]
+  },
+  {
+    content: "You rock, man!",
+    profile_commentor: users[3],
+    profile_commentee: users[1]
+  },
+  {
+    content: "Ok, a last one.",
+    profile_commentor: users[3],
+    profile_commentee: users[0]
   }
 ])
 
 followings = Following.create([
   {
-    follower: users[1],
-    followed: users[0]
+    follower: users[0],
+    followee: users[1]
   },
   {
     follower: users[0],
-    followed: users[1]
+    followee: users[2]
+  },
+  {
+    follower: users[0],
+    followee: users[3]
+  },
+  {
+    follower: users[0],
+    followee: users[4]
+  },
+  {
+    follower: users[0],
+    followee: users[5]
+  },
+  {
+    follower: users[1],
+    followee: users[2]
+  },
+  {
+    follower: users[1],
+    followee: users[3]
+  },
+  {
+    follower: users[1],
+    followee: users[4]
+  },
+  {
+    follower: users[1],
+    followee: users[5]
+  },
+  {
+    follower: users[2],
+    followee: users[3]
+  },
+  {
+    follower: users[2],
+    followee: users[4]
+  },
+  {
+    follower: users[2],
+    followee: users[5]
   }
 ])

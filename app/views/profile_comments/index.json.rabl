@@ -7,8 +7,8 @@ child @profile_comments => :profile_comments do
 
   node :links do |profile_comment|
     {
-      profile_commentee: profile_comment.profile_commentee,
-      profile_commentor: profile_comment.profile_commentor
+      profile_commentee: profile_comment.profile_commentee.id,
+      profile_commentor: profile_comment.profile_commentor.id
     }
   end
 
@@ -20,8 +20,8 @@ end
 # :links provides a hash of URL templates to satisfy the hypermedia constraint
 node :links do
   {
-    "profile_comment.profile_commentor" => users_url + "/{profile_comment.profile_commentor}",
-    "profile_comment.profile_commentee" => users_url + "/{profile_comment.profile_commentee}"
+    "profile_comment.profile_commentee" => users_url + "/{profile_comment.profile_commentee}",
+    "profile_comment.profile_commentor" => users_url + "/{profile_comment.profile_commentor}"
   }
 end
 

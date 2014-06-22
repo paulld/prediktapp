@@ -6,12 +6,15 @@ child @users => :users do
   node :links do |user|
     {
       bets: user.bets.map {|i| i.id },
-      match_comments: user.match_comments.map {|j| j.id },
-      followings_as_followers: user.followings_as_followers.map {|k| k.id },
-      followings_as_followeds: user.followings_as_followeds.map {|k| k.id },
-      followers: user.followers.map {|k| k.id },
-      followeds: user.followeds.map {|k| k.id }
-      # profile_comments: user.profile_comments.map {|l| l.id }
+      match_comments: user.match_comments.map {|i| i.id },
+      followings_as_followers: user.followings_as_followers.map {|i| i.id },
+      followings_as_followees: user.followings_as_followees.map {|i| i.id },
+      # followers: user.followers.map {|i| i.id },
+      # followees: user.followees.map {|i| i.id },
+      profile_comments_as_commentors: user.profile_comments_as_commentors.map {|i| i.id },
+      profile_comments_as_commentees: user.profile_comments_as_commentees.map {|i| i.id }
+      # profile_commentors: user.profile_commentors.map {|i| i.id },
+      # profile_commentees: user.profile_commentees.map {|i| i.id }
     }
   end
 

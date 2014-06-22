@@ -7,7 +7,7 @@ child @matches => :matches do
 
   node :links do |match|
     {
-      league: match.league,
+      league: match.league.id,
       bets: match.bets.map {|i| i.id },
       match_comments: match.match_comments.map {|j| j.id }
     }
@@ -16,6 +16,14 @@ child @matches => :matches do
   node :href do |match|
     match_url(match)
   end
+
+  node :linked do |match|
+    {
+      league: match.league.name,
+      match_comments: match.match_comments.map {|j| j.content }
+    }
+  end
+
 end
 
 # :links provides a hash of URL templates to satisfy the hypermedia constraint
@@ -26,6 +34,7 @@ node :links do
     "matches.match_comments" => match_comments_url + "/{matches.match_comments}"
   }
 end
+
 
 node :meta do
   { "client-ids" => true }
