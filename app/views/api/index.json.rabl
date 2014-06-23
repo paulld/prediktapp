@@ -24,4 +24,3 @@ end
 node :meta do
   { "client-ids" => true }
 end
-

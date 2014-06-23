@@ -1,11 +1,11 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-require "active_model/railtie"
+# require "active_model/railtie"
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_view/railtie"
+# require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -28,3 +28,7 @@ module Prediktapi
     # config.i18n.default_locale = :de
   end
 end
+
+
+
+# TODO: why remove "active_model/railtie", "action_view/railtie" and "action_view/railtie" ??
