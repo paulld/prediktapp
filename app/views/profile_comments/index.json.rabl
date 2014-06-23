@@ -8,7 +8,9 @@ child @profile_comments => :profile_comments do
   node :links do |profile_comment|
     {
       profile_commentee: profile_comment.profile_commentee.id,
+      # profile_commentee: profile_comment.profile_commentee.user_name,
       profile_commentor: profile_comment.profile_commentor.id
+      # profile_commentor: profile_comment.profile_commentor.user_name
     }
   end
 
