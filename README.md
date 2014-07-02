@@ -1,4 +1,4 @@
 prediktapp
 ==========
 
-Predikt
+Predikt App
