@@ -1,6 +1,6 @@
 Prediktapp::Application.routes.draw do
 
-  root 'site#index'
+  root                     'site#index'
 
   scope :api, defaults: { format: :json } do
 
