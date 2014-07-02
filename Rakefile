@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Prediktapi::Application.load_tasks
+Prediktapp::Application.load_tasks

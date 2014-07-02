@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Prediktapi::Application.config.session_store :cookie_store, key: '_prediktapi_session'
+Prediktapp::Application.config.session_store :cookie_store, key: '_prediktapp_session'

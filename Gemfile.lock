@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/nesquena/rabl.git
-  revision: 49ba1c1f6082b70102809d94c61ac4db30efecce
+  revision: 27b49b3d210b0cf6764e4644729ee0060f4ccded
   specs:
     rabl (0.10.1)
       activesupport (>= 2.3.14)
@@ -44,7 +44,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
-    oj (2.9.6)
+    oj (2.9.8)
     pg (0.17.1)
     polyglot (0.3.5)
     puma (2.8.2)

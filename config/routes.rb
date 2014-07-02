@@ -1,4 +1,4 @@
-Prediktapi::Application.routes.draw do
+Prediktapp::Application.routes.draw do
 
   scope defaults: { format: :json } do
 
