@@ -15,3 +15,4 @@
 //= require angular.min
 //= require angular-route
 //= require bootstrap.min
+//= require lodash
