@@ -1,3 +1,2 @@
-predikt.controller 'WelcomeCtrl', [ "$scope", ($scope) ->
-  $scope.who = "world"
-]
+@WelcomeCtrl = ($scope) ->
+  $scope.who = "world !"

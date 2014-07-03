@@ -1,3 +1,1 @@
-predikt.controller 'IndexCtrl', [ "$scope", ($scope) ->
-  
-]
+@IndexCtrl = ($scope) ->
