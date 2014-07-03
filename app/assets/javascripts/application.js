@@ -16,3 +16,4 @@
 //= require angular-route
 //= require bootstrap.min
 //= require lodash
+//= require angular-application
