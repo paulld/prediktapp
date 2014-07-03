@@ -1,4 +1,4 @@
 //= require_self
 //= require_tree ./angular
 
-predikt = angular.module('predikt', ['ngRoute']);
+predikt = angular.module('predikt', ['ngRoute'])
