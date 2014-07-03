@@ -1,3 +1,2 @@
-predikt.controller 'OtherCtrl', [ "$scope", ($scope) ->
+@OtherCtrl = ($scope) ->
   $scope.what = "coffee"
-]
