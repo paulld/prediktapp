@@ -19,27 +19,39 @@ registrant = Registrant.create([
 users = User.create([
   {
     user_name: "Bob",
-    email: "robert@predikt.com"
+    email: "robert@predikt.com",
+    coins: 100,
+    win_percentage: 0.50
   },
   {
     user_name: "Rage",
-    email: "regis@predikt.com"
+    email: "regis@predikt.com",
+    coins: 110,
+    win_percentage: 0.55
   },
   {
     user_name: "Felix",
-    email: "felix@predikt.com"
+    email: "felix@predikt.com",
+    coins: 120,
+    win_percentage: 0.60
   },
   {
     user_name: "Tim",
-    email: "timmy@predikt.com"
+    email: "timmy@predikt.com",
+    coins: 95,
+    win_percentage: 0.45
   },
   {
     user_name: "Vlad",
-    email: "vladimir@predikt.com"
+    email: "vladimir@predikt.com",
+    coins: 10,
+    win_percentage: 0.5
   },
   {
     user_name: "kate",
-    email: "missk@predikt.com"
+    email: "missk@predikt.com",
+    coins: 200,
+    win_percentage: 0.71
   }
 ])
 
