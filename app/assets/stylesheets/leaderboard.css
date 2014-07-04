@@ -9,6 +9,9 @@
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
 }
 /*.leaderboard-table {
   font-size: 12px;
@@ -22,4 +25,7 @@
 }
 .leaderboard-followers, .leaderboard-units, .leaderboard-percent {
   font-size: 11px;
+}
+.pagination {
+  margin: 0;
 }

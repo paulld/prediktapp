@@ -1,19 +1,40 @@
 <div data-ng-controller="LeaderboardCtrl" class="row">
   <h1>Leaderboard:</h1>
   <div class="leaderboard-list">
-    <div class="panel-heading leaderboard-heading">
-      Units
+    <div class="panel-heading leaderboard-heading" ng-init="predicate = '-coins*1'">
+      <ul class="pagination pagination-sm">
+        <li class="active">
+          <a href="#" ng-click="predicate = 'coins*1'; reverse=!reverse; active=!reverse">
+            Coins <i class="fa fa-sort"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" ng-click="predicate = 'win_percentage*1'; reverse=!reverse; active=reverse">
+            Win % <i class="fa fa-sort"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" ng-click="predicate = 'win_percentage*1'; reverse=!reverse">
+            Wins <i class="fa fa-sort"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" ng-click="predicate = 'current_streak*1'; reverse=!reverse">
+            Streak <i class="fa fa-sort"></i>
+          </a>
+        </li>
+      </ul>
     </div>
     <table class="table">
       <tbody>
-          <tr data-ng-repeat="user in users">
+          <tr data-ng-repeat="user in users | orderBy:predicate:reverse ">
             <td class="leaderboard-rank">#</td>
             <td><img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"></td>
             <td class="leaderboard-name">{{user.user_name}}</td>
             <td class="leaderboard-followers"><strong>{{user.links.followings_as_followers.length}}</strong> 
               <i class="fa fa-user"></i>
             </td>
-            <td class="leaderboard-units"><strong>{{user.coins | number:0}}</strong> units</td>
+            <td class="leaderboard-units"><strong>{{user.coins | number:0}}</strong> coins</td>
             <td class="leaderboard-percent"><strong>{{user.win_percentage *100 | number:0}}%</strong> wins</td>
           </tr>
       </tbody>
