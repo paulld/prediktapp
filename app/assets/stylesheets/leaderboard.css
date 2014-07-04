@@ -1,0 +1,31 @@
+.leaderboard-list {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+}
+.leaderboard-heading {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+/*.leaderboard-table {
+  font-size: 12px;
+}*/
+.leaderboard-rank {
+  font-size: 16px;
+  font-weight: bold;
+}
+.leaderboard-name {
+  font-size: 14px;
+}
+.leaderboard-followers, .leaderboard-units, .leaderboard-percent {
+  font-size: 11px;
+}
+.pagination {
+  margin: 0;
+}
