@@ -1,0 +1,3 @@
+predikt.controller 'LeaderboardCtrl', [ "$scope", ($scope) ->
+  $scope.hey = "it workssss!"
+]

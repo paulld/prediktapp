@@ -1,0 +1,3 @@
+predikt.controller 'CompletedGamesListCtrl', [ "$scope", ($scope) ->
+  $scope.hey = "it workssss!"
+]
