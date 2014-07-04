@@ -1,12 +1,10 @@
 predikt.config ["$routeProvider", ($routeProvider) ->
   $routeProvider
-    .when '/upcoming_games_list',
-      templateUrl: '/templates/matches/upcoming_games_list.html'
-      controller: 'UpcomingCtrl'
+    .when '/upcoming_matches_list',
+      templateUrl: '/templates/matches/upcoming_matches_list.html'
 
-    .when '/completed_games_list',
-      templateUrl: '/templates/matches/completed_games_list.html'
-      controller: 'CompletedGamesListCtrl'
+    .when '/completed_matches_list',
+      templateUrl: '/templates/matches/completed_matches_list.html'
 
     .when '/leaderboard',
       templateUrl: '/templates/leaderboard/leaderboard.html'
