@@ -65,6 +65,14 @@ Prediktapi::Application.routes.draw do
       delete ':id'      => 'registrants#destroy'
     end
 
+    scope :sports do
+      get    ''         => 'sports#index',             as: :sports
+      get    ':ids'     => 'sports#index',             as: :sport
+      put    ':id'      => 'sports#create_or_replace'
+      patch  ':id'      => 'sports#update'
+      delete ':id'      => 'sports#destroy'
+    end
+    
     scope :users do
       get    ''         => 'users#index',             as: :users
       get    ':ids'     => 'users#index',             as: :user

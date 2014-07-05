@@ -6,8 +6,9 @@ Following.destroy_all
 ProfileComment.destroy_all
 MatchComment.destroy_all
 Bet.destroy_all
+Sport.destroy_all
 
-registrant = Registrant.create([
+registrants = Registrant.create([
   {
     email: "roger@predikt.com"
   },
@@ -55,10 +56,31 @@ users = User.create([
   }
 ])
 
+sports = Sport.create([
+  { 
+    name: "Football"
+  },
+  { 
+    name: "US Football"
+  },
+  { 
+    name: "Basketball"
+  }
+])
+
 leagues = League.create([
-  { name: "World Cup 2014" },
-  { name: "Premier league 2014-2015" },
-  { name: "Liga 2014-2015" }
+  { 
+    name: "World Cup 2014",
+    sport: sports[0]
+  },
+  { 
+    name: "Premier league 2014-2015",
+    sport: sports[0]
+  },
+  { 
+    name: "Liga 2014-2015",
+    sport: sports[0]
+  }
 ])
 
 matches = Match.create([

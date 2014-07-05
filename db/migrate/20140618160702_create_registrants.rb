@@ -3,7 +3,7 @@ class CreateRegistrants < ActiveRecord::Migration
     create_table :registrants, id: :uuid do |t|
       t.string :email
       t.string :registration_code
-      t.date :registration_expires_at
+      t.datetime :registration_expires_at
 
       t.timestamps
     end
