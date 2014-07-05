@@ -15,6 +15,8 @@
 }
 .leaderboard-table > thead > tr > th {
   font-size: 10px;
+  cursor: pointer;
+  color: #428bca;
 }
 .leaderboard-rank {
   font-size: 16px;
