@@ -65,7 +65,9 @@ matches = Match.create([
   {
     league: leagues[0],
     home_team: "Brazil",
-    away_team: "Argentina"
+    away_team: "Argentina",
+    starts_at: "2014-07-11 12:06:54 +0800",
+    ends_at: "2014-07-11 2:06:54 +0800"
   },
   {
     league: leagues[0],
