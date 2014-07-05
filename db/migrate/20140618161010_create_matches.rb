@@ -13,7 +13,12 @@ class CreateMatches < ActiveRecord::Migration
       t.decimal :home_odds
       t.decimal :draw_odds
       t.decimal :away_odds
+      
+      t.decimal :over_under_value
       t.decimal :over_under_odds
+
+      t.decimal :home_handicap_value
+      t.decimal :away_handicap_value
       t.decimal :home_handicap_odds
       t.decimal :away_handicap_odds
 
