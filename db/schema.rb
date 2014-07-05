@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20140618161119) do
   create_table "matches", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "home_team"
     t.string   "away_team"
-    t.time     "starts_at"
-    t.time     "ends_at"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.string   "venue"
     t.string   "sport"
     t.string   "league_day"

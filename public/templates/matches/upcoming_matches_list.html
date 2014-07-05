@@ -9,7 +9,7 @@
         <span>-</span>
         <span>{{match.away_team}}</span>
         <img src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" width="22px" height="22px" alt={{away_team}}>
-        <span>14 July 20:00</span>
+        <span>{{match.starts_at}}</span>
       </p>
     </div>
 
@@ -19,7 +19,7 @@
           Home{{match.home_odds}}
         </button>
         <button type="button" class="btn btn-success">
-          Draw{{draw_odds}}
+          Draw{{match.draw_odds}}
         </button>
         <button type="button" class="btn btn-warning">
           Away{{match.away_odds}}
