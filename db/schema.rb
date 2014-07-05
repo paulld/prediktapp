@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618161119) do
+ActiveRecord::Schema.define(version: 20140705122925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140618161119) do
 
   create_table "leagues", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
+    t.uuid     "sport_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,8 +55,8 @@ ActiveRecord::Schema.define(version: 20140618161119) do
   create_table "matches", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "home_team"
     t.string   "away_team"
-    t.time     "starts_at"
-    t.time     "ends_at"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.string   "venue"
     t.string   "sport"
     t.string   "league_day"
@@ -87,7 +88,13 @@ ActiveRecord::Schema.define(version: 20140618161119) do
   create_table "registrants", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email"
     t.string   "registration_code"
-    t.date     "registration_expires_at"
+    t.datetime "registration_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sports", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

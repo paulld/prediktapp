@@ -7,6 +7,7 @@ child @leagues => :leagues do
 
   node :links do |league|
     {
+      sport: league.sport.id,
       matches: league.matches.map {|i| i.id }
     }
   end
