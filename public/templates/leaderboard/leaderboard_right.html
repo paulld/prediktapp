@@ -25,18 +25,35 @@
         </li>
       </ul>
     </div>
-    <table class="table">
+    <table class="table leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Profile Picture</th>
+          <th>Username</th>
+          <th>Number of Followers</th>
+          <th>Number of Coins</th>
+          <th>Percentage of Wins</th>
+          <th>Number of Bets</th>
+          <th>Number of Wins</th>
+          <th>Number of Loss</th>
+        </tr>
+      </thead>
       <tbody>
-          <tr data-ng-repeat="user in users | orderBy:predicate:reverse ">
-            <td class="leaderboard-rank">#</td>
-            <td><img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"></td>
-            <td class="leaderboard-name">{{user.user_name}}</td>
-            <td class="leaderboard-followers"><strong>{{user.links.followings_as_followers.length}}</strong> 
-              <i class="fa fa-user"></i>
-            </td>
-            <td class="leaderboard-units"><strong>{{user.coins | number:0}}</strong> coins</td>
-            <td class="leaderboard-percent"><strong>{{user.win_percentage *100 | number:0}}%</strong> wins</td>
-          </tr>
+        <tr data-ng-repeat="user in users | orderBy:predicate:reverse ">
+          <td class="leaderboard-rank">#</td>
+          <td><img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"></td>
+          <td class="leaderboard-name">{{user.user_name}}</td>
+          <td class="leaderboard-followers">
+            <strong>{{user.links.followings_as_followers.length}}</strong> 
+            <i class="fa fa-user"></i>
+          </td>
+          <td class="leaderboard-coins"><strong>{{user.coins | number:0}}</strong> coins</td>
+          <td class="leaderboard-percent"><strong>{{user.win_percentage *100 | number:0}}%</strong> wins</td>
+          <td class="leaderboard-number-bets">{{user.numberOfBets}} bets</td>
+          <td class="leaderboard-number-bets">{{user.numberOfWins}} wins</td>
+          <td class="leaderboard-number-bets">{{user.numberOfLoss}} loss</td>
+        </tr>
       </tbody>
     </table>
   </div>
