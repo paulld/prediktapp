@@ -1,0 +1,29 @@
+/*.game-show {
+  padding: 14px;
+  margin: 0 0 14px 20px;
+  background-color: hsla(240,14.3%,99.5%,1);
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;*/
+}
+.game-buttons {
+  margin: 0 auto;
+  font-size: 12px;
+}
+.game-buttons button {
+  font-size: 12px;
+  height: 25px;
+  width: 80px;
+  padding: 0;
+  margin: 5px 2px;
+}
+.game-buttons .badge {
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: #999;
+}
+.well-white {
+  background-color: #fff;
+}
