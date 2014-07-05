@@ -89,13 +89,36 @@ bets = Bet.create([
     user: users[0],
     match: matches[1],
     bet_type: "Home",
-    wager: 20
+    wager: 20,
+    result: true
   },
   {
     user: users[0],
-    match: matches[1],
+    match: matches[2],
     bet_type: "Home Handicap",
-    wager: 10
+    wager: 10,
+    result: false
+  },
+  {
+    user: users[1],
+    match: matches[1],
+    bet_type: "Away",
+    wager: 20,
+    result: false
+  },
+  {
+    user: users[1],
+    match: matches[2],
+    bet_type: "Away Handicap",
+    wager: 10,
+    result: true
+  },
+  {
+    user: users[1],
+    match: matches[2],
+    bet_type: "Away",
+    wager: 20,
+    result: true
   }
 ])
 
