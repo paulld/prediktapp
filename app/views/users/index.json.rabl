@@ -8,6 +8,7 @@ child @users => :users do
   node :links do |user|
     {
       bets: user.bets.map {|i| i.id },
+      coin_transactions: user.coin_transactions.map {|s| s.id },
       match_comments: user.match_comments.map {|j| j.id },
       followings_as_followers: user.followings_as_followers.map {|k| k.id },
       followings_as_followees: user.followings_as_followees.map {|l| l.id },
@@ -28,6 +29,7 @@ end
 node :links do
   {
     "users.bets" => bets_url + "/{users.bets}",
+    "users.coin_transactions" => coin_transactions_url + "/{users.coin_transactions}",
     "users.followings_as_followers" => followings_url + "/{users.followings_as_followers}",
     "users.followings_as_followees" => followings_url + "/{users.followings_as_followees}",
     "users.profile_comments_as_commentors" => profile_comments_url + "/{users.profile_comments_as_commentors}",

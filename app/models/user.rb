@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   default_scope -> { order('created_at ASC') }
   has_many :bets
   has_many :match_comments
+  has_many :coin_transactions
   
   has_many :profile_commentors, through: :profile_comments_as_commentors, class_name: "User"
   has_many :profile_commentees, through: :profile_comments_as_commentees, class_name: "User"

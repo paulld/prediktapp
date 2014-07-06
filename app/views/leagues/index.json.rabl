@@ -7,6 +7,7 @@ child @leagues => :leagues do
 
   node :links do |league|
     {
+      sport: league.sport.id,
       matches: league.matches.map {|i| i.id }
     }
   end
@@ -19,6 +20,7 @@ end
 # :links provides a hash of URL templates to satisfy the hypermedia constraint
 node :links do
   {
+    "leagues.sport" => sports_url + "/{leagues.sport}",
     "leagues.matches" => matches_url + "/{leagues.matches}"
   }
 end

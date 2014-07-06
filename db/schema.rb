@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618161119) do
+ActiveRecord::Schema.define(version: 20140706153413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20140618161119) do
     t.datetime "updated_at"
   end
 
+  create_table "coin_transactions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.decimal  "amount_change"
+    t.string   "transaction_type"
+    t.string   "bet_reference"
+    t.uuid     "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "followings", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "follower_id"
     t.uuid     "followee_id"
@@ -39,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140618161119) do
 
   create_table "leagues", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
+    t.uuid     "sport_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,7 +97,13 @@ ActiveRecord::Schema.define(version: 20140618161119) do
   create_table "registrants", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email"
     t.string   "registration_code"
-    t.date     "registration_expires_at"
+    t.datetime "registration_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sports", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
