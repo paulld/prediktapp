@@ -13,7 +13,7 @@ class UsersController < RestController
                          :salt, :fish, :description, :home_country, :home_town, :website,
                          :reset_code, :reset_expires_at, :coins, :win_percentage, :current_streak ]    # Permitted params for create/replace/update
     
-    config[:include] = [ :bets, :match_comments,
+    config[:include] = [ :bets, :match_comments, :coin_transactions,
                          :followings_as_followers, :followings_as_followees,
                          :profile_comments_as_commentors, :profile_comments_as_commentees ]            # Associated objects to be eagerly loaded
   end
