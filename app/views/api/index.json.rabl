@@ -10,6 +10,7 @@ node :links do
     uuid: uuid_url,
     registrants: registrants_url,
     users: users_url,
+    coin_transactions: coin_transactions_url,
     sports: sports_url,
     leagues: leagues_url,
     matches: matches_url,

@@ -73,6 +73,14 @@ Prediktapi::Application.routes.draw do
       delete ':id'      => 'sports#destroy'
     end
     
+    scope :coin_transactions do
+      get    ''         => 'coin_transactions#index',             as: :coin_transactions
+      get    ':ids'     => 'coin_transactions#index',             as: :coin_transaction
+      put    ':id'      => 'coin_transactions#create_or_replace'
+      patch  ':id'      => 'coin_transactions#update'
+      delete ':id'      => 'coin_transactions#destroy'
+    end
+    
     scope :users do
       get    ''         => 'users#index',             as: :users
       get    ':ids'     => 'users#index',             as: :user

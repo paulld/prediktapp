@@ -56,6 +56,39 @@ users = User.create([
   }
 ])
 
+coin_transactions = CoinTransaction.create([
+  { 
+    user: users[0],
+    amount_change: 10,
+    transaction_type: "bet_win"
+  },
+  { 
+    user: users[0],
+    amount_change: -5,
+    transaction_type: "bet_loss"
+  },
+  { 
+    user: users[0],
+    amount_change: 15,
+    transaction_type: "bet_win"
+  },
+  { 
+    user: users[1],
+    amount_change: 10,
+    transaction_type: "bet_win"
+  },
+  { 
+    user: users[1],
+    amount_change: -5,
+    transaction_type: "bet_loss"
+  },
+  { 
+    user: users[1],
+    amount_change: -15,
+    transaction_type: "bet_loss"
+  }
+])
+
 sports = Sport.create([
   { 
     name: "Football"
