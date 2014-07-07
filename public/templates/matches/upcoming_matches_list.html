@@ -1,15 +1,16 @@
 <div data-ng-controller="UpcomingMatchesListCtrl" class="well">
-  <h1>Upcoming games:</h1>
+  <h1>Upcoming Games</h1>
   <div data-ng-repeat="match in matches | limitTo: 10" class="well well-white">
 
     <div>
       <p>
-        <img src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" width="22px" height="22px" alt={{home_team}}>
+        <img class="home_team" src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg">
         <span>{{match.home_team}}</span>
         <span>-</span>
         <span>{{match.away_team}}</span>
-        <img src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" width="22px" height="22px" alt={{away_team}}>
-        <span>{{match.starts_at}}</span>
+        <img class="away_team" src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg">
+
+        <span>{{matchStartTime}}</span>
       </p>
     </div>
 
@@ -42,7 +43,7 @@
         <button type="button" class="btn btn-primary">
           -0.5{{home_handicap_odds}}
         </button>
-        <span class="badge margin-left-10">Handicap</span>
+        <span class="badge handicap">Handicap</span>
         <button type="button" class="btn btn-warning">
           +0.5{{away_handicap_odds}}
         </button>
@@ -52,3 +53,4 @@
 
   </div>
 </div>
+
