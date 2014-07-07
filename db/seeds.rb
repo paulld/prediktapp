@@ -67,22 +67,72 @@ matches = Match.create([
     home_team: "Brazil",
     away_team: "Argentina",
     starts_at: "2014-07-11 12:06:54 +0800",
-    ends_at: "2014-07-11 2:06:54 +0800"
+    ends_at: "2014-07-11 2:06:54 +0800",
+    home_odds: 1.95,
+    draw_odds: 3.40,
+    away_odds: 3.15,
+    over_under_value: 3.5,
+    over_under_odds: 1.78,
+    home_handicap_value: -0.5,
+    away_handicap_value: +0.5,
+    home_handicap_odds: 2.08,
+    away_handicap_odds: 1.78,
+    home_score: 3,
+    away_score: 1
   },
   {
     league: leagues[0],
     home_team: "Spain",
-    away_team: "Portugal"
+    away_team: "Portugal",
+    starts_at: "2014-07-11 12:06:54 +0800",
+    ends_at: "2014-07-11 2:06:54 +0800",
+    home_odds: 1.78,
+    draw_odds: 4.22,
+    away_odds: 2.15,
+    over_under_value: 2.5,
+    over_under_odds: 1.78,
+    home_handicap_value: -0.5,
+    away_handicap_value: +0.5,
+    home_handicap_odds: 1.84,
+    away_handicap_odds: 2.0,
+    home_score: 2,
+    away_score: 2
   },
   {
     league: leagues[1],
     home_team: "Arsenal",
-    away_team: "Manchester United"
+    away_team: "Manchester United",
+    starts_at: "2014-07-11 12:06:54 +0800",
+    ends_at: "2014-07-11 2:06:54 +0800",
+    home_odds: 2.55,
+    draw_odds: 3.72,
+    away_odds: 2.18,
+    over_under_value: 2.5,
+    over_under_odds: 1.90,
+    home_handicap_value: -0.5,
+    away_handicap_value: +0.5,
+    home_handicap_odds: 1.92,
+    away_handicap_odds: 1.88,
+    home_score: 0,
+    away_score: 1
   },
   {
     league: leagues[1],
     home_team: "Manchester City",
-    away_team: "Chelsea"
+    away_team: "Chelsea",
+    starts_at: "2014-07-11 12:06:54 +0800",
+    ends_at: "2014-07-11 2:06:54 +0800",
+    home_odds: 1.47,
+    draw_odds: 6.72,
+    away_odds: 4.82,
+    over_under_value: 3.5,
+    over_under_odds: 1.48,
+    home_handicap_value: -1.5,
+    away_handicap_value: +1.5,
+    home_handicap_odds: 1.62,
+    away_handicap_odds: 4.58,
+    home_score: 6,
+    away_score: 1
   }
 ])
 
