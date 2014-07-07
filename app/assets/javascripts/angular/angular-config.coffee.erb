@@ -1,4 +1,4 @@
-#= depend_on_asset "view.html"
+#= depend_on_asset "about.html"
 
 
 predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
@@ -18,10 +18,9 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/contact', { templateUrl: '<%= asset_path("contact.html") %>'  }
     .when '/terms',   { templateUrl: '<%= asset_path("terms.html") %>'    }
     .when '/privacy', { templateUrl: '<%= asset_path("privacy.html") %>'  }
-    .when "/view",    { templateUrl: '<%= asset_path("view.html") %>'     }
-
     .otherwise        { templateUrl: '404.html'    }
 ]
+
 
 predikt.directive 'upcomingList', ->
   {
