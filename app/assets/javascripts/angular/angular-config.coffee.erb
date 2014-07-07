@@ -1,5 +1,8 @@
-predikt.config ["$routeProvider", ($routeProvider) ->
+#= depend_on_asset "view.html"
+
+predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider
+
     .when '/upcoming-matches',
       templateUrl: '/templates/index.html'
 
@@ -29,6 +32,9 @@ predikt.config ["$routeProvider", ($routeProvider) ->
     .when '/privacy',
       templateUrl: '/templates/privacy.html'
       controller: 'PrivacyCtrl'
+
+    .when "/view",
+      templateUrl: '<%= asset_path("view.html") %>'
 
     .otherwise
       templateUrl: '/templates/index.html'
