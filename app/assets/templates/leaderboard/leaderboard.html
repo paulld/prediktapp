@@ -2,7 +2,7 @@
   <div class="col-md-12">
  -->
     <div data-ng-controller="LeaderboardCtrl" class="row">
-      <div class="leaderboard-list" ng-init="predicate = '-coins*1'">
+      <div class="leaderboard-list" ng-init="predicate = '-coins'">
         <div class="panel-heading leaderboard-heading">
           <h1>Leaderboard:</h1>
         </div>
@@ -23,12 +23,12 @@
                 Number of Followees <i class="fa fa-sort"></i>
               </th>
               <th>
-                <a href="" ng-click="predicate = 'coins*1'; reverse=!reverse">
+                <a href="" ng-click="predicate = 'coins'; reverse=!reverse">
                   Number of Coins <i class="fa fa-sort"></i>
                 </a>
               </th>
               <th>
-                <a href="" ng-click="predicate = 'win_percentage*1'; reverse=!reverse">
+                <a href="" ng-click="predicate = 'win_percentage'; reverse=!reverse">
                   Percentage of Wins <i class="fa fa-sort"></i>
                 </a>
               </th>
@@ -36,7 +36,7 @@
               <th>Number of Wins <i class="fa fa-sort"></i></th>
               <th>Number of Losses <i class="fa fa-sort"></i></th>
               <th>
-                <a href="" ng-click="predicate = 'current_streak*1'; reverse=!reverse">
+                <a href="" ng-click="predicate = 'current_streak'; reverse=!reverse">
                   Current Win Streak <i class="fa fa-sort"></i>
                 </a>
               </th>
