@@ -1,41 +1,43 @@
 #= depend_on_asset "view.html"
 
+
 predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider
 
-    .when '/upcoming-matches',
-      templateUrl: '/templates/index.html'
+    .when '/',                  { templateUrl: '<%= asset_path("index.html") %>' }
+    .when '/upcoming-matches',  { templateUrl: '<%= asset_path("index.html") %>' }
 
-    .when '/completed-matches',
-      templateUrl: '/templates/matches/completed_index.html'
+    .when '/completed-matches', { templateUrl: '<%= asset_path("matches/completed_index.html") %>' }
 
     .when '/leaderboard',
-      templateUrl: '/templates/leaderboard/leaderboard.html'
+      templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
       controller: 'LeaderboardCtrl'
 
-    .when '/about',
-      templateUrl: '/templates/about.html'
-      controller: 'AboutCtrl'
+    .when '/about',   { templateUrl: '<%= asset_path("about.html") %>'    }
+    .when '/help',    { templateUrl: '<%= asset_path("help.html") %>'     }
+    .when '/contact', { templateUrl: '<%= asset_path("contact.html") %>'  }
+    .when '/terms',   { templateUrl: '<%= asset_path("terms.html") %>'    }
+    .when '/privacy', { templateUrl: '<%= asset_path("privacy.html") %>'  }
+    .when "/view",    { templateUrl: '<%= asset_path("view.html") %>'     }
 
-    .when '/help',
-      templateUrl: '/templates/help.html'
-      controller: 'HelpCtrl'
-
-    .when '/contact',
-      templateUrl: '/templates/contact.html'
-      controller: 'ContactCtrl'
-
-    .when '/terms',
-      templateUrl: '/templates/terms.html'
-      controller: 'TermsCtrl'
-
-    .when '/privacy',
-      templateUrl: '/templates/privacy.html'
-      controller: 'PrivacyCtrl'
-
-    .when "/view",
-      templateUrl: '<%= asset_path("view.html") %>'
-
-    .otherwise
-      templateUrl: '/templates/index.html'
+    .otherwise        { templateUrl: '404.html'    }
 ]
+
+predikt.directive 'upcomingList', ->
+  {
+    restrict: 'E'
+    templateUrl: '<%= asset_path("matches/upcoming_matches_list.html") %>'
+    controller: 'UpcomingMatchesListCtrl'
+  }
+predikt.directive 'completedList', ->
+  {
+    restrict: 'E'
+    templateUrl: '<%= asset_path("matches/completed_matches_list.html") %>'
+    controller: 'CompletedMatchesListCtrl'
+  }
+predikt.directive 'leaderboardRight', ->
+  {
+    restrict: 'E'
+    templateUrl: '<%= asset_path("leaderboard/leaderboard_right.html") %>'
+    controller: 'LeaderboardCtrl'
+  }
