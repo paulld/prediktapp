@@ -1,0 +1,1 @@
+Prediktapp::Application.assets.register_engine('.slim', Slim::Template)
