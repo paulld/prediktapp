@@ -59,32 +59,50 @@ users = User.create([
 coin_transactions = CoinTransaction.create([
   { 
     user: users[0],
-    amount_change: 10,
+    before_value: 0,
+    after_value: 10,
+    transaction_type: "init"
+  },
+  { 
+    user: users[0],
+    before_value: 10,
+    after_value: 20,
     transaction_type: "bet_win"
   },
   { 
     user: users[0],
-    amount_change: -5,
+    before_value: 20,
+    after_value: 10,
     transaction_type: "bet_loss"
   },
   { 
     user: users[0],
-    amount_change: 15,
+    before_value: 10,
+    after_value: 15,
     transaction_type: "bet_win"
   },
   { 
     user: users[1],
-    amount_change: 10,
+    before_value: 0,
+    after_value: 10,
+    transaction_type: "init"
+  },
+  { 
+    user: users[1],
+    before_value: 10,
+    after_value: 12,
     transaction_type: "bet_win"
   },
   { 
     user: users[1],
-    amount_change: -5,
+    before_value: 12,
+    after_value: 5,
     transaction_type: "bet_loss"
   },
   { 
     user: users[1],
-    amount_change: -15,
+    before_value: 5,
+    after_value: 2,
     transaction_type: "bet_loss"
   }
 ])

@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 20140706153413) do
   end
 
   create_table "coin_transactions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.decimal  "amount_change"
+    t.decimal  "before_value"
+    t.decimal  "after_value"
     t.string   "transaction_type"
     t.string   "bet_reference"
     t.uuid     "user_id"
@@ -74,7 +75,8 @@ ActiveRecord::Schema.define(version: 20140706153413) do
     t.decimal  "draw_odds"
     t.decimal  "away_odds"
     t.decimal  "over_under_value"
-    t.decimal  "over_under_odds"
+    t.decimal  "over_odds"
+    t.decimal  "under_odds"
     t.decimal  "home_handicap_value"
     t.decimal  "away_handicap_value"
     t.decimal  "home_handicap_odds"
