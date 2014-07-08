@@ -7,3 +7,11 @@ gem 'rabl', github: 'nesquena/rabl'
 gem 'oj'
 gem 'puma'
 gem 'bcrypt'
+
+group :development, :test do
+  gem 'rspec-rails', '3.0'
+  gem 'rack_session_access'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'database_cleaner'
+end
