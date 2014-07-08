@@ -4,9 +4,9 @@
 
     p
       img.home_team src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
-      | {{match.home_team}} -&nbsp;
-      | {{match.away_team}}&nbsp;
-      | {{match.starts_at | date: 'MMM d, y'}}&nbsp;
+      | {{match.home_team}} - 
+      | {{match.away_team}} 
+      | {{match.starts_at | date: 'MMM d, y'}} 
       | {{match.starts_at | date: 'h:mm a'}}
       img.away_team src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
 

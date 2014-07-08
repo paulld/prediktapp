@@ -3,8 +3,8 @@
   margin: 0 0 14px 20px;
   background-color: hsla(240,14.3%,99.5%,1);
   border: 1px solid #e1e1e8;
-  border-radius: 4px;*/
-
+  border-radius: 4px;
+}*/
 .game-buttons {
   font-size: 12px;
 }
@@ -24,21 +24,17 @@
   font-weight: normal;
   margin: 0 75px;
 }
-
 .game-buttons .badge.handicap {
-  margin: 0 59px 0 59px;
+  margin: 0 58px 0 59px;
 }
-
 .well-white {
   background-color: #fff;
 }
-
 img.home_team {
   width: 30px;
   height: 22px;
   margin: 0 180px 0 10px;
 }
-
 img.away_team {
   width: 30px;
   height: 22px;
