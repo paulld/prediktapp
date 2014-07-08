@@ -11,3 +11,11 @@ gem 'bcrypt'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'coffee-script'
+
+group :development, :test do
+  gem 'rspec-rails', '3.0'
+  gem 'rack_session_access'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'database_cleaner'
+end
