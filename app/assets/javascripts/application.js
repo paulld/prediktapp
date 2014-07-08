@@ -16,4 +16,5 @@
 //= require angular-route
 //= require bootstrap.min
 //= require lodash
+//= require jquery.noty.packaged
 //= require angular-application

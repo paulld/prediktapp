@@ -5,9 +5,9 @@ class RegistrationController < ApplicationController
     if @registrant = Registrant.find_by_code(params[:registration_code])
       @user = User.new(email: @registrant.email)
     else
-      render text: 'Your registration is expired. Please sign up.'
-      # set_login_tab("signup")
-      # redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
+      # render text: 'Your registration is expired. Please sign up.'
+      set_login_tab("signup")
+      redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
     end
   end
 
@@ -18,17 +18,17 @@ class RegistrationController < ApplicationController
       if @user.save
         @registrant.destroy
         log_user_in(@user)
-        render text: 'Your registration is complete! You are now logged in.'
-        # redirect_to profile_url, flash: { success: 'Your registration is complete! You are now logged in.' }
+        # render text: 'Your registration is complete! You are now logged in.'
+        redirect_to profile_url, flash: { success: 'Your registration is complete! You are now logged in.' }
       else
-        render text: 'Please input a valid password.'
-        # flash.now[:error] = 'Please input a valid password.'
-        # render :new
+        # render text: 'Please input a valid password.'
+        flash.now[:error] = 'Please input a valid password.'
+        render :new
       end
     else
       set_login_tab("signup")
-      render text: 'Your registration is expired. Please sign up.'
-      # redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
+      # render text: 'Your registration is expired. Please sign up.'
+      redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
     end
   end
 
