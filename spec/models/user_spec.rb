@@ -6,8 +6,9 @@ describe User do
     subject { Fabricate(:user) }
 
     it "is valid" do
-      expect(2).to eq 2
       # expect(subject.valid?).to be_true
+      # expect(subject.email).not_to be_blank
+      expect(subject.user_name).not_to be_blank
       # expect(subject.salt).not_to be_blank
       # expect(subject.fish).not_to be_blank
     end
