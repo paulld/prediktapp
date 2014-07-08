@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   # field :last_name
   # field :user_name
 
-  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :email, presence: true, format: { with: EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, confirmation: true
 
   def authenticate(password)
@@ -41,23 +41,23 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    user = User.find_by( email: email )
+    user = User.find_by( email: email )   # TODO: remote ()?
     user if user && user.authenticate(password)
   end
 
   def generate_password_reset_code
     self.password_reset_code = SecureRandom.urlsafe_base64
-    self.password_reset_expires_at = Time.now + TIME_UNTIL_EXPIRE
+    self.password_reset_expires_at = TIME_UNTIL_EXPIRE.from_now
     self.save
   end
 
   def self.find_by_reset_code(password_reset_code)
-    User.where( :password_reset_expires_at.lt => Time.now ).each do |user|
+    User.where( "password_reset_expires_at < ?", Time.now.gmtime ).each do |user|
       user.clear_reset_code
     end
-    if user = User.find_by( :password_reset_code => password_reset_code )
+    if user = User.find_by( "password_reset_code = ?", password_reset_code )
     # TODO: diff between (:password_reset_code => password_reset_code) AND (password_reset_code: password_reset_code)  ??
-      user.password_reset_expires_at = Time.now + TIME_UNTIL_EXPIRE
+      user.password_reset_expires_at = TIME_UNTIL_EXPIRE.from_now
       user.save
       user
     end
