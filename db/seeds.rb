@@ -156,6 +156,23 @@ matches = Match.create([
     league: leagues[1],
     home_team: "Manchester City",
     away_team: "Chelsea"
+  },{
+    league: leagues[1],
+    home_team: "Arsenal",
+    away_team: "Newcastle",
+    starts_at: "2014-04-11 21:00:00 +0800",
+    ends_at: "2014-04-11 19:00:00 +0800",
+    home_score: 2,
+    away_score: 1
+  },
+  {
+    league: leagues[1],
+    home_team: "Fulham",
+    away_team: "Chelsea",
+    starts_at: "2014-05-11 20:00:00 +0800",
+    ends_at: "2014-05-11 18:00:00 +0800",
+    home_score: 0,
+    away_score: 2
   }
 ])
 
