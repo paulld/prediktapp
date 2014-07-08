@@ -13,7 +13,7 @@ class SessionController < ApplicationController
         redirect_to profile_url, flash: { success: 'You have successfully logged in.' }
       else
         @user = User.new( user_params )
-        alert 'Email and Password don\'t match. Please try again or try to reset your password.'
+        render text: 'Email and Password don\'t match. Please try again or try to reset your password.'
         # flash.now[:error] = 'Email and Password don\'t match. Please try again or try to reset your password.'
         # set_login_tab("")
         # render :new
@@ -25,13 +25,13 @@ class SessionController < ApplicationController
       if @registrant.save
         EmailValidator.complete_registration(@registrant).deliver
         @user = User.new( user_params )
-        alert 'We sent you an email to confirm your registration. Please check your emails.'
+        render text: 'We sent you an email to confirm your registration. Please check your emails.'
         # flash.now[:success] = 'We sent you an email to confirm your registration. Please check your emails.'
         # set_login_tab("signup")
         # render :new
       else
         @user = User.new( user_params )
-        alert 'Invalid email address. Please try again.'
+        render text: 'Invalid email address. Please try again.'
         # flash.now[:error] = 'Invalid email address. Please try again.'
         # set_login_tab("signup")
         # render :new
@@ -42,11 +42,11 @@ class SessionController < ApplicationController
         @user.generate_password_reset_code
         EmailValidator.password_reset(@user).deliver
         @user = User.new( user_params )
-        alert 'We sent you an email to reset your password.'
+        render text: 'We sent you an email to reset your password.'
         # flash.now[:success] = 'We sent you an email to reset your password.'
         # render :new
       else
-        alert 'Invalid email address. Please try again.'
+        render text: 'Invalid email address. Please try again.'
         # flash[:error] = "Invalid email address. Please try again."
         # @user = User.new( user_params )
         # set_login_tab("reset")
