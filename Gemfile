@@ -13,19 +13,21 @@ gem 'jquery-ui-rails'
 gem 'coffee-script'
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.1'
+
   gem 'capybara'
-  gem 'rack_session_access'
   gem 'launchy'
-  gem 'fabrication'
-  gem 'faker'
-  gem 'database_cleaner'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'letter_opener'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+
+  gem 'letter_opener'
+  gem 'rspec-rails', '3.0'
+  gem 'rack_session_access'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'database_cleaner'
 end

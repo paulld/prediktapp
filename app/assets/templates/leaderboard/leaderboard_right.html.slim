@@ -1,0 +1,54 @@
+.row data-ng-controller="LeaderboardCtrl"
+  h1 Leaderboard:
+
+  .leaderboard-list
+    .panel-heading.leaderboard-heading data-ng-init="predicate = '-coins'"
+      ul.pagination.pagination-sm
+        li.active
+          a href="" data-ng-click="predicate = 'coins'; reverse=!reverse; active=!reverse"
+            | Coins <i.fa-fa-sort>
+        li
+          a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse; active=reverse"
+            | Win % <i.fa-fa-sort>
+        li
+          a href="" data-ng-click="predicate = 'numberOfBets'; reverse=!reverse"
+            | Bets <i.fa-fa-sort>
+        li
+          a href="" data-ng-click="predicate = 'links.followings_as_followers.length'; reverse=!reverse"
+            | Followers <i.fa-fa-sort>
+    
+    table.table.leaderboard-table
+      thead
+        tr
+          th.sr-only Rank
+          th.sr-only Profile Picture
+          th.sr-only Username
+          th.sr-only Number of Coins
+          th.sr-only Percentage of Wins
+          th.sr-only Number of Bets
+          th.sr-only Number of Followers
+
+      tbody
+        tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
+          td.leaderboard-rank
+            | {{$index +1}}
+          td
+            img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"
+          td.leaderboard-name
+            | {{user.user_name}}
+          td.leaderboard-coins
+            strong
+              | {{user.coins | number:0}}
+            br coins
+          td.leaderboard-percent
+            strong 
+              | {{user.win_percentage *100 | number:0}}%
+            br wins
+          td.leaderboard-number-bets
+            strong
+              | {{user.numberOfBets}}
+            br bets
+          td.leaderboard-followers
+            strong
+              | {{user.links.followings_as_followers.length}}
+            <i.fa.fa-user>
