@@ -38,7 +38,8 @@ class RestController < ApplicationController
           # Then return a 204
           old_item.destroy
           new_item.save
-          head :no_content
+          instance_variable_set( get_name, [ new_item ] )
+          render :index
         else
           # If a create, save the item, returna 201 with a JSON representation
           new_item.save
