@@ -1,28 +1,28 @@
-/ = javascript_include_tag 'session'
+= javascript_include_tag 'session'
 
-/ javascript:
-/   $(function() {
-/     switch ("#{get_login_tab}") {
-/       case "signup":
-/         $('#login-form-login').removeClass('active');
-/         $('#login-form-reset').removeClass('active');
-/         $('#login-form-signup').addClass('active');
-/         $('#login-input-password').hide();
-/         $('#login legend').html('Please sign up');
-/         $('#submit-button').val('Sign up');
-/         $('#user_login_form_type').val('signup');
-/         break;
-/       case "reset":
-/         $('#login-form-login').removeClass('active');
-/         $('#login-form-signup').removeClass('active');
-/         $('#login-form-reset').addClass('active');
-/         $('#login-input-password').hide();
-/         $('#login legend').html('Reset your password');
-/         $('#submit-button').val('Reset password');
-/         $('#user_login_form_type').val('reset');
-/         break;
-/     };
-/   });
+javascript:
+  $(function() {
+    switch ("#{get_login_tab}") {
+      case "signup":
+        $('#login-form-login').removeClass('active');
+        $('#login-form-reset').removeClass('active');
+        $('#login-form-signup').addClass('active');
+        $('#login-input-password').hide();
+        $('#login legend').html('Please sign up');
+        $('#submit-button').val('Sign up');
+        $('#user_login_form_type').val('signup');
+        break;
+      case "reset":
+        $('#login-form-login').removeClass('active');
+        $('#login-form-signup').removeClass('active');
+        $('#login-form-reset').addClass('active');
+        $('#login-input-password').hide();
+        $('#login legend').html('Reset your password');
+        $('#submit-button').val('Reset password');
+        $('#user_login_form_type').val('reset');
+        break;
+    };
+  });
 .row
   .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
     .login-form-selector

@@ -5,7 +5,7 @@ require File.expand_path('../boot', __FILE__)
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-# require "action_view/railtie"
+require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -28,6 +28,9 @@ module Prediktapp
     # config.i18n.default_locale = :de
 
     ActiveSupport::JSON::Encoding.encode_big_decimal_as_string = false
+
+    # NB: Add Bootstrap's glyphicons:
+    # config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end
 
