@@ -2,6 +2,9 @@ Prediktapp::Application.routes.draw do
 
   root                     'site#index'
 
+  get 'login'           => 'session#new',             as: :login
+
+
   scope :api, defaults: { format: :json } do
 
     get ''              => 'api#index',               as: :api_root
