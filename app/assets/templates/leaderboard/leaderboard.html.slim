@@ -10,23 +10,35 @@
           th Profile Picture
           th
             a href="" data-ng-click="predicate = 'user_name'; reverse=!reverse"
-              Username <i.fa-fa-sort>
+              | Username 
+              i.fa.fa-sort
           th data-ng-click="predicate = 'links.followings_as_followers.length'; reverse=!reverse"
-            Number of Followers <i.fa-fa-sort> 
+            Number of Followers 
+            i.fa.fa-sort
           th data-ng-click="predicate = 'links.followings_as_followees.length'; reverse=!reverse"
-            Number of Followees <i.fa-fa-sort>
+            | Number of Followees 
+            i.fa.fa-sort
           th
             a href="" data-ng-click="predicate = 'coins'; reverse=!reverse"
-              Number of Coins <i.fa-fa-sort>
+              | Number of Coins 
+              i.fa.fa-sort
           th
             a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse"
-              Percentage of Wins <i.fa-fa-sort>
-          th Number of Bets <i.fa-fa-sort>
-          th Number of Wins <i.fa-fa-sort>
-          th Number of Losses <i.fa-fa-sort>
+              | Percentage of Wins 
+              i.fa.fa-sort
+          th 
+            | Number of Bets 
+            i.fa.fa-sort
+          th
+            | Number of Wins 
+            i.fa.fa-sort
+          th
+            | Number of Losses 
+            i.fa.fa-sort
           th
             a href="" data-ng-click="predicate = 'current_streak'; reverse=!reverse"
-              Current Win Streak <i.fa-fa-sort>
+              | Current Win Streak 
+              i.fa.fa-sort
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
@@ -37,13 +49,11 @@
           td.leaderboard-name 
             | {{user.user_name}}
           td.leaderboard-followers
-            strong 
-              | {{user.links.followings_as_followers.length}}
+            | {{user.links.followings_as_followers.length}} 
             i.fa.fa-user
           td.leaderboard-followers
-            strong
-              | {{user.links.followings_as_followees.length}} 
-            i.fa-fa-user
+            | {{user.links.followings_as_followees.length}} 
+            i.fa.fa-user
           td.leaderboard-coins
             | {{user.coins | number:0}} coins
           td.leaderboard-percent

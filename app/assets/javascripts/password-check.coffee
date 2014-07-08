@@ -2,14 +2,14 @@ $ ->
 
   MINIMUM_SCORE = 2
 
-  glyphiconOk = ->
-    $('#password-match').removeClass('glyphicon-remove password-match-no')
-    $('#password-match').addClass('glyphicon-ok password-match-ok')
-  glyphiconNo = ->
-    $('#password-match').addClass('glyphicon-remove password-match-no')
-    $('#password-match').removeClass('glyphicon-ok password-match-ok')
-  glyphiconRemove = ->
-    $('#password-match').removeClass('glyphicon-ok password-match-ok glyphicon-remove password-match-no')
+  iconOk = ->
+    $('#password-match').removeClass('fa-times password-match-no')
+    $('#password-match').addClass('fa-check password-match-ok')
+  iconNo = ->
+    $('#password-match').addClass('fa-times password-match-no')
+    $('#password-match').removeClass('fa-check password-match-ok')
+  iconRemove = ->
+    $('#password-match').removeClass('fa-check password-match-ok fa-times password-match-no')
   
   setProgressBar = (idx, result) ->
     idx.removeClass('progress-bar-success')
@@ -60,11 +60,11 @@ $ ->
 
   $('.input-field').keyup ->
     if confirmationEmpty()
-      glyphiconRemove()
+      iconRemove()
     else if checkMatch()
-      glyphiconOk()
+      iconOk()
     else
-      glyphiconNo()
+      iconNo()
     
     if checkMatch() and checkPasswordStrength()
       enableSubmit()
