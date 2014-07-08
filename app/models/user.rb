@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   has_many :followings_as_followees, class_name: "Following", foreign_key: "followee_id", dependent: :destroy
   
   
-# FROM RASTAMAN :
 
   TIME_UNTIL_EXPIRE = 24.hours
 
@@ -23,15 +22,6 @@ class User < ActiveRecord::Base
   before_save :downcase_email
 
   attr_accessor :password, :password_confirmation
-
-  # field :email
-  # field :salt
-  # field :fish
-  # field :password_reset_code
-  # field :password_reset_expires_at, type: Time
-  # field :first_name
-  # field :last_name
-  # field :user_name
 
   validates :email, presence: true, format: { with: EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, confirmation: true
@@ -71,8 +61,8 @@ class User < ActiveRecord::Base
   end
 
   def clear_reset_code
-    self.unset(:password_reset_code)
-    self.unset(:password_reset_expires_at)
+    self.password_reset_code = ""
+    self.password_reset_expires_at = ""
     self.save
   end
 
