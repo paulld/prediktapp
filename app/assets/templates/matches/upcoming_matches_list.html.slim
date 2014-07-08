@@ -1,0 +1,38 @@
+.well data-ng-controller="UpcomingMatchesListCtrl"
+  h1 Upcoming Games
+  .well.well-white data-ng-repeat="match in matches | limitTo: 10"
+
+    p
+      img.home_team src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
+      | {{match.home_team}} - 
+      | {{match.away_team}} 
+      | {{match.starts_at | date: 'MMM d, y'}} 
+      | {{match.starts_at | date: 'h:mm a'}}
+      img.away_team src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
+
+    .game-buttons
+      p
+        button.btn.btn-primary type="button"
+          | Home ({{match.home_odds}})
+        button.btn.btn-success type="button"
+          | Draw ({{match.draw_odds}})
+        button.btn.btn-warning type="button"
+          | Away ({{match.away_odds}})
+        img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+
+    .game-buttons
+      p
+        button.btn.btn-primary type="button" Over
+        span.badge.margin-left-27
+          | {{match.over_under_value}}
+        button.btn.btn-warning Under
+        img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+
+    .game-buttons
+      p
+        button.btn.btn-primary type="button"
+          | {{match.home_handicap_value}} ({{match.home_handicap_odds}})
+        span.badge.handicap Handicap
+        button.btn.btn-warning type="button"
+          | {{match.away_handicap_value}} ({{match.away_handicap_odds}})
+        img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
