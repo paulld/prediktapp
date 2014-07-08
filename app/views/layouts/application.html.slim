@@ -33,10 +33,35 @@ html
               li
                 a#leaderboard-link data-ng-href="/#/leaderboard" Leaderboard
             ul#login-buttons.nav.navbar-nav.navbar-right
-              li
-                a data-ng-href="/login" Log in / Sign up
+              = render partial: current_user ? 'layouts/logged_in_partial' : 'layouts/logged_out_partial'
+
+
 
     main#main.main.container role="main"
+      - flash.each do |name, msg|
+        javascript:
+          $(function() {
+            switch ("#{name}") {
+              case "error":
+                var notyTimeout = 6000;
+                var notyLayout = 'topCenter';
+                break;
+              case "success":
+                var notyTimeout = 4000;
+                var notyLayout = 'topCenter';
+                break;
+              case "alert":
+                var notyTimeout = 6000;
+                var notyLayout = 'topCenter';
+                break;
+            };
+            var n = noty({
+              layout: notyLayout,
+              timeout: notyTimeout,
+              text: "#{msg}",
+              type: "#{name}",
+            });
+          });
       == yield
       / Main view goes here
 

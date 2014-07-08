@@ -13,6 +13,18 @@ gem 'jquery-ui-rails'
 gem 'coffee-script'
 
 group :development, :test do
+
+  gem 'capybara'
+  gem 'launchy'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+
+  gem 'letter_opener'
   gem 'rspec-rails', '3.0'
   gem 'rack_session_access'
   gem 'fabrication'

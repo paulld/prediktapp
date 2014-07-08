@@ -1,2 +1,53 @@
-h1 This is the Login page
-p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+= javascript_include_tag 'session'
+
+javascript:
+  $(function() {
+    switch ("#{get_login_tab}") {
+      case "signup":
+        $('#login-form-login').removeClass('active');
+        $('#login-form-reset').removeClass('active');
+        $('#login-form-signup').addClass('active');
+        $('#login-input-password').hide();
+        $('#login legend').html('Please sign up');
+        $('#submit-button').val('Sign up');
+        $('#user_login_form_type').val('signup');
+        break;
+      case "reset":
+        $('#login-form-login').removeClass('active');
+        $('#login-form-signup').removeClass('active');
+        $('#login-form-reset').addClass('active');
+        $('#login-input-password').hide();
+        $('#login legend').html('Reset your password');
+        $('#submit-button').val('Reset password');
+        $('#user_login_form_type').val('reset');
+        break;
+    };
+  });
+.row
+  .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
+    .login-form-selector
+      ul.nav.nav-tabs
+        li#login-form-login.active
+          a.log-button href="#" Log in
+        li#login-form-signup
+          a.log-button href="#" Sign up
+        li#login-form-reset
+          a.log-button href="#" Reset password
+    .login-form-tab
+      = form_for @user, url: login_url, html: { id: 'login' } do |f|
+        fieldset
+          legend Please log in
+          .row.col-xs-12
+            #login-input-email.form-group
+              = f.label :email, class: 'sr-only'
+              = f.text_field :email, placeholder: 'Enter your email address', class: 'input-field'
+            
+          .row.col-xs-12
+            #login-input-password.form-group
+              = f.label :password, class: 'sr-only'
+              = f.password_field :password, placeholder: 'Enter your password', class: 'input-field'
+            
+          .row.col-xs-12
+            #login-input-button.form-group
+              = f.hidden_field :login_form_type, value: 'login'
+              = f.submit 'Log in', class: 'btn btn-success', id: 'submit-button'
