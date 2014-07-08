@@ -1,7 +1,7 @@
 predikt.controller 'LeaderboardCtrl', ($scope, $http) ->
   $http.get('./api/users').success (data) ->
     $scope.users = data.users
-    
+
     for user in data.users
       $scope.bets = user.links.bets
       user.numberOfBets = $scope.bets.length

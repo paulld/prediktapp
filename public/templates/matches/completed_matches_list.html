@@ -5,14 +5,14 @@
     <div>
       <p>
         <img class="home_team" src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg">
+        <span data-ng-repeat="match in matches"></span>
         <span>{{match.home_team}}</span>
         <span>{{match.home_score}}</span>
         <span>-</span>
         <span>{{match.away_score}}</span>
         <span>{{match.away_team}}</span>
+        <span>{{match.starts_at | date: 'MMM d, y'}}</span>
         <img class="away_team" src="http://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg">
-
-        <span>{{matchDay}}</span>
       </p>
     </div>
 
@@ -34,7 +34,7 @@
     <div class="game-buttons">
       <p>
         <button type="button" class="btn btn-primary">Over</button>
-        <span class="badge margin-left-27">{{match.over_under_odds}}</span>
+        <span class="badge margin-left-27">{{match.over_under_value}}</span>
         <button type="button" class="btn btn-warning">Under</button>
         <img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD">
       </p>
@@ -43,11 +43,11 @@
     <div class="game-buttons">
       <p>
         <button type="button" class="btn btn-primary">
-          {{match.home_handicap_odds}}
+          {{match.home_handicap_value}} ({{match.home_handicap_odds}})
         </button>
         <span class="badge handicap">Handicap</span>
         <button type="button" class="btn btn-warning">
-          {{match.away_handicap_odds}}
+          {{match.away_handicap_value}} ({{match.away_handicap_odds}})
         </button>
         <img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD">
       </p>
