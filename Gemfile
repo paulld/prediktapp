@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'coffee-script'
+gem "font-awesome-rails"
 
 group :development, :test do
 

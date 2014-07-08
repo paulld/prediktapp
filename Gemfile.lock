@@ -63,6 +63,8 @@ GEM
     faker (1.4.1)
       i18n (~> 0.5)
     ffi (1.9.3)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     guard (2.6.1)
       formatador (>= 0.2.4)
@@ -191,6 +193,7 @@ DEPENDENCIES
   database_cleaner
   fabrication
   faker
+  font-awesome-rails
   guard
   guard-rspec
   jquery-rails

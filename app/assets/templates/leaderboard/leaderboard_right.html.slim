@@ -6,16 +6,20 @@
       ul.pagination.pagination-sm
         li.active
           a href="" data-ng-click="predicate = 'coins'; reverse=!reverse; active=!reverse"
-            | Coins <i.fa-fa-sort>
+            | Coins
+            i.fa.fa-sort
         li
           a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse; active=reverse"
-            | Win % <i.fa-fa-sort>
+            | Win %
+            i.fa.fa-sort
         li
           a href="" data-ng-click="predicate = 'numberOfBets'; reverse=!reverse"
-            | Bets <i.fa-fa-sort>
+            | Bets
+            i.fa.fa-sort
         li
           a href="" data-ng-click="predicate = 'links.followings_as_followers.length'; reverse=!reverse"
-            | Followers <i.fa-fa-sort>
+            | Followers
+            i.fa.fa-sort
     
     table.table.leaderboard-table
       thead
@@ -50,5 +54,5 @@
             br bets
           td.leaderboard-followers
             strong
-              | {{user.links.followings_as_followers.length}}
-            <i.fa.fa-user>
+              | {{user.links.followings_as_followers.length}} 
+            i.fa.fa-user
