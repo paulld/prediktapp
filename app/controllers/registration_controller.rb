@@ -23,7 +23,7 @@ class RegistrationController < ApplicationController
         @registrant.destroy
         log_user_in(@user)
         # render text: 'Your registration is complete! You are now logged in.'
-        redirect_to profile_url, flash: { success: 'Your registration is complete! You are now logged in.' }
+        redirect_to settings_url, flash: { success: 'Your registration is complete! You are now logged in.' }
       else
         # render text: 'Please input a valid password.'
         flash.now[:error] = 'Please input a valid password.'

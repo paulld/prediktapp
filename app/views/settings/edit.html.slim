@@ -1,9 +1,9 @@
 .row
   .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
     .login-form-tab.confirm-registration
-      = form_for @user, url: profile_edit_path, html: { id: 'profile-edit' } do |f|
+      = form_for @user, url: settings_edit_path, html: { id: 'settings-edit' } do |f|
         fieldset
-          legend Update your profile
+          legend Please update your details
           .form-group
             = f.label :first_name, class: 'sr-only'
             = f.text_field :first_name, placeholder: 'First name', class: 'input-field'
@@ -18,4 +18,4 @@
             
           .form-group
             = f.submit 'Save', class: 'btn btn-success'
-            = link_to "Cancel", profile_url, class: 'btn btn-link cancel-button'
+            = link_to "Cancel", settings_url, class: 'btn btn-link cancel-button'

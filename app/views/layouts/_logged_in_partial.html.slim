@@ -1,5 +1,8 @@
 li
-  = link_to "Profile", profile_url
+  = link_to "Profile", '/#/my-profile'
+li
+  = link_to settings_url
+    i.fa.fa-cog.header-icons
 li
   = link_to logout_url, method: :delete
-    i.fa.fa-sign-out
+    i.fa.fa-sign-out.header-icons
