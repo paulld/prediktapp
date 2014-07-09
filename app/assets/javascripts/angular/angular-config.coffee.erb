@@ -49,3 +49,6 @@ predikt.directive 'privateProfile', ->
     templateUrl: '<%= asset_path("profile/private_profile.html") %>'
     controller: 'PublicProfileCtrl'
   }
+predikt.directive 'totalCoins', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("profile/total_coins.html") %>' }
+
