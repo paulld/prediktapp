@@ -26,3 +26,12 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 }
+
+.total-coins {
+  top: 15px;
+  right: 21%;  /* TODO: Add query for smaller screens */
+  position: fixed;
+  z-index: 1200;
+  font-weight: bold;
+  color: #777;
+}
