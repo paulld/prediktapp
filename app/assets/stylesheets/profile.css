@@ -1,0 +1,28 @@
+h1 {
+  font-size: 25px;
+}
+.profile-container h2 {
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.profile-container p {
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+}
+.row1 h2 {
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  margin: -10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.row2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
