@@ -1,5 +1,5 @@
-h1 Upcoming Games
-.well data-ng-controller="UpcomingMatchesListCtrl"
+h1 Game Results
+.well
   .well.well-white data-ng-repeat="match in matches | limitTo: 10"
 
     .row.game-information
@@ -8,7 +8,9 @@ h1 Upcoming Games
           .flag.selected class="{{match.home_team_iso_code}}"
       .col-md-7.teams-info
         span
-          | {{match.home_team}} - 
+          | {{match.home_team}}
+        span.score
+          | {{match.home_score}} - {{match.away_score}}
         span
           | {{match.away_team}}
       .col-md-1.away-flag
