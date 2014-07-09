@@ -8,12 +8,14 @@
 .game-buttons {
   font-size: 12px;
 }
+.game-buttons > div {
+  text-align: center;
+}
 .game-buttons button {
   font-size: 12px;
   height: 25px;
-  margin: 0 3px 0 10px;
   padding: 0;
-  width: 170px;
+  width: 100%;
 }
 .game-buttons .badge {
   background-color: transparent;
@@ -22,10 +24,6 @@
   color: #999;
   font-size: 12px;
   font-weight: normal;
-  margin: 0 75px;
-}
-.game-buttons .badge.handicap {
-  margin: 0 58px 0 59px;
 }
 .well-white {
   background-color: #fff;
@@ -39,4 +37,33 @@ img.away_team {
   width: 30px;
   height: 22px;
   margin: 0 10px 0 180px;
+}
+
+.game-information {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 2px;
+  vertical-align: middle;
+}
+
+.country-flag, .country-flag > div {
+  display: inline-block;
+  margin: 0;
+}
+.game-information-text {
+  margin-bottom: 5px;
+}
+.teams-info {
+  text-align: center;
+  margin-top: 6px;
+}
+.score {
+  margin: 0 10px;
+  color: red;
+}
+.match-date {
+  text-align: center;
+  color: #555;
+  font-weight: normal;
+  margin-top: 6px;
 }

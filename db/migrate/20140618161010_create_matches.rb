@@ -3,6 +3,9 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches, id: :uuid do |t|
       t.string :home_team
       t.string :away_team
+      t.string :home_team_iso_code
+      t.string :away_team_iso_code
+      
       t.datetime :starts_at
       t.datetime :ends_at
       t.string :venue
