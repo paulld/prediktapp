@@ -1,30 +1,30 @@
 h1
-  | {{profile.user_name}}'s Profile
+  | {{user.user_name}}'s Profile
 .well
   .row
     .col-md-9
       .row
         .col-md-5
           <img src="http://lorempixel.com/200/200/people/1/">
-          | {{followers}} | Followers
-          | {{following}} | Following
+          | {{user.links.followings_as_followers.length}} | Followers
+          | {{user.links.followings_as_followees.length}} | Following
           / unsure which is followers and followings in api
         .col-md-3
           p User Name
-            {{profile.user_name}}
+            {{user.user_name}}
           p Record
             {{record}}
           / require user overall record in api
         .col-md-3
           p Location
-          | {{profile.home_town}}, {{profile.home_country}}
+          | {{user.home_town}}, {{user.home_country}}
           p Website
-          | {{profile.website}}
+          | {{user.website}}
           p Bio
-          | {{profile.description}}
+          | {{user.description}}
   
 h1 
-  | {{profile.user_name}}'s Overview
+  | {{user.user_name}}'s Overview
 .well
   .row1.row
     .col1.col-md-4
@@ -36,11 +36,11 @@ h1
   hr
   .row2.row
     .col1.col-md-4
-      | {{profile.coins}} coins
+      | {{user.coins}} coins
     .col2.col-md-4
-      | {{profile.win_percentage}}%
+      | {{user.win_percentage*100}}%
     .col3.col-md-4
-      | {{profile.current_streak}}
+      | {{user.current_streak}}
 
 h1 Pending Wagers
 .well  

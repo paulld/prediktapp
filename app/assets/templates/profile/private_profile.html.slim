@@ -5,12 +5,12 @@ h1
     .col-md-9
       .profile-container.row
         .col-md-5
-          <img src="http://lorempixel.com/200/200/people/1/">
+          img src="http://lorempixel.com/200/200/people/3/"
           p 
-          | {{followers}} 
+          | {{profile.links.followings_as_followers.length}} 
           h2 Followers
           p 
-          | {{following}} 
+          | {{profile.links.followings_as_followees.length}} 
           h2 Following
           / unsure which is followers and followings in api
         .col-md-3
@@ -49,7 +49,7 @@ h1
       | {{profile.coins}} coins
     .col2.col-md-4
       p 
-      | {{profile.win_percentage}}%
+      | {{profile.win_percentage*100}}%
     .col3.col-md-4
       p 
       | {{profile.current_streak}}
