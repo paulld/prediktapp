@@ -6,8 +6,8 @@ h1
       .row
         .col-md-5
           <img src="http://lorempixel.com/200/200/people/1/">
-          | {{user.links.followings_as_followers.length}} | Followers
-          | {{user.links.followings_as_followees.length}} | Following
+          | {{user.links.followings_as_followers.length}} Followers | 
+          | {{user.links.followings_as_followees.length}} Following
           / unsure which is followers and followings in api
         .col-md-3
           p User Name
@@ -38,7 +38,7 @@ h1
     .col1.col-md-4
       | {{user.coins}} coins
     .col2.col-md-4
-      | {{user.win_percentage*100}}%
+      | {{user.win_percentage *100 | number:1}}%
     .col3.col-md-4
       | {{user.current_streak}}
 

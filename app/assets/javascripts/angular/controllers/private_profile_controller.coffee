@@ -2,6 +2,8 @@ predikt.controller 'PrivateProfileCtrl', ($scope, $http) ->
   $http.get('./api/profile').success (data) ->
     $scope.profile = data.users[0]
 
+    
+    # betIds = []
   # $http.get('./api/users').success (data) ->
   #   $scope.users = data.users[0]
 

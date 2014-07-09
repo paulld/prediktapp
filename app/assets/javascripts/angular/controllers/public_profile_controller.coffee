@@ -1,14 +1,13 @@
 predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
-  # $http.get('./api/profile').success (data) ->
-  #   $scope.profile = data.users[0]
-
-
+  
   userId = $routeParams.userId
-
-  $http.get('./api/users/#{userId}').success (data) ->
+  
+  $http.get('./api/users/' + userId ).success (data) ->
     $scope.user = data.users[0]
 
-    console.log $scope.user
+    # console.log $scope.user.links.bets
+    # betIds = $scope.user.links.bets
+    
   # $http.get('./api/bets').success (data) ->
   #   $scope.bets = data.bets[0]
 

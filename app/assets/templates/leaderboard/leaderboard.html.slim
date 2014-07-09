@@ -46,8 +46,9 @@
             | {{$index +1}}
           td
             img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"
-          td.leaderboard-name 
-            | {{user.user_name}}
+          td.leaderboard-name
+            a href="/#/profile/{{user.id}}"
+              | {{user.user_name}}
           td.leaderboard-followers
             | {{user.links.followings_as_followers.length}} 
             i.fa.fa-user
