@@ -198,8 +198,18 @@ matches = Match.create([
     away_team: "Newcastle",
     starts_at: "2014-04-11 21:00:00 +0800",
     ends_at: "2014-04-11 19:00:00 +0800",
-    home_score: 2,
-    away_score: 1
+    home_odds: 1.55,
+    draw_odds: 4.83,
+    away_odds: 3.76,
+    over_under_value: 5.5,
+    over_odds: 1.19,
+    under_odds: 4.58,
+    home_handicap_value: -4.5,
+    away_handicap_value: +4.5,
+    home_handicap_odds: 1.92,
+    away_handicap_odds: 2.69,
+    home_score: 6,
+    away_score: 2
   },
   {
     league: leagues[1],
