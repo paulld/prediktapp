@@ -18,7 +18,7 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/contact', { templateUrl: '<%= asset_path("contact.html") %>'  }
     .when '/terms',   { templateUrl: '<%= asset_path("terms.html") %>'    }
     .when '/privacy', { templateUrl: '<%= asset_path("privacy.html") %>'  }
-    .when '/my-profile', { templateUrl: '<%= asset_path("public_profile.html") %>'  }
+    .when '/my-profile', { templateUrl: '<%= asset_path("private_profile/private_profile_index.html") %>'  }
     .otherwise        { templateUrl: '404.html'    }
 ]
 
@@ -41,9 +41,9 @@ predikt.directive 'leaderboardRight', ->
     templateUrl: '<%= asset_path("leaderboard/leaderboard_right.html") %>'
     controller: 'LeaderboardCtrl'
   }
-predikt.directive 'publicProfile', ->
+predikt.directive 'privateProfile', ->
   {
     restrict: 'E'
-    templateUrl: '<%= asset_path("templates/public_profile.html") %>'
+    templateUrl: '<%= asset_path("private_profile/private_profile.html") %>'
     controller: 'PublicProfileCtrl'
   }
