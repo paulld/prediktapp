@@ -3,24 +3,33 @@ h1
 .well
   .row
     .col-md-9
-      .row
+      .profile-container.row
         .col-md-5
           <img src="http://lorempixel.com/200/200/people/1/">
-          | {{followers}} | Followers
-          | {{following}} | Following
+          p 
+          | {{followers}} 
+          h2 Followers
+          p 
+          | {{following}} 
+          h2 Following
           / unsure which is followers and followings in api
         .col-md-3
-          p User Name
-            {{profile.user_name}}
-          p Record
-            {{record}}
+          h2 User Name
+          p 
+          | {{profile.user_name}}
+          h2 Record
+          p 
+          | {{record}}
           / require user overall record in api
         .col-md-3
-          p Location
+          h2 Location
+          p 
           | {{profile.home_town}}, {{profile.home_country}}
-          p Website
+          h2 Website
+          p 
           | {{profile.website}}
-          p Bio
+          h2 Bio
+          p 
           | {{profile.description}}
   
 h1 
@@ -28,18 +37,21 @@ h1
 .well
   .row1.row
     .col1.col-md-4
-      p Coins
+      h2 Coins
     .col2.col-md-4
-      p Win Percentage
+      h2 Win Percentage
     .col3.col-md-4     
-      p Current Streak      
+      h2 Current Streak      
   hr
   .row2.row
     .col1.col-md-4
+      p 
       | {{profile.coins}} coins
     .col2.col-md-4
+      p 
       | {{profile.win_percentage}}%
     .col3.col-md-4
+      p 
       | {{profile.current_streak}}
 
 h1 Pending Wagers
