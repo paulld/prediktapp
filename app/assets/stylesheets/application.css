@@ -18,6 +18,6 @@
  *= require flags/flags32
  *= require index
  *= require leaderboard
- *= require upcoming_matches
+ *= require matches
  *= require session
  */
