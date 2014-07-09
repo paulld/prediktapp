@@ -10,6 +10,10 @@ body {
   padding: 80px 15px 15px;
 }
 
+.header-icons{
+  font-size: 18px;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
