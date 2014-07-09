@@ -1,5 +1,38 @@
 class MatchesController < RestController
 
+  def index
+
+    # The query is lazy loaded
+    cursor = get_query(:match)
+
+    case params[:game_started]
+    when "true" then cursor = cursor.where('starts_at < now()')
+    when "false" then cursor = cursor.where('starts_at > now()')
+    end
+
+    case params[:game_ended]
+    when "true" then cursor = cursor.where('ends_at < now()')
+    when "false" then cursor = cursor.where('ends_at > now()')
+    end
+
+    cursor = cursor.limit(params[:recent].to_i) if params[:recent]
+
+    # Set an instance variable (e.g., @articles) to the cursor returned
+    instance_variable_set( get_name, cursor )
+
+    if @ids and cursor.empty?
+      # Return a 404 if expecting individual items and none found
+      head :not_found
+    else
+      # Return a 406 (partial content) if fewer items found than asked for
+      # Otherwise, return a 200 OK
+      render :index, status: partial_content?(cursor.length)
+    end
+  end
+
+# Match.find(:all, :limit => params[:recent].to_i, :order=> 'created_at desc')
+
+
   protected
 
   def configure_controller
@@ -18,10 +51,8 @@ class MatchesController < RestController
     
     config[:include] = [ :league, :bets, :match_comments ]                         # Associated objects to be eagerly loaded
   end
-  
+
 end
 
 
 #  add more data for bets ?
-
-
