@@ -41,3 +41,9 @@ predikt.directive 'leaderboardRight', ->
     templateUrl: '<%= asset_path("leaderboard/leaderboard_right.html") %>'
     controller: 'LeaderboardCtrl'
   }
+predikt.directive 'publicProfile', ->
+  {
+    restrict: 'E'
+    templateUrl: '<%= asset_path("templates/public_profile.html") %>'
+    controller: 'PublicProfileCtrl'
+  }

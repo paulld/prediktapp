@@ -108,5 +108,9 @@ Prediktapp::Application.routes.draw do
       delete ':id'      => 'users#destroy'
     end
 
+    scope :profile do
+      get    ''         => 'profile#show',                        as: :profile
+    end  
+
   end
 end
