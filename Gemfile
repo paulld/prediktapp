@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'coffee-script'
 gem "font-awesome-rails"
+gem "world-flags"
 
 group :development, :test do
 

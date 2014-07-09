@@ -13,6 +13,9 @@
  *= require_self
  *= require bootstrap.min
  *= require font-awesome
+ *= require flags/basic
+ *= require flags/flags16
+ *= require flags/flags32
  *= require index
  *= require leaderboard
  *= require upcoming_matches
