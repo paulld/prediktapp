@@ -21,37 +21,37 @@ users = User.create([
   {
     user_name: "Bob",
     email: "robert@predikt.com",
-    coins: 100,
-    win_percentage: 0.50
+    coins: 1250,
+    win_percentage: 0.55
   },
   {
     user_name: "Rage",
     email: "regis@predikt.com",
-    coins: 110,
+    coins: 1100,
     win_percentage: 0.55
   },
   {
     user_name: "Felix",
     email: "felix@predikt.com",
-    coins: 120,
+    coins: 1200,
     win_percentage: 0.60
   },
   {
     user_name: "Tim",
     email: "timmy@predikt.com",
-    coins: 95,
+    coins: 950,
     win_percentage: 0.45
   },
   {
     user_name: "Vlad",
     email: "vladimir@predikt.com",
-    coins: 10,
-    win_percentage: 0.5
+    coins: 888,
+    win_percentage: 0.35
   },
   {
     user_name: "kate",
     email: "missk@predikt.com",
-    coins: 200,
+    coins: 1980,
     win_percentage: 0.71
   }
 ])

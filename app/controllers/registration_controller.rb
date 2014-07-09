@@ -13,7 +13,11 @@ class RegistrationController < ApplicationController
 
   def create
     if @registrant = Registrant.find_by_code(params[:registration_code])
-      @user = User.new( user_params.merge(email: @registrant.email) )
+      @user = User.new( user_params.merge(
+        email: @registrant.email,
+        coins: INIT_NUMBER_OF_COINS
+        )
+      )
 
       if @user.save
         @registrant.destroy

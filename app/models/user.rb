@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   
 
   TIME_UNTIL_EXPIRE = 24.hours
+  
 
   before_save :encrypt_password if :password
   before_save :downcase_email
