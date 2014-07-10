@@ -1,11 +1,11 @@
-predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet) ->
+predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet, Message) ->
   $http.get(
     './api/matches?game_started=false&sort=starts_at&recent=10'
   ).success (data) ->
     
     $scope.matches = data.matches
+    
     $scope.profile = null
-
     User.getUser().then (result) ->
       $scope.profile = result.data.users[0]
 
@@ -23,5 +23,4 @@ predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet) ->
 
         Bet.create(putData)
       else
-        alert "Please log in to place a bet!"
-
+        Message.noty('Please log in to place a bet.', 'error', 700)
