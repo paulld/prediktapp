@@ -8,6 +8,11 @@ predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams) ->
     stringOfBetIds = ''
     $scope.allBets = []
 
+    # arrayOfBetIds = try
+    #   $scope.profile.links.bets
+    # catch
+    #   []
+
     if arrayOfBetIds.length > 0
       stringOfBetIds = arrayOfBetIds[0]
       if arrayOfBetIds.length > 1
