@@ -5,15 +5,10 @@ h1
     .col-md-9
       .profile-container.row
         .col-md-5
-          img src="http://lorempixel.com/200/200/people/3/"
-          p 
-          | {{profile.links.followings_as_followers.length}} 
-          h2 Followers
-          p 
-          | {{profile.links.followings_as_followees.length}} 
-          h2 Following
-          / unsure which is followers and followings in api
-        .col-md-3
+          img src="http://lorempixel.com/400/200/sports/1/" height="200" width="200"
+          | {{profile.links.followings_as_followers.length}} Followers |
+          | {{profile.links.followings_as_followees.length}} Following
+        .col-md-4
           h2 User Name
           p 
           | {{profile.user_name}}
@@ -41,7 +36,7 @@ h1
     .col2.col-md-4
       h2 Win Percentage
     .col3.col-md-4     
-      h2 Current Streak      
+      h2 Current Streak
   hr
   .row2.row
     .col1.col-md-4
@@ -54,30 +49,21 @@ h1
       p 
       | {{profile.current_streak}}
 
-h1 Pending Wagers
-.well  
-  / .row1.row
-  /   .col1.col-md-2
-  /     | {{bets.created_at}}
-  /   .col2.col-md-4
-  /     | {{match.home_team}}
-  /   .col3-col-md-2
-  /     | {{bets.bet_type}}
-  /   .col4-col-md-2
-  /     | {{bets.gain}}
-  /   .col5-col-md-2
-  /     | {{bets.result}}
+h1 Wagers
+.well
+  .row1.row data-ng-repeat="bet in allBets"
+    .col1.col-md-3
+      | Date: {{bet.created_at | date: 'MMM d, y'}}
+    / .col2.col-md-4
+    / p {{bet.match.home_team}}
+    .col3.col-md-3
+      | Type: {{bet.bet_type}}
+    .col4.col-md-3
+      | Wager: {{bet.wager}}
+    .col5.col-md-3
+      | Result: {{bet.result}}    
 
-h1 Wager History
-.well  
-  / .row1.row
-  /   .col1.col-md-2
-  /     | {{bets.created_at}}
-  /   .col2.col-md-4
-  /     | {{match.home_team}}
-  /   .col3-col-md-2
-  /     | {{bets.bet_type}}
-  /   .col4-col-md-2
-  /     | {{bets.gain}}
-  /   .col5-col-md-2
-  /     | {{bets.result}}
+/ h1 Pending Wagers
+/ .well  
+/ h1 Wager History
+/ .well
