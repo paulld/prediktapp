@@ -1,15 +1,18 @@
-predikt.controller 'PrivateProfileCtrl', ($scope, $http) ->
-  $http.get('./api/profile').success (data) ->
-    $scope.profile = data.users[0]
+predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams) ->
+  
+  userId = $routeParams.userId
 
-    
-    # betIds = []
-  # $http.get('./api/users').success (data) ->
-  #   $scope.users = data.users[0]
+  $http.get('./api/profile/' ).success (userData) ->
+    $scope.profile = userData.users[0]
 
+    betIds = $scope.user.links.bets
 
-  # $http.get('./api/bets').success (data) ->
-  #   $scope.bets = data.bets[0]
+    allBetIds = ''
+    if betIds.length > 0
+      for bet in betIds
+        allBetIds = "#{allBetIds},#{bet}"
 
-  # $http.get('./api/matches').success (data) ->
-  #   $scope.matches = data.matches[0]  
+      $http.get('./api/bets/#{allBetIds}' ).success (betData) ->
+        # console.log betData.bets
+        $scope.allBets = betData.bets
+        console.log $scope.allBets
