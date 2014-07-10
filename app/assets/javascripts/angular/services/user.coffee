@@ -7,6 +7,8 @@ predikt.factory 'User', ($http) ->
         userData
         # userData.users[0]
 
+    
+
     clickButton: () ->
       $http(
         method: "GET"
