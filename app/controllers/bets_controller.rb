@@ -6,6 +6,16 @@ class BetsController < RestController
     cursor = get_query(get_key)
 
     
+    # cursor = cursor.where(links.match.match_status = params[:match_status]) if params[:match_status]
+    
+
+    # sql = %{
+    #   SELECT * FROM bets LEFT JOIN comments
+    #   ON bets.id = comments.article_id
+    #   ORDER BY bets.created_at ASC LIMIT 3 OFFSET 2;
+    # }.squish
+
+    # @bets = ActiveRecord::Base.connection.execute(sql).to_a
 
     
     cursor = cursor.limit(params[:recent].to_i) if params[:recent]

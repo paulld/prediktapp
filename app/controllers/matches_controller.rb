@@ -4,18 +4,18 @@ class MatchesController < RestController
 
     # The query is lazy loaded
     cursor = get_query(:match)
-    puts ">>>>>>>>", MATCH_STATUS
-    # case params[:game_started]
-    # when "true" then cursor = cursor.where('starts_at < now()')
-    # when "false" then cursor = cursor.where('starts_at > now()')
-    # end
+    
+    case params[:game_started]
+    when "true" then cursor = cursor.where('starts_at < now()')
+    when "false" then cursor = cursor.where('starts_at > now()')
+    end
 
-    # case params[:game_ended]
-    # when "true" then cursor = cursor.where('ends_at < now()')
-    # when "false" then cursor = cursor.where('ends_at > now()')
-    # end
+    case params[:game_ended]
+    when "true" then cursor = cursor.where('ends_at < now()')
+    when "false" then cursor = cursor.where('ends_at > now()')
+    end
 
-    # cursor = cursor.limit(params[:recent].to_i) if params[:recent]
+    cursor = cursor.limit(params[:recent].to_i) if params[:recent]
 
     # Set an instance variable (e.g., @articles) to the cursor returned
     instance_variable_set( get_name, cursor )
