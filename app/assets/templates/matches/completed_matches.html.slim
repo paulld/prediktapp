@@ -23,37 +23,58 @@ h1 Game Results
     .row.game-buttons
       .col-md-3
         button.btn.btn-primary type="button"
-          | Home ({{match.home_odds}})
+          .bet-type
+            | Home
+          .bet-odds
+            | {{match.home_odds}}
       .col-md-3
         button.btn.btn-success type="button"
-          | Draw ({{match.draw_odds}})
+          .bet-type
+            | Draw
+          .bet-odds
+            | {{match.draw_odds}}
       .col-md-3
         button.btn.btn-warning type="button"
-          | Away ({{match.away_odds}})
-      .col-md-3
-        img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
-
-    .row.game-buttons
-      .col-md-3
-        button.btn.btn-primary type="button" Over
-      .col-md-3
-        span.badge.margin-left-27
-          | {{match.over_under_value}}
-      .col-md-3
-        button.btn.btn-warning Under
+          .bet-type
+            | Away
+          .bet-odds
+            | {{match.away_odds}}
       .col-md-3
         img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
     .row.game-buttons
       .col-md-3
         button.btn.btn-primary type="button"
-          | {{match.home_handicap_value}} ({{match.home_handicap_odds}})
+          .bet-type
+            | Over
+          .bet-odds
+            | {{match.over_odds}}
+      .col-md-3
+        span.badge.margin-left-27
+          | o/u {{match.over_under_value}}
+      .col-md-3
+        button.btn.btn-warning
+          .bet-type
+            | Under
+          .bet-odds
+            | {{match.under_odds}}
+      .col-md-3
+        img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+
+    .row.game-buttons
+      .col-md-3
+        button.btn.btn-primary type="button"
+          .bet-type
+            | Hand {{match.home_handicap_value}}
+          .bet-odds
+            | {{match.home_handicap_odds}}
       .col-md-3
         span.badge.handicap Handicap
       .col-md-3
         button.btn.btn-warning
-          | {{match.away_handicap_value}} ({{match.away_handicap_odds}})
+          .bet-type
+            | Hand {{match.away_handicap_value}}
+          .bet-odds
+            | {{match.away_handicap_odds}}
       .col-md-3
         img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
-
-      
