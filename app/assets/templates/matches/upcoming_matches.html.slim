@@ -18,6 +18,7 @@ h1 Upcoming Games
         span
           | {{match.starts_at | date: 'MMM d, y h:mm a'}}
 
+
     .row.game-buttons
       .col-md-3
         button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'home', match.home_odds, 1)"
@@ -25,14 +26,16 @@ h1 Upcoming Games
             | Home
           .bet-odds
             | {{match.home_odds}}
+      
       .col-md-3
-        button.btn.btn-success type="button"
+        button.btn.btn-success type="button" data-ng-click="clickToBet(match.id, 'draw', match.draw_odds, 1)"
           .bet-type
             | Draw
           .bet-odds
             | {{match.draw_odds}}
+      
       .col-md-3
-        button.btn.btn-warning type="button"
+        button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, 'away', match.away_odds, 1)"
           .bet-type
             | Away
           .bet-odds
@@ -40,9 +43,10 @@ h1 Upcoming Games
       .col-md-3
         img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
+
     .row.game-buttons
       .col-md-3
-        button.btn.btn-primary type="button"
+        button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'over', match.over_odds, 1)"
           .bet-type
             | Over
           .bet-odds
@@ -50,8 +54,9 @@ h1 Upcoming Games
       .col-md-3
         span.badge.margin-left-27
           | o/u {{match.over_under_value}}
+      
       .col-md-3
-        button.btn.btn-warning
+        button.btn.btn-warning data-ng-click="clickToBet(match.id, 'under', match.under_odds, 1)"
           .bet-type
             | Under
           .bet-odds
@@ -59,17 +64,19 @@ h1 Upcoming Games
       .col-md-3
         img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
+
     .row.game-buttons
       .col-md-3
-        button.btn.btn-primary type="button"
+        button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'home_handicap', match.home_handicap_odds, 1)"
           .bet-type
             | Hand {{match.home_handicap_value}}
           .bet-odds
             | {{match.home_handicap_odds}}
       .col-md-3
         span.badge.handicap Handicap
+      
       .col-md-3
-        button.btn.btn-warning
+        button.btn.btn-warning data-ng-click="clickToBet(match.id, 'away_handicap', match.away_handicap_odds, 1)"
           .bet-type
             | Hand {{match.away_handicap_value}}
           .bet-odds

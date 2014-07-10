@@ -9,9 +9,10 @@ predikt.factory 'Bet', ($http) ->
 
         console.log 'data', putData
         console.log 'url', putUrl
-        $http
+        $http(
           method: "PUT"
           url: putUrl
           data: putData
-
+        )
+        
   Bet
