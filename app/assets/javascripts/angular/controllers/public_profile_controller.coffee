@@ -35,8 +35,8 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams, User, Mess
     $scope.follow = (userId) ->
 
       if $scope.profile
-        Message.noty('Now following', 'success', 500)
         console.log $scope.profile.id, "wants to follow", userId
+        User.follow($scope.profile.id, userId)
         # TODO: PUT to create following
       else
         Message.noty('Please log in to follow.', 'error', 700)

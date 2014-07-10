@@ -13,14 +13,6 @@ predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet, Message) ->
       if $scope.profile
         console.log 'need to place', wager, ' on ', betType, '(odds: ', odds, ') for user ', $scope.profile.id, 'on match id: ', matchId
 
-        # putData = {
-        #   "links.user.id": $scope.profile.id
-        #   "links.match.id": 
-        #   "bet_type": 
-        #   "odds": 
-        #   "wager": wager
-        # }
-
         Bet.create($scope.profile.id, matchId, betType, odds, wager)
       else
         Message.noty('Please log in to place a bet.', 'error', 700)
