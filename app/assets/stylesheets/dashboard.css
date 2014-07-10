@@ -1,0 +1,13 @@
+.dashboard-username h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.dashboard-bets {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+.dashboard-bet-date {
+  color: #666;
+}

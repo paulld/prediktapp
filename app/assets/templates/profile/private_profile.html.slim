@@ -56,47 +56,49 @@ h2 General Overview
         td
           | {{profile.current_streak}}
 
-h2 Pending Wagers
-.well
-  table.table
-    thead
-      tr
-        th Match starts at
-        th Teams
-        th Bet type (wager)
-        th Status
-    tbody
-      tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
-        td.bet-date
-          | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
-        td.bet-teams
-          | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-        td
-          | {{bet.bet_type}} ({{bet.wager}})
-        td
-          | {{bet.status}}
+div data-ng-if="allBets | filter:{ status: 'pending' }"
+  h2 Pending Wagers
+  .well
+    table.table
+      thead
+        tr
+          th Match starts at
+          th Teams
+          th Bet type (wager)
+          th Status
+      tbody
+        tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
+          td.bet-date
+            | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+          td.bet-teams
+            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+          td
+            | {{bet.bet_type}} ({{bet.wager}})
+          td
+            | {{bet.status}}
 
-h2 Wager History
-.well
-  table.table
-    thead
-      tr
-        th Match date
-        th Teams
-        th Bet type (wager)
-        th Win/Loss (result)
-        th Status
-    tbody
-      tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
-        td.bet-date
-          | {{bet.links.match.starts_at | date: 'MMM d, y'}}
-        td.bet-teams
-          | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-        td
-          | {{bet.bet_type}} ({{bet.wager}})
-        td
-          | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
-        td
-          | {{bet.status}}
+div data-ng-if="allBets | filter:{ status: 'completed' }"
+  h2 Wager History
+  .well
+    table.table
+      thead
+        tr
+          th Match date
+          th Teams
+          th Bet type (wager)
+          th Win/Loss (result)
+          th Status
+      tbody
+        tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
+          td.bet-date
+            | {{bet.links.match.starts_at | date: 'MMM d, y'}}
+          td.bet-teams
+            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+          td
+            | {{bet.bet_type}} ({{bet.wager}})
+          td
+            | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
+          td
+            | {{bet.status}}
 
 

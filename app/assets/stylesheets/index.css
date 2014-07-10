@@ -31,3 +31,9 @@ ul.footer-nav {
   margin: 20px 0;
   color: #ccc;
 }
+.well {
+  padding-bottom: 0;
+}
+.well-white {
+  background-color: #fff;
+}

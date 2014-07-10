@@ -10,9 +10,13 @@ class BetsController < RestController
     
 
     # sql = %{
-    #   SELECT * FROM bets LEFT JOIN comments
-    #   ON bets.id = comments.article_id
-    #   ORDER BY bets.created_at ASC LIMIT 3 OFFSET 2;
+    #   select users.id, users.user_name, coalesce(s.wins, 0) as wins, 
+    #   coalesce(t.losses, 0) as losses FROM users left join 
+    #   (select bets.user_id, count(bets.id) as wins from bets 
+    #   where bets.is_successful = TRUE group by bets.user_id) as s 
+    #   on users.id = s.user_id left join (select bets.user_id, 
+    #   count(bets.id) as losses from bets where bets.is_successful = FALSE 
+    #   group by bets.user_id) AS t on users.id = t.user_id
     # }.squish
 
     # @bets = ActiveRecord::Base.connection.execute(sql).to_a
