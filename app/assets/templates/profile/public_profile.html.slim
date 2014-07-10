@@ -56,6 +56,26 @@ h2 General Overview
         td
           | {{user.current_streak}}
 
+h2 Pending Wagers
+.well
+  table.table
+    thead
+      tr
+        th Match date
+        th Teams
+        th Bet type (wager)
+        th Status
+    tbody
+      tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
+        td.bet-date
+          | {{bet.created_at | date: 'MMM d, y'}}
+        td.bet-teams
+          | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+        td
+          | {{bet.bet_type}} ({{bet.wager}})
+        td
+          | {{bet.status}}
+
 h2 Wager History
 .well
   table.table
@@ -64,9 +84,10 @@ h2 Wager History
         th Match date
         th Teams
         th Bet type (wager)
-        th Bet result (match result)
+        th Win/Loss (result)
+        th Status
     tbody
-      tr data-ng-repeat="bet in allBets"
+      tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
         td.bet-date
           | {{bet.created_at | date: 'MMM d, y'}}
         td.bet-teams
@@ -75,5 +96,7 @@ h2 Wager History
           | {{bet.bet_type}} ({{bet.wager}})
         td
           | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
+        td
+          | {{bet.status}}
 
 

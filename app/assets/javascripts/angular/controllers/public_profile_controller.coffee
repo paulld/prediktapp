@@ -19,6 +19,9 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
       $http.get('./api/bets/' + stringOfBetIds ).success (betData) ->
         $scope.allBets = betData.bets
 
+        for bet in $scope.allBets
+          bet.status = bet.links.match.match_status
+
 
   # $http.get('./api/matches').success (data) ->
   #   $scope.matches = data.matches[0]     
