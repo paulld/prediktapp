@@ -9,11 +9,11 @@ predikt.controller 'LeaderboardCtrl', ($scope, $http) ->
 
 
 
-      console.log user.user_name, '-', user.links.bets
+      # console.log user.user_name, '-', user.links.bets
 
-      user.numberOfWins = 0
-      user.numberOfLoss = 0
-      user.numberOfPending = 0
+      # user.numberOfWins = 0
+      # user.numberOfLoss = 0
+      # user.numberOfPending = 0
 
 ###
       for bet in user.links.bets

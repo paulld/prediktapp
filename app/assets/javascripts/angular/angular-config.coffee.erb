@@ -4,8 +4,8 @@
 predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider
 
-    .when '/',                  { templateUrl: '<%= asset_path("index.html") %>' }
-    .when '/upcoming-matches',  { templateUrl: '<%= asset_path("index.html") %>' }
+    .when '/',                  { templateUrl: '<%= asset_path("index.html") %>'                   }
+    .when '/upcoming-matches',  { templateUrl: '<%= asset_path("index.html") %>'                   }
 
     .when '/completed-matches', { templateUrl: '<%= asset_path("index_completed_matches.html") %>' }
 
@@ -13,15 +13,16 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
       templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
       controller: 'LeaderboardCtrl'
 
-    .when '/about',       { templateUrl: '<%= asset_path("misc/about.html") %>'    }
-    .when '/help',        { templateUrl: '<%= asset_path("misc/help.html") %>'     }
-    .when '/contact',     { templateUrl: '<%= asset_path("misc/contact.html") %>'  }
-    .when '/terms',       { templateUrl: '<%= asset_path("misc/terms.html") %>'    }
-    .when '/privacy',     { templateUrl: '<%= asset_path("misc/privacy.html") %>'  }
+    .when '/about',             { templateUrl: '<%= asset_path("misc/about.html") %>'              }
+    .when '/help',              { templateUrl: '<%= asset_path("misc/help.html") %>'               }
+    .when '/contact',           { templateUrl: '<%= asset_path("misc/contact.html") %>'            }
+    .when '/terms',             { templateUrl: '<%= asset_path("misc/terms.html") %>'              }
+    .when '/privacy',           { templateUrl: '<%= asset_path("misc/privacy.html") %>'            }
     
-    .when '/my-profile',  { templateUrl: '<%= asset_path("index_private_profile.html") %>'  }
+    .when '/my-profile',        { templateUrl: '<%= asset_path("index_private_profile.html") %>'   }
+    .when '/profile/:userId',  { templateUrl: '<%= asset_path("index_public_profile.html") %>'    }
 
-    .otherwise            { templateUrl: '404.html'    }
+    .otherwise                  { templateUrl: '404.html'                                          }
 ]
 
 
@@ -47,8 +48,15 @@ predikt.directive 'privateProfile', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("profile/private_profile.html") %>'
+    controller: 'PrivateProfileCtrl'
+  }
+predikt.directive 'publicProfile', ->
+  {
+    restrict: 'E'
+    templateUrl: '<%= asset_path("profile/public_profile.html") %>'
     controller: 'PublicProfileCtrl'
   }
+
 predikt.directive 'totalCoins', ->
   { restrict: 'E', templateUrl: '<%= asset_path("profile/total_coins.html") %>' }
 

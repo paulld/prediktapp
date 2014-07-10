@@ -1,30 +1,25 @@
 h1
-  | {{profile.user_name}}'s Profile
+  | {{user.user_name}}'s Profile
 .well
   .row
     .col-md-9
       .row
         .col-md-5
-          <img src="http://lorempixel.com/200/200/people/1/">
-          | {{followers}} | Followers
-          | {{following}} | Following
-          / unsure which is followers and followings in api
-        .col-md-3
-          p User Name
-            {{profile.user_name}}
+          img src="{{randomPicture}}" height="200" width="200"
+          | {{user.links.followings_as_followers.length}} Followers | 
+          | {{user.links.followings_as_followees.length}} Following
+        .col-md-4
+          p Username: {{user.user_name}}
           p Record
             {{record}}
           / require user overall record in api
         .col-md-3
-          p Location
-          | {{profile.home_town}}, {{profile.home_country}}
-          p Website
-          | {{profile.website}}
-          p Bio
-          | {{profile.description}}
+          p Location: {{user.home_town}}, {{user.home_country}}
+          p Website: {{user.website}}
+          p Bio: {{user.description}}
   
-h1 
-  | {{profile.user_name}}'s Overview
+h2
+  | {{user.user_name}}'s Overview
 .well
   .row1.row
     .col1.col-md-4
@@ -36,36 +31,25 @@ h1
   hr
   .row2.row
     .col1.col-md-4
-      | {{profile.coins}} coins
+      | {{user.coins}} coins
     .col2.col-md-4
-      | {{profile.win_percentage}}%
+      | {{user.win_percentage *100 | number:1}}%
     .col3.col-md-4
-      | {{profile.current_streak}}
+      | {{user.current_streak}}
 
-h1 Pending Wagers
-.well  
-  / .row1.row
-  /   .col1.col-md-2
-  /     | {{bets.created_at}}
-  /   .col2.col-md-4
-  /     | {{match.home_team}}
-  /   .col3-col-md-2
-  /     | {{bets.bet_type}}
-  /   .col4-col-md-2
-  /     | {{bets.gain}}
-  /   .col5-col-md-2
-  /     | {{bets.result}}
+h2 Wagers
+.well
+  .row1.row data-ng-repeat="bet in allBets"
+    .col1.col-md-3
+      | Date: {{bet.created_at | date: 'MMM d, y'}}
+    / .col2.col-md-4
+    /   p {{bet.match.home_team}}
+    .col3.col-md-3
+      | Type: {{bet.bet_type}}
+    .col4.col-md-3
+      | Wager: {{bet.wager}}
+    .col5.col-md-3
+      | Result: {{bet.result}}
 
-h1 Wager History
-.well  
-  / .row1.row
-  /   .col1.col-md-2
-  /     | {{bets.created_at}}
-  /   .col2.col-md-4
-  /     | {{match.home_team}}
-  /   .col3-col-md-2
-  /     | {{bets.bet_type}}
-  /   .col4-col-md-2
-  /     | {{bets.gain}}
-  /   .col5-col-md-2
-  /     | {{bets.result}}
+/ h2 Pending Wagers
+/ h2 Wager History

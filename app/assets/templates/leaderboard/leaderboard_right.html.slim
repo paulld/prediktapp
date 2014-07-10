@@ -39,7 +39,8 @@
           td
             img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"
           td.leaderboard-name
-            | {{user.user_name}}
+            a href="/#/profile/{{user.id}}"
+              | {{user.user_name}}
           td.leaderboard-coins
             strong
               | {{user.coins | number:0}}
