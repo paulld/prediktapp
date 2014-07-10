@@ -2,54 +2,101 @@ h1
   | {{user.user_name}}'s Profile
 .well
   .row
-    .col-md-9
+    .col-md-4
+      div
+        img src="{{randomPicture}}" height="200" width="200"
+      div
+        | {{user.links.followings_as_followers.length}} Followers | 
+        | {{user.links.followings_as_followees.length}} Following
+    .col-md-8
       .row
-        .col-md-5
-          img src="{{randomPicture}}" height="200" width="200"
-          | {{user.links.followings_as_followers.length}} Followers | 
-          | {{user.links.followings_as_followees.length}} Following
-        .col-md-4
-          p Username: {{user.user_name}}
-          p Record
-            {{record}}
-          / require user overall record in api
-        .col-md-3
-          p Location: {{user.home_town}}, {{user.home_country}}
-          p Website: {{user.website}}
-          p Bio: {{user.description}}
+        table.table
+          thead
+            tr
+              th Username
+              th Location
+              th Website
+          tbody
+            tr
+              td
+                | {{user.user_name}}
+              td
+                | {{user.home_town}}, {{user.home_country}}
+              td
+              | {{user.website}}
+      .row
+        table.table
+          thead
+            tr
+              th Biography
+          tbody
+            tr
+              td
+                | {{user.description}}
   
-h2
-  | {{user.user_name}}'s Overview
-.well
-  .row1.row
-    .col1.col-md-4
-      p Coins
-    .col2.col-md-4
-      p Win Percentage
-    .col3.col-md-4     
-      p Current Streak      
-  hr
-  .row2.row
-    .col1.col-md-4
-      | {{user.coins}} coins
-    .col2.col-md-4
-      | {{user.win_percentage *100 | number:1}}%
-    .col3.col-md-4
-      | {{user.current_streak}}
 
-h2 Wagers
+h2 General Overview
 .well
-  .row1.row data-ng-repeat="bet in allBets"
-    .col1.col-md-3
-      | Date: {{bet.created_at | date: 'MMM d, y'}}
-    / .col2.col-md-4
-    /   p {{bet.match.home_team}}
-    .col3.col-md-3
-      | Type: {{bet.bet_type}}
-    .col4.col-md-3
-      | Wager: {{bet.wager}}
-    .col5.col-md-3
-      | Result: {{bet.result}}
+  table.table
+    thead
+      tr
+        th Coins
+        th Win percentage
+        th Record
+        th Current Streak
+    tbody
+      tr
+        td
+          | {{user.coins}} coins
+        td
+          | {{user.win_percentage *100 | number:1}}%
+        td
+          | {{user.record}}
+          / require user overall record in api
+        td
+          | {{user.current_streak}}
 
-/ h2 Pending Wagers
-/ h2 Wager History
+h2 Pending Wagers
+.well
+  table.table
+    thead
+      tr
+        th Match date
+        th Teams
+        th Bet type (wager)
+        th Status
+    tbody
+      tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
+        td.bet-date
+          | {{bet.created_at | date: 'MMM d, y'}}
+        td.bet-teams
+          | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+        td
+          | {{bet.bet_type}} ({{bet.wager}})
+        td
+          | {{bet.status}}
+
+h2 Wager History
+.well
+  table.table
+    thead
+      tr
+        th Match date
+        th Teams
+        th Bet type (wager)
+        th Win/Loss (result)
+        th Status
+    tbody
+      tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
+        td.bet-date
+          | {{bet.created_at | date: 'MMM d, y'}}
+        td.bet-teams
+          | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+        td
+          | {{bet.bet_type}} ({{bet.wager}})
+        td
+          | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
+        td
+          | {{bet.status}}
+
+

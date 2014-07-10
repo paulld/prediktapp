@@ -1,12 +1,14 @@
 class CreateBets < ActiveRecord::Migration
   def change
     create_table :bets, id: :uuid do |t|
-      t.string :bet_type
+      
+      t.string  :bet_type
       t.decimal :wager
       t.decimal :odds
-      t.boolean :result
+
+      t.boolean :is_successful
       t.decimal :gain
-      t.string :status
+      t.boolean :is_settled
       
       t.uuid :user_id, index: true
       t.uuid :match_id, index: true
@@ -15,3 +17,5 @@ class CreateBets < ActiveRecord::Migration
     end
   end
 end
+
+

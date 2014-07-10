@@ -6,7 +6,7 @@ child @matches => :matches do
   attributes :id, :home_team, :away_team, :home_team_iso_code, :away_team_iso_code, :starts_at, :ends_at, :venue, :sport, :league_day, :accepts_bets,
     :home_odds, :draw_odds, :away_odds, :over_under_value, :over_odds, :under_odds,
     :home_handicap_value, :away_handicap_value, :home_handicap_odds, :away_handicap_odds,
-    :home_score, :away_score, :created_at, :updated_at
+    :match_status, :home_score, :away_score, :home_draw_away, :created_at, :updated_at
 
   node :links do |match|
     {
