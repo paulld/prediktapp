@@ -2,10 +2,9 @@ h1
   | {{profile.user_name}}'s Profile
 .well
   .row
-<<<<<<< Updated upstream
     .col-md-4
       div
-        img src="{{randomPicture}}" height="200" width="200"
+        img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
       div
         | {{profile.links.followings_as_followers.length}} Followers | 
         | {{profile.links.followings_as_followees.length}} Following
@@ -34,32 +33,6 @@ h1
             tr
               td
                 | {{profile.description}}
-=======
-    .col-md-9
-      .profile-container.row
-        .col-md-5
-          img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
-          | {{profile.links.followings_as_followers.length}} Followers |
-          | {{profile.links.followings_as_followees.length}} Following
-        .col-md-4
-          h2 User Name
-          p 
-          | {{profile.user_name}}
-          h2 Record
-          p 
-          | {{record}}
-          / require user overall record in api
-        .col-md-3
-          h2 Location
-          p 
-          | {{profile.home_town}}, {{profile.home_country}}
-          h2 Website
-          p 
-          | {{profile.website}}
-          h2 Bio
-          p 
-          | {{profile.description}}
->>>>>>> Stashed changes
   
 
 h2 General Overview
