@@ -17,4 +17,5 @@
 //= require bootstrap.min
 //= require lodash
 //= require jquery.noty.packaged
+//= require layout
 //= require angular-application

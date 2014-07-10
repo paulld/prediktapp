@@ -1,0 +1,37 @@
+.row data-ng-controller="PrivateProfileCtrl"
+  h1 Dashboard
+  .well
+    h4
+      | {{profile.user_name | uppercase}}
+    table.table
+      tbody
+        tr
+          td
+            | Coins: {{profile.coins}}
+          td
+            | Win percentage: {{profile.win_percentage *100 | number:1}}%
+        tr
+          td
+            | Record: {{profile.record}}
+            / require profile overall record in api
+          td
+            | Current Streak: {{profile.current_streak}}
+    p
+      | Last bet placed on {{bet.created_at | date: 'MMM d, y h:mm a'}}
+    table.table
+      thead
+        tr
+          th Match date
+          th Teams
+          th Bet type (wager)
+          th Status
+      tbody
+        tr data-ng-repeat="bet in allBets | limit: 1 } "
+          td.bet-date
+            | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+          td.bet-teams
+            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+          td
+            | {{bet.bet_type}} ({{bet.wager}})
+          td
+            | {{bet.status}}

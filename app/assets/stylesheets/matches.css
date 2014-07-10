@@ -67,3 +67,16 @@ img.away_team {
   font-weight: normal;
   margin-top: 6px;
 }
+
+.bet-type, .bet-odds {
+  display: inline-block;
+}
+.bet-type {
+  text-align: center;
+  width: 50%;
+}
+.bet-odds {
+  text-align: center;
+  border-left: 1px solid #fff;
+  width: 50%;
+}

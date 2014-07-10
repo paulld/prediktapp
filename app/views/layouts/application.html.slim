@@ -17,7 +17,7 @@ html
       .navbar.navbar-default.navbar-fixed-top role="navigation"
         .container
           .navbar-header
-            buttonnavbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
@@ -25,7 +25,7 @@ html
             a.navbar-brand href="/" Predikt
           .collapse.navbar-collapse
             ul#header-navlinks.nav.navbar-nav
-              li.active
+              li#home-link.active
                 a#upcoming-link data-ng-href="/#/upcoming-matches" Upcoming
               li
                 a#results-link data-ng-href="/#/completed-matches" Results
@@ -68,13 +68,13 @@ html
       .container
         ul#footer-navlinks.list-inline.footer-nav
           li
-            a#about-link data-ng-href="#about" About
+            a#about-link data-ng-href="/#/about" About
           li
-            a#help-link data-ng-href="#help" Help
+            a#help-link data-ng-href="/#/help" Help
           li
-            a#contact-link data-ng-href="#contact" Contact Us
+            a#contact-link data-ng-href="/#/contact" Contact Us
           li
-            a#terms-link data-ng-href="#terms"Terms of Service
+            a#terms-link data-ng-href="/#/terms"Terms of Service
           li
-            a#privacy-link data-ng-href="#privacy" Privacy Policy
+            a#privacy-link data-ng-href="/#/privacy" Privacy Policy
           li &nbsp;&copy; Predikt. All rights reserved.

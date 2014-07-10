@@ -61,14 +61,14 @@ h2 Pending Wagers
   table.table
     thead
       tr
-        th Match date
+        th Match starts at
         th Teams
         th Bet type (wager)
         th Status
     tbody
       tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
         td.bet-date
-          | {{bet.created_at | date: 'MMM d, y'}}
+          | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
         td.bet-teams
           | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
         td
@@ -89,7 +89,7 @@ h2 Wager History
     tbody
       tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
         td.bet-date
-          | {{bet.created_at | date: 'MMM d, y'}}
+          | {{bet.links.match.starts_at | date: 'MMM d, y'}}
         td.bet-teams
           | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
         td
