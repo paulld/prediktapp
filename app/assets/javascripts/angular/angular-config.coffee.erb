@@ -20,7 +20,7 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/privacy',           { templateUrl: '<%= asset_path("misc/privacy.html") %>'            }
     
     .when '/my-profile',        { templateUrl: '<%= asset_path("index_private_profile.html") %>'   }
-    .when '/profile/:userId',  { templateUrl: '<%= asset_path("index_public_profile.html") %>'    }
+    .when '/profile/:userId',   { templateUrl: '<%= asset_path("index_public_profile.html") %>'    }
 
     .otherwise                  { templateUrl: '404.html'                                          }
 ]

@@ -153,6 +153,8 @@ matches = Match.create([
     away_handicap_value: +0.5,
     home_handicap_odds: 2.08,
     away_handicap_odds: 1.78,
+    match_status: "completed",
+    home_draw_away: "home",
     home_score: 3,
     away_score: 1
   },
@@ -174,6 +176,8 @@ matches = Match.create([
     away_handicap_value: +2.5,
     home_handicap_odds: 1.84,
     away_handicap_odds: 2.0,
+    match_status: "completed",
+    home_draw_away: "draw",
     home_score: 2,
     away_score: 2
   },
@@ -195,6 +199,8 @@ matches = Match.create([
     away_handicap_value: +3.5,
     home_handicap_odds: 1.92,
     away_handicap_odds: 1.88,
+    match_status: "completed",
+    home_draw_away: "away",
     home_score: 0,
     away_score: 1
   },
@@ -216,6 +222,7 @@ matches = Match.create([
     away_handicap_value: +1.5,
     home_handicap_odds: 4.58,
     away_handicap_odds: 1.62,
+    match_status: "pending"
   },
   {
     league: leagues[1],
@@ -235,6 +242,7 @@ matches = Match.create([
     away_handicap_value: +1.5,
     home_handicap_odds: 1.62,
     away_handicap_odds: 4.58,
+    match_status: "pending"
   },
   {
     league: leagues[1],
@@ -254,6 +262,7 @@ matches = Match.create([
     away_handicap_value: +2.5,
     home_handicap_odds: 1.62,
     away_handicap_odds: 4.58,
+    match_status: "pending"
   },
   {
     league: leagues[1],
@@ -273,44 +282,95 @@ matches = Match.create([
     away_handicap_value: +1.5,
     home_handicap_odds: 1.83,
     away_handicap_odds: 4.52,
+    match_status: "pending"
   }
 ])
 
 bets = Bet.create([
   {
     user: users[0],
-    match: matches[1],
-    bet_type: "Home",
+    match: matches[0],
+    bet_type: "home",
     wager: 20,
-    result: true
+    is_successful: true
+  },
+  {
+    user: users[1],
+    match: matches[0],
+    bet_type: "draw",
+    wager: 10,
+    is_successful: false
+  },
+  {
+    user: users[0],
+    match: matches[1],
+    bet_type: "draw",
+    wager: 20,
+    is_successful: true
+  },
+  {
+    user: users[1],
+    match: matches[1],
+    bet_type: "draw",
+    wager: 10,
+    is_successful: true
   },
   {
     user: users[0],
     match: matches[2],
-    bet_type: "Home Handicap",
-    wager: 10,
-    result: false
-  },
-  {
-    user: users[1],
-    match: matches[1],
-    bet_type: "Away",
+    bet_type: "away",
     wager: 20,
-    result: false
+    is_successful: true
   },
   {
     user: users[1],
     match: matches[2],
-    bet_type: "Away Handicap",
+    bet_type: "draw",
     wager: 10,
-    result: true
+    is_successful: false
+  },
+  {
+    user: users[2],
+    match: matches[2],
+    bet_type: "draw",
+    wager: 10,
+    is_successful: false
+  },
+  {
+    user: users[0],
+    match: matches[3],
+    bet_type: "over",
+    wager: 20
   },
   {
     user: users[1],
-    match: matches[2],
-    bet_type: "Away",
-    wager: 20,
-    result: true
+    match: matches[3],
+    bet_type: "under",
+    wager: 10
+  },
+  {
+    user: users[2],
+    match: matches[3],
+    bet_type: "home_handicap",
+    wager: 10
+  },
+  {
+    user: users[1],
+    match: matches[4],
+    bet_type: "away_handicap",
+    wager: 20
+  },
+  {
+    user: users[2],
+    match: matches[4],
+    bet_type: "under",
+    wager: 10
+  },
+  {
+    user: users[3],
+    match: matches[4],
+    bet_type: "home_handicap",
+    wager: 10
   }
 ])
 
