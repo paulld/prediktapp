@@ -7,6 +7,11 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
 
     arrayOfBetIds = $scope.user.links.bets
     
+    # arrayOfBetIds = try
+    #   $scope.user.links.bets
+    # catch
+    #   []
+    
     stringOfBetIds = ''
     $scope.allBets = []
 
