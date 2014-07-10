@@ -1,4 +1,4 @@
-predikt.factory 'Bet', ($http) ->
+predikt.factory 'Bet', ($http, Message) ->
   Bet = 
 
     create: (putData) ->
@@ -14,5 +14,5 @@ predikt.factory 'Bet', ($http) ->
           url: putUrl
           data: putData
         )
-        
-  Bet
+        Message.noty('A bet was placed.', 'success', 700)
+    
