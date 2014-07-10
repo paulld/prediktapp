@@ -1,5 +1,5 @@
 predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams) ->
-  
+
   $http.get('./api/profile/' ).success (userData) ->
     $scope.profile = userData.users[0]
 

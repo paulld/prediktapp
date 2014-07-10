@@ -1,4 +1,4 @@
-predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
+predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams, User) ->
   
   userId = $routeParams.userId
   
@@ -7,10 +7,10 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
 
     arrayOfBetIds = $scope.user.links.bets
     
-    # arrayOfBetIds = try
-    #   $scope.user.links.bets
-    # catch
-    #   []
+    arrayOfBetIds = try
+      $scope.user.links.bets
+    catch
+      []
     
     stringOfBetIds = ''
     $scope.allBets = []
@@ -26,10 +26,23 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams) ->
 
         for bet in $scope.allBets
           bet.status = bet.links.match.match_status
+          
 
+    $scope.profile = null
+    User.getUser().then (result) ->
+      $scope.profile = result.data.users[0]
 
-  # $http.get('./api/matches').success (data) ->
-  #   $scope.matches = data.matches[0]     
+    $scope.follow = (userId) ->
+
+      if $scope.profile
+        alert "now following"
+        console.log $scope.profile.id, "wants to follow", userId
+      else
+        alert "Please log in to follow"   
+
+      
+      # $http.put('./api/users').success (u)      
+   
 
 
   # GENERATE RANDOM PROFILE PICTURE (TEMPORARY):
