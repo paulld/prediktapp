@@ -1,8 +1,8 @@
-li
-  = link_to "Profile", '/#/my-profile'
-li
-  = link_to settings_url
+li role="presentation"
+  a data-ng-href="/#/my-profile" role="menuitem" Profile
+li role="presentation"
+  a data-ng-href=settings_url role="menuitem"
     i.fa.fa-cog.header-icons
-li
+li role="presentation"
   = link_to logout_url, method: :delete
-    i.fa.fa-sign-out.header-icons
+    i.fa.fa-sign-out.header-icons role="menuitem"

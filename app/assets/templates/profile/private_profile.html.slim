@@ -1,104 +1,111 @@
-h1
-  | {{profile.user_name}}'s Profile
-.well
-  .row
-    .col-md-4
-      div
-        img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
-      div
-        | {{profile.links.followings_as_followees.length}} Followers | 
-        | {{profile.links.followings_as_followers.length}} Following
-    .col-md-8
-      .row
-        table.table
-          thead
-            tr
-              th Username
-              th Location
-              th Website
-          tbody
-            tr
-              td
-                | {{profile.user_name}}
-              td
-                | {{profile.home_town}}, {{profile.home_country}}
-              td
-              | {{profile.website}}
-      .row
-        table.table
-          thead
-            tr
-              th Biography
-          tbody
-            tr
-              td
-                | {{profile.description}}
+section#public-profile
+  header
+    h1.sr-only Your Profile
   
+  section#general-information
+    header
+      h2 
+        | {{profile.user_name}}'s Profile
+    .well
+      .row
+        .col-md-4
+          div
+            img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
+          div
+            | {{profile.links.followings_as_followees.length}} Followers | 
+            | {{profile.links.followings_as_followers.length}} Following
+        .col-md-8
+          .row
+            table.table
+              thead
+                tr
+                  th Username
+                  th Location
+                  th Website
+              tbody
+                tr
+                  td
+                    | {{profile.user_name}}
+                  td
+                    | {{profile.home_town}}, {{profile.home_country}}
+                  td
+                  | {{profile.website}}
+          .row
+            table.table
+              thead
+                tr
+                  th Biography
+              tbody
+                tr
+                  td
+                    | {{profile.description}}
+    
+  section#general-information
+    header
+      h2 General Overview
+    .well
+      table.table
+        thead
+          tr
+            th Coins
+            th Win percentage
+            th Record
+            th Current Streak
+        tbody
+          tr
+            td
+              | {{profile.coins}} coins
+            td
+              | {{profile.win_percentage *100 | number:1}}%
+            td
+              | {{profile.record}}
+              / require user overall record in api
+            td
+              | {{profile.current_streak}}
 
-h2 General Overview
-.well
-  table.table
-    thead
-      tr
-        th Coins
-        th Win percentage
-        th Record
-        th Current Streak
-    tbody
-      tr
-        td
-          | {{profile.coins}} coins
-        td
-          | {{profile.win_percentage *100 | number:1}}%
-        td
-          | {{profile.record}}
-          / require user overall record in api
-        td
-          | {{profile.current_streak}}
+  section#pending-wagers data-ng-if="allBets | filter:{ status: 'pending' }"
+    header
+      h2 Pending Wagers
+    .well
+      table.table
+        thead
+          tr
+            th Match starts at
+            th Teams
+            th Bet type (wager)
+            th Status
+        tbody
+          tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
+            td.bet-date
+              | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+            td.bet-teams
+              | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+            td
+              | {{bet.bet_type}} ({{bet.wager}})
+            td
+              | {{bet.status}}
 
-div data-ng-if="allBets | filter:{ status: 'pending' }"
-  h2 Pending Wagers
-  .well
-    table.table
-      thead
-        tr
-          th Match starts at
-          th Teams
-          th Bet type (wager)
-          th Status
-      tbody
-        tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
-          td.bet-date
-            | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
-          td.bet-teams
-            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-          td
-            | {{bet.bet_type}} ({{bet.wager}})
-          td
-            | {{bet.status}}
-
-div data-ng-if="allBets | filter:{ status: 'completed' }"
-  h2 Wager History
-  .well
-    table.table
-      thead
-        tr
-          th Match date
-          th Teams
-          th Bet type (wager)
-          th Win/Loss (result)
-          th Status
-      tbody
-        tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
-          td.bet-date
-            | {{bet.links.match.starts_at | date: 'MMM d, y'}}
-          td.bet-teams
-            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-          td
-            | {{bet.bet_type}} ({{bet.wager}})
-          td
-            | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
-          td
-            | {{bet.status}}
-
-
+  section#pending-wagers data-ng-if="allBets | filter:{ status: 'completed' }"
+    header
+      h2 Wager History
+    .well
+      table.table
+        thead
+          tr
+            th Match date
+            th Teams
+            th Bet type (wager)
+            th Win/Loss (result)
+            th Status
+        tbody
+          tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
+            td.bet-date
+              | {{bet.links.match.starts_at | date: 'MMM d, y'}}
+            td.bet-teams
+              | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+            td
+              | {{bet.bet_type}} ({{bet.wager}})
+            td
+              | {{bet.is_successful}} ({{bet.links.match.home_draw_away}})
+            td
+              | {{bet.status}}
