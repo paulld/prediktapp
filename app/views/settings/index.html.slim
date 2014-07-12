@@ -1,40 +1,39 @@
-.row
-  .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
-    h1 My Settings
-    .row.profile-settings
+section#update-profile
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
+      header
+        h1 My Settings
+      .row.profile-settings
 
-      .col-md-3.col-sm-4.col-xs-5
-        img.img-thumbnail alt="Profile Picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYIx9IQ_1RY0ml1TGZQ5u-cMv_JsylAWzmzG2nefKnYTC2YhLx" width="140px" height="140px"
-      .col-md-9.col-sm-8.col-xs-7
-        dl.dl-horizontal
-          dt First Name
-          dd
-            - if current_user.first_name?
-              = current_user.first_name
-            - else
-              span.undefined-field undefined
-          dt Last Name
-          dd
-            - if current_user.last_name?
-              = current_user.last_name
-            - else
-              span.undefined-field undefined
-          dt Username
-          dd
-            - if current_user.user_name?
-              = current_user.user_name
-            - else
-              span.undefined-field undefined
-          dt Email
-          dd
-            - if current_user.email?
-              = current_user.email
-            - else
-              span.undefined-field undefined
-    .row
-      .col-md-12
-        = link_to "Edit my details", settings_edit_url, class: 'btn btn-primary edit-button'
-        = link_to "Change my password", settings_edit_password_url, class: 'btn btn-primary edit-button'
-
-
-          
+        .col-md-3.col-sm-4.col-xs-5
+          img.img-thumbnail alt="Profile Picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYIx9IQ_1RY0ml1TGZQ5u-cMv_JsylAWzmzG2nefKnYTC2YhLx" width="140px" height="140px"
+        .col-md-9.col-sm-8.col-xs-7
+          dl.dl-horizontal
+            dt First Name
+            dd
+              - if current_user.first_name?
+                = current_user.first_name
+              - else
+                span.undefined-field undefined
+            dt Last Name
+            dd
+              - if current_user.last_name?
+                = current_user.last_name
+              - else
+                span.undefined-field undefined
+            dt Username
+            dd
+              - if current_user.user_name?
+                = current_user.user_name
+              - else
+                span.undefined-field undefined
+            dt Email
+            dd
+              - if current_user.email?
+                = current_user.email
+              - else
+                span.undefined-field undefined
+      .row
+        .col-md-12
+          = link_to "Edit my details", settings_edit_url, class: 'btn btn-primary edit-button'
+          = link_to "Change my password", settings_edit_password_url, class: 'btn btn-primary edit-button'

@@ -1,5 +1,5 @@
 doctype html
-html
+html data-ng-app="predikt"
   head
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
@@ -11,9 +11,9 @@ html
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  body data-ng-app="predikt"
+  body
 
-    header#header role="navigation"
+    header#header role="banner"
       .navbar.navbar-default.navbar-fixed-top role="navigation"
         .container
           .navbar-header
@@ -24,14 +24,14 @@ html
               span.icon-bar
             a.navbar-brand href="/" Predikt
           .collapse.navbar-collapse
-            ul#header-navlinks.nav.navbar-nav
-              li#home-link.active
-                a#upcoming-link data-ng-href="/#/upcoming-matches" Upcoming
-              li
-                a#results-link data-ng-href="/#/completed-matches" Results
-              li
-                a#leaderboard-link data-ng-href="/#/leaderboard" Leaderboard
-            ul#login-buttons.nav.navbar-nav.navbar-right
+            ul#header-navlinks.nav.navbar-nav role="menubar"
+              li#home-link.active role="presentation"
+                a#upcoming-link data-ng-href="/#/upcoming-matches" role="menuitem" Upcoming
+              li role="presentation"
+                a#results-link data-ng-href="/#/completed-matches" role="menuitem" Results
+              li role="presentation"
+                a#leaderboard-link data-ng-href="/#/leaderboard" role="menuitem" Leaderboard
+            ul#login-buttons.nav.navbar-nav.navbar-right role="menubar"
               = render partial: current_user ? 'layouts/logged_in_partial' : 'layouts/logged_out_partial'
 
 

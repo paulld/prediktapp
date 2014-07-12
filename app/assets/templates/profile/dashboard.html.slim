@@ -1,5 +1,6 @@
-.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profile"
-  h1 Dashboard - {{profile.user_name | uppercase}}
+section#dashboard.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profile"
+  header
+    h1 Dashboard - {{profile.user_name | uppercase}}
   .well
     table.table.dashboard-bets
       thead
