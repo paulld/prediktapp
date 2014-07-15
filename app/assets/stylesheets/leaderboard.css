@@ -1,8 +1,7 @@
 .leaderboard-list {
   background-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 8px;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin: 14px;
   padding: 7px 18px 3px 18px;
 }
 .leaderboard-heading {
@@ -30,4 +29,10 @@
 }
 .pagination {
   margin: 0;
+}
+.leaderboard-title {
+  margin: 19px 14px 15px 15px;
+}
+.leaderboard-right-title {
+  margin: 19px 0 0 15px;
 }

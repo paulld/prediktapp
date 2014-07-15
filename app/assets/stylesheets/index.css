@@ -3,7 +3,7 @@ html {
   position: relative;
 }
 body {
-  background: url(http://www.elcuatro.net/wp-content/uploads/2014/05/3.jpg) no-repeat center center fixed;
+  background: url("pokerchip.jpg") no-repeat center center fixed;
   color: white;
 }
 h1 {
@@ -11,7 +11,7 @@ h1 {
   font-size: 25px;
 }
 .main.container {
-  padding: 100px 15px;
+  padding: 80px 15px;
 }
 /*.header-icons{
   font-size: 18px;
@@ -19,17 +19,24 @@ h1 {
 #footer {
   background-color: hsla(0, 0%, 0%, 0.8);
   bottom: 0;
-  line-height: 4em;
+  line-height: 2em;
   position: absolute;
   width: 100%;
 }
 #footer > .container {
-  padding: 0 20px;
+  padding: 0 20px 4px 0;
   text-align: right;
 }
 ul.footer-nav {
   font-size: 15px;
   margin: 20px 0 10px 0;
+}
+ul.footer-nav > li {
+  margin-left: 6px;
+}
+ul.footer-nav > li > a {
+  color: #e7e7e7;
+  font-weight: 200;
 }
 .well {
   background-color: hsla(0, 0%, 0%, 0.5);
@@ -53,7 +60,7 @@ ul.footer-nav {
 .navbar-brand {
   font-size: 3em;
   font-weight: bold;
-  line-height: 65px;
+  line-height: 45px;
   text-transform: uppercase;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
@@ -68,5 +75,5 @@ ul.footer-nav {
   text-transform: uppercase;
 }
 .collapse.navbar-collapse {
-  padding: 27px;
+  padding: 13px;
 }

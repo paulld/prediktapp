@@ -2,12 +2,13 @@
   /*display: block;*/
   background-color: #fff;
   background-image: none;
+  border-radius: 5px;
   border-width: 0 0 2px 0;
   color: #555;
   font-size: 14px;
   height: 34px;
   line-height: 1.42857143;
-  padding: 6px 12px;
+  padding: 5px 10px;
   width: 100%;
 }
 .input-field:focus {
@@ -22,6 +23,7 @@
 }
 .input-field:-ms-input-placeholder {
   color: #999;
+
 }
 .input-field::-webkit-input-placeholder {
   color: #999;
@@ -43,16 +45,19 @@
   margin-right: 0;
 }
 .login-form-tab {
-  background-color: #E8E7E8;
-  border: 1px solid #ddd;
-  border-top-style: hidden;
-  margin: 0;
-  padding: 20px;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  border-color: transparent;
+  border-radius: 8px;
+  height: 500px;
+  margin: 10px 105px 10px 105px;
+  padding: 30px 0 70px 30px;
+  position: relative;
+  right: 395px;
 }
 .login-form-tab > form > fieldset > legend {
   font-size: 20px;
   margin-bottom: 30px;
-  padding-left: 12px;
+  color: #e7e7e7;
 }
 .login-form-tab > form > fieldset > div > input.btn {
   margin-left: 12px;
@@ -127,4 +132,16 @@
 }
 .log-button {
   padding: 0;
+}
+#submit-button {
+  height: 35px;
+  width: 284px;
+  margin: -1px 0 0 0;
+}
+.nav-tabs>li {
+  background-color: hsla(0, 0%, 0%, 0.5);
+}
+.nav-tabs>li.active>a {
+  background-color: hsla(0, 0%, 0%, 0.5);
+  color: #e7e7e7;
 }
