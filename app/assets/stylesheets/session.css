@@ -1,15 +1,15 @@
 .input-field {
   /*display: block;*/
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
   background-color: #fff;
   background-image: none;
-  border-width: 0 0 2px 0
- 
+  border-radius: 5px;
+  border-width: 0 0 2px 0;
+  color: #555;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857143;
+  padding: 5px 10px;
+  width: 100%;
 }
 .input-field:focus {
   border-color: #66afe9;
@@ -23,6 +23,7 @@
 }
 .input-field:-ms-input-placeholder {
   color: #999;
+
 }
 .input-field::-webkit-input-placeholder {
   color: #999;
@@ -33,28 +34,30 @@
 .form-group > .field_with_errors {
   display: inline;
 }
-
 .login-form-selector {
   margin: 20px 0 0;
 }
 .login-form-selector > ul > li {
-  width: 33.333333%;
   text-align: center;
+  width: 33.333333%;
 }
 .login-form-selector > ul > li > a {
   margin-right: 0;
 }
 .login-form-tab {
-  margin: 0;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-top-style: hidden;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  border-color: transparent;
+  border-radius: 8px;
+  height: 500px;
+  margin: 10px 105px 10px 105px;
+  padding: 30px 0 70px 30px;
+  position: relative;
+  right: 395px;
 }
-
 .login-form-tab > form > fieldset > legend {
-  padding-left: 12px;
-  margin-bottom: 30px;
   font-size: 20px;
+  margin-bottom: 30px;
+  color: #e7e7e7;
 }
 .login-form-tab > form > fieldset > div > input.btn {
   margin-left: 12px;
@@ -62,52 +65,42 @@
   min-width: 80px;
 }
 .confirm-registration {
-  margin-top: 61px;
   border-top-style: solid;
+  margin-top: 61px;
 }
-
 .alert-success {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
 }
-
 .alert-message {
-  padding: 10px;
-  margin-bottom: 20px;
-  /*border: 1px solid #d6e9c6;*/
   border-radius: 4px;
-  font-weight: bold;
   font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px;
   text-align: center;
+  /*border: 1px solid #d6e9c6;*/
 }
 .alert-message-login {
   color: #3c763d;
 }
 .alert-message-logout {
-  color: Red;
+  color: red;
 }
 .welcome {
   text-align: center;
 }
-.navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
-}
-#footer {
-  background-color: #f5f5f5;
-}
-
 .undefined-field {
   color: #999;
   font-style: italic;
 }
 .profile-settings {
-  padding: 14px;
-  margin: 20px 0 40px;
   background-color: hsla(240,10.3%,99.5%,1);
   border: 1px solid #e1e1e8;
   border-radius: 4px;
+  margin: 20px 0 40px;
+  padding: 14px;
 }
 .cancel-button {
   margin-left: 12px;
@@ -119,12 +112,12 @@
 }
 
 .password-match-ok {
-  padding: 20px 3px;
   color: green;
+  padding: 20px 3px;
 }
 .password-match-no {
-  padding: 20px 3px;
   color: red;
+  padding: 20px 3px;
 }
 .progress {
   margin: 0;
@@ -139,4 +132,16 @@
 }
 .log-button {
   padding: 0;
+}
+#submit-button {
+  height: 35px;
+  width: 284px;
+  margin: -1px 0 0 0;
+}
+.nav-tabs>li {
+  background-color: hsla(0, 0%, 0%, 0.5);
+}
+.nav-tabs>li.active>a {
+  background-color: hsla(0, 0%, 0%, 0.5);
+  color: #e7e7e7;
 }
