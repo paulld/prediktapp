@@ -1,7 +1,8 @@
-predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams) ->
+predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams, User) ->
 
-  $http.get('./api/profile/' ).success (userData) ->
-    $scope.profile = userData.users[0]
+  $scope.profile = null
+  User.getCurrentUser().then (result) ->
+    $scope.profile = result.data.users[0]
 
     $http.get('./api/users/' + $scope.profile.id + '/bets').success (betData) ->
       $scope.bets = betData.bets
