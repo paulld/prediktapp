@@ -1,9 +1,8 @@
 .dashboard-username h2 {
   font-size: 20px;
-  text-align: center;
   margin-top: 0;
+  text-align: center;
 }
-
 .dashboard-bets {
   font-size: 11px;
   margin-bottom: 10px;

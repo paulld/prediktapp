@@ -26,23 +26,21 @@
   font-weight: normal;
 }
 img.home_team {
-  width: 30px;
   height: 22px;
   margin: 0 180px 0 10px;
+  width: 30px;
 }
 img.away_team {
-  width: 30px;
   height: 22px;
   margin: 0 10px 0 180px;
+  width: 30px;
 }
-
 .game-information {
   font-size: 13px;
   font-weight: bold;
   padding: 2px;
   vertical-align: middle;
 }
-
 .country-flag, .country-flag > div {
   display: inline-block;
   margin: 0;
@@ -51,20 +49,25 @@ img.away_team {
   margin-bottom: 5px;
 }
 .teams-info {
-  text-align: center;
   margin-top: 6px;
+  text-align: center;
 }
 .score {
+  color: #DB082E;
   margin: 0 10px;
-  color: red;
+}
+.badge.handicap {
+  margin: 7px;
+}
+.badge.margin-left-27 {
+  margin-top: 9px;
 }
 .match-date {
-  text-align: center;
-  color: #555;
+  color: #e1e1e8;
   font-weight: normal;
   margin-top: 6px;
+  text-align: center;
 }
-
 .bet-type, .bet-odds {
   display: inline-block;
 }
@@ -73,10 +76,22 @@ img.away_team {
   width: 50%;
 }
 .bet-odds {
-  text-align: center;
   border-left: 1px solid #fff;
+  text-align: center;
   width: 50%;
 }
-#frame {
-  background-color: #434f7b;
+.btn-primary {
+  background-color: #547788;
+  border-color: #547788;
+  margin: 4px;
+}
+.btn-success {
+  background-color: #5F8869;
+  border-color: #5F8869;
+  margin: 4px;
+}
+.btn-warning {
+  background-color: #FF6E68;
+  border-color: #FF6E68;
+  margin: 4px;
 }
