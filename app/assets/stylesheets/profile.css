@@ -27,8 +27,8 @@
   color: #777;
   font-weight: bold;
   position: fixed;
-  right: 21%;  /* TODO: Add query for smaller screens */
-  top: 15px;
+  right: 26%;  /* TODO: Add query for smaller screens */
+  top: 27px;
   z-index: 1200;
 }
 .bet-date {

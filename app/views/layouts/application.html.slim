@@ -25,7 +25,7 @@ html data-ng-app="predikt"
             a.navbar-brand href="/" Predikt
           .collapse.navbar-collapse
             ul#header-navlinks.nav.navbar-nav role="menubar"
-              li#home-link.active role="presentation"
+              li role="presentation"
                 a#upcoming-link data-ng-href="/#/upcoming-matches" role="menuitem" Upcoming
               li role="presentation"
                 a#results-link data-ng-href="/#/completed-matches" role="menuitem" Results
@@ -33,7 +33,6 @@ html data-ng-app="predikt"
                 a#leaderboard-link data-ng-href="/#/leaderboard" role="menuitem" Leaderboard
             ul#login-buttons.nav.navbar-nav.navbar-right role="menubar"
               = render partial: current_user ? 'layouts/logged_in_partial' : 'layouts/logged_out_partial'
-
 
 
     main#main.main.container role="main"

@@ -1,6 +1,6 @@
 $ ->
   unsetActive = () ->
-    $('#header-navlinks').children().removeClass('active')
+    $('#header-navlinks, #login-buttons').children().removeClass('active')
 
   setActive = (lnk) ->
     lnk = $(lnk)
@@ -11,10 +11,10 @@ $ ->
     setActive(@)
 
   $('.navbar-brand').on 'click', (e) ->
-    setActive('#home-link')
-
-  $('#login-buttons li').on 'click', (e) ->
     unsetActive()
+
+  $('#profile-link').on 'click', (e) ->
+    setActive(@)
 
   $('#footer-navlinks li').on 'click', (e) ->
     unsetActive()
