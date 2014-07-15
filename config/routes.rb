@@ -28,6 +28,8 @@ Prediktapp::Application.routes.draw do
 
     get 'rest'                           => 'rest#index',                         as: :rest
 
+    get 'leaderboard'                    => 'leaderboard#index',                  as: :leaderboard
+
     scope :users do
       get    ''                          => 'users#index',                        as: :users
       get    ':ids'                      => 'users#index',                        as: :user
