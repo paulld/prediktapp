@@ -21,7 +21,7 @@ section#dashboard.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profil
           td
             | {{profile.current_streak}}
     
-    div data-ng-if="allBets"
+    div data-ng-if="bets"
       table.table.dashboard-bets
         thead
           tr
@@ -31,7 +31,7 @@ section#dashboard.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profil
             th wager
             th Status
         tbody
-          tr data-ng-repeat="bet in allBets | limitTo: 5"
+          tr data-ng-repeat="bet in bets | limitTo: 5"
             td.dashboard-bet-date
               | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
             td.bet-teams

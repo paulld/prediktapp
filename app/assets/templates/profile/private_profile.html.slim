@@ -63,7 +63,29 @@ section#public-profile
             td
               | {{profile.current_streak}}
 
-  section#pending-wagers data-ng-if="allBets | filter:{ status: 'pending' }"
+  section#pending-wagers data-ng-if="bets | filter:{ status: 'ongoing' }"
+    header
+      h2 Live Wagers
+    .well
+      table.table
+        thead
+          tr
+            th Match starts at
+            th Teams
+            th Bet type (wager)
+            th Status
+        tbody
+          tr data-ng-repeat="bet in bets | filter:{ status: 'pending' } "
+            td.bet-date
+              | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+            td.bet-teams
+              | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+            td
+              | {{bet.bet_type}} ({{bet.wager}})
+            td
+              | {{bet.status}}
+              
+  section#pending-wagers data-ng-if="bets | filter:{ status: 'pending' }"
     header
       h2 Pending Wagers
     .well
@@ -75,7 +97,7 @@ section#public-profile
             th Bet type (wager)
             th Status
         tbody
-          tr data-ng-repeat="bet in allBets | filter:{ status: 'pending' } "
+          tr data-ng-repeat="bet in bets | filter:{ status: 'pending' } "
             td.bet-date
               | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
             td.bet-teams
@@ -85,7 +107,7 @@ section#public-profile
             td
               | {{bet.status}}
 
-  section#pending-wagers data-ng-if="allBets | filter:{ status: 'completed' }"
+  section#pending-wagers data-ng-if="bets | filter:{ status: 'completed' }"
     header
       h2 Wager History
     .well
@@ -98,7 +120,7 @@ section#public-profile
             th Win/Loss (result)
             th Status
         tbody
-          tr data-ng-repeat="bet in allBets | filter:{ status: 'completed' } "
+          tr data-ng-repeat="bet in bets | filter:{ status: 'completed' } "
             td.bet-date
               | {{bet.links.match.starts_at | date: 'MMM d, y'}}
             td.bet-teams

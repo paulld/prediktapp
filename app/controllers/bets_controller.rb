@@ -1,4 +1,5 @@
 class BetsController < RestController
+  before_action :get_parent, only: [ :index ]
 
   def index
     # Retrieve the items (e.g., articles)
@@ -20,6 +21,14 @@ class BetsController < RestController
 
 
   protected
+
+  def get_parent
+    @parent = if params[:match_id]
+      Match.find(params[:match_id])
+    elsif params[:user_id]
+      User.find(params[:user_id])
+    end
+  end
 
   def configure_controller
     config[:display] = [ :bet_type, :wager, :odds, :is_successful, :gain, :is_settled ]       # Fields to (optionally) include in the JSON
