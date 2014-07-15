@@ -6,7 +6,7 @@ predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet, Message) ->
     $scope.matches = data.matches
     
     $scope.profile = null
-    User.getUser().then (result) ->
+    User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
 
     $scope.clickToBet = (matchId, betType, odds, wager) ->

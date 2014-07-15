@@ -172,7 +172,7 @@ class RestController < ApplicationController
 
   def get_query(key)
     # Create the cursor for the query
-    qry = get_class
+    qry = @parent ? @parent.send(params[:controller]) : get_class
     qry = qry.includes(@includes)
     qry = qry.unscoped.order(@sort) if @sort
     qry = qry.limit(params[:recent].to_i) if params[:recent]

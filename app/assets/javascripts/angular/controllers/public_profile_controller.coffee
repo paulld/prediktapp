@@ -5,47 +5,27 @@ predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams, User, Mess
   $http.get('./api/users/' + userId ).success (userData) ->
     $scope.user = userData.users[0]
 
-    arrayOfBetIds = $scope.user.links.bets
-    
-    arrayOfBetIds = try
-      $scope.user.links.bets
-    catch
-      []
-    
-    stringOfBetIds = ''
-    $scope.allBets = []
+    $http.get('./api/users/' + userId + '/bets').success (betData) ->
+      $scope.bets = betData.bets
+      # $scope.bets = if betData.bets.empty then [] else betData.bets
 
-    if arrayOfBetIds.length > 0
-      stringOfBetIds = arrayOfBetIds[0]
-      if arrayOfBetIds.length > 1
-        for i in [1...arrayOfBetIds.length]
-          stringOfBetIds = "#{stringOfBetIds},#{arrayOfBetIds[i]}"
-
-      $http.get('./api/bets/' + stringOfBetIds ).success (betData) ->
-        $scope.allBets = betData.bets
-
-        for bet in $scope.allBets
-          bet.status = bet.links.match.match_status
+      for bet in $scope.bets
+        bet.status = bet.links.match.match_status
+        # bet.starts_at = bet.links.match.match_starts_at
+        # bet.ends_at = bet.links.match.match_ends_at
           
 
     $scope.profile = null
-    User.getUser().then (result) ->
+    User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
 
     $scope.follow = (userId) ->
-
       if $scope.profile
-        console.log $scope.profile.id, "wants to follow", userId
-        User.follow($scope.profile.id, userId)
-        # TODO: PUT to create following
+        User.createFollow($scope.profile.id, userId, $scope.user.user_name)
       else
         Message.noty('Please log in to follow.', 'error', 700)
 
-      
-      # $http.put('./api/users').success (u)      
-   
 
-
-  # GENERATE RANDOM PROFILE PICTURE (TEMPORARY):
-    $http.get('http://api.randomuser.me/' ).success (randomUser) ->
-      $scope.randomPicture = randomUser.results[0].user.picture
+  # # GENERATE RANDOM PROFILE PICTURE (TEMPORARY):
+  #   $http.get('http://api.randomuser.me/' ).success (randomUser) ->
+  #     $scope.randomPicture = randomUser.results[0].user.picture
