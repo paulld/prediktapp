@@ -175,6 +175,7 @@ class RestController < ApplicationController
     qry = get_class
     qry = qry.includes(@includes)
     qry = qry.unscoped.order(@sort) if @sort
+    qry = qry.limit(params[:recent].to_i) if params[:recent]
     qry = qry.select(@fields[key]) if @fields && @fields[key]
     qry = qry.where(id: @ids) if @ids
     qry

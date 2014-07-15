@@ -28,6 +28,30 @@ Prediktapp::Application.routes.draw do
 
     get 'rest'          => 'rest#index',                          as: :rest
 
+    scope :users do
+      get    ''         => 'users#index',                         as: :users
+      get    ':ids'     => 'users#index',                         as: :user
+      put    ':id'      => 'users#create_or_replace'
+      patch  ':id'      => 'users#update'
+      delete ':id'      => 'users#destroy'
+    end
+
+    scope :profile do
+      get    ''         => 'profile#show',                        as: :profile
+    end
+
+    scope :matches do
+      get    'past'     => 'matches#past',                        as: :past_matches
+      get    'current'  => 'matches#current',                     as: :current_matches
+      get    'future'   => 'matches#future',                      as: :future_matches
+
+      get    ''         => 'matches#index',                       as: :matches
+      get    ':ids'     => 'matches#index',                       as: :match
+      put    ':id'      => 'matches#create_or_replace'
+      patch  ':id'      => 'matches#update'
+      delete ':id'      => 'matches#destroy'
+    end
+
     scope :bets do
       get    ''         => 'bets#index',                          as: :bets
       get    ':ids'     => 'bets#index',                          as: :bet
@@ -50,14 +74,6 @@ Prediktapp::Application.routes.draw do
       put    ':id'      => 'leagues#create_or_replace'
       patch  ':id'      => 'leagues#update'
       delete ':id'      => 'leagues#destroy'
-    end
-
-    scope :matches do
-      get    ''         => 'matches#index',                       as: :matches
-      get    ':ids'     => 'matches#index',                       as: :match
-      put    ':id'      => 'matches#create_or_replace'
-      patch  ':id'      => 'matches#update'
-      delete ':id'      => 'matches#destroy'
     end
 
     scope :match_comments do
@@ -98,19 +114,7 @@ Prediktapp::Application.routes.draw do
       put    ':id'      => 'coin_transactions#create_or_replace'
       patch  ':id'      => 'coin_transactions#update'
       delete ':id'      => 'coin_transactions#destroy'
-    end
-    
-    scope :users do
-      get    ''         => 'users#index',                         as: :users
-      get    ':ids'     => 'users#index',                         as: :user
-      put    ':id'      => 'users#create_or_replace'
-      patch  ':id'      => 'users#update'
-      delete ':id'      => 'users#destroy'
-    end
-
-    scope :profile do
-      get    ''         => 'profile#show',                        as: :profile
-    end  
+    end 
 
   end
 end
