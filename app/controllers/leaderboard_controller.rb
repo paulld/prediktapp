@@ -4,20 +4,20 @@ class LeaderboardController < ApplicationController
     # sql = "select u.id, u.user_name as name, wl.wins, wl.losses from users as u left join wins_losses as wl on u.id = wl.id;"
     # sql = "SELECT \"users\".* FROM \"users\" ORDER BY created_at ASC"
 
-    sql = %{
-              SELECT u.id, u.email, u.user_name, u.coins, u.win_percentage, u.current_streak,
-              wl.tries, wl.wins, wl.losses 
-              FROM users AS u LEFT JOIN wins_losses AS wl
-              ON u.id = wl.id;
-            }.squish
-
     # sql = %{
     #           SELECT u.id, u.email, u.user_name, u.coins, u.win_percentage, u.current_streak,
-    #           wl.tries, wl.wins, wl.losses,
-    #           ff.followers, ff.followees 
-    #           FROM users AS u LEFT JOIN wins_losses AS wl LEFT JOIN followers_followees AS ff
-    #           ON u.id = wl.id = ff.id;
+    #           wl.tries, wl.wins, wl.losses 
+    #           FROM users AS u LEFT JOIN wins_losses AS wl
+    #           ON u.id = wl.id;
     #         }.squish
+
+    sql = %{
+              SELECT u.id, u.email, u.user_name, u.coins, u.win_percentage, u.current_streak,
+              wl.tries, wl.wins, wl.losses,
+              ff.followers, ff.followees 
+              FROM users AS u LEFT JOIN wins_losses AS wl
+              ON u.id = wl.id LEFT JOIN followers_followees AS ff ON u.id = ff.id;
+            }.squish
 
     @bets = ActiveRecord::Base.connection.execute(sql).to_a
 
