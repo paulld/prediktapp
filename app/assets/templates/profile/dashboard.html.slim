@@ -25,15 +25,12 @@ section#dashboard.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profil
       table.table.dashboard-bets
         thead
           tr
-            th Match date
             th Teams
             th Bet
             th wager
             th Status
         tbody
           tr data-ng-repeat="bet in bets | limitTo: 5"
-            td.dashboard-bet-date
-              | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
             td.bet-teams
               | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
             td

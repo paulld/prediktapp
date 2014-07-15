@@ -1,15 +1,15 @@
 predikt.factory 'User', ($http, Message) ->
   User = 
 
-    getUser: () ->
+    getCurrentUser: () ->
       $http.get('./api/profile/' ).success (userData) ->
         userData
 
-    currentUserId: ->
-      $http.get('./api/profile/' ).success (userData) ->
-        userData.users[0].id
+    # currentUserId: ->
+    #   $http.get('./api/profile/' ).success (userData) ->
+    #     userData.users[0].id
 
-    follow: (followerId, followeeId) ->
+    createFollow: (followerId, followeeId, followeeUserame) ->
       $http.get('./api/uuids').success (uuid) ->
         newUuid = uuid.uuids[0]
         
@@ -18,23 +18,12 @@ predikt.factory 'User', ($http, Message) ->
         followData = {
           follower_id: followerId
           followee_id: followeeId
-          # links: {
-          #   user: {
-          #     id: profileId
-          #   }
-          #   match: {
-          #     id: matchId
-          #   }
-          # }
         }
-
-
-        console.log 'data', followData
-        console.log 'url', followUrl
 
         $http(
           method: "PUT"
           url: followUrl
           data: followData
-        )
-        Message.noty('Now following', 'success', 500)
+        ).success (followData) ->
+          if followData.followings[0].followee_id is followeeId && followData.followings[0].follower_id is followerId
+            Message.noty("Your are now following #{followeeUserame}", 'success', 500)
