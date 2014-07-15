@@ -29,6 +29,8 @@ Prediktapp::Application.routes.draw do
     get 'rest'                           => 'rest#index',                         as: :rest
 
     get 'leaderboard'                    => 'leaderboard#index',                  as: :leaderboard
+    get 'leaderboard/win_loss'           => 'leaderboard#win_loss'
+    get 'leaderboard/follows'            => 'leaderboard#follows'
 
     scope :users do
       get    ''                          => 'users#index',                        as: :users
