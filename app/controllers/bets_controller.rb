@@ -5,24 +5,6 @@ class BetsController < RestController
     # The query is lazy loaded
     cursor = get_query(get_key)
 
-    
-    # cursor = cursor.where(links.match.match_status = params[:match_status]) if params[:match_status]
-    
-
-    # sql = %{
-    #   select users.id, users.user_name, coalesce(s.wins, 0) as wins, 
-    #   coalesce(t.losses, 0) as losses FROM users left join 
-    #   (select bets.user_id, count(bets.id) as wins from bets 
-    #   where bets.is_successful = TRUE group by bets.user_id) as s 
-    #   on users.id = s.user_id left join (select bets.user_id, 
-    #   count(bets.id) as losses from bets where bets.is_successful = FALSE 
-    #   group by bets.user_id) AS t on users.id = t.user_id
-    # }.squish
-
-    # @bets = ActiveRecord::Base.connection.execute(sql).to_a
-
-    
-    cursor = cursor.limit(params[:recent].to_i) if params[:recent]
     # Set an instance variable (e.g., @articles) to the cursor returned
     instance_variable_set( get_name, cursor )
 

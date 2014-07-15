@@ -1,6 +1,6 @@
 predikt.controller 'UpcomingMatchesCtrl', ($scope, $http, User, Bet, Message) ->
   $http.get(
-    './api/matches?game_started=false&sort=starts_at&recent=10'
+    './api/matches/future?sort=starts_at&recent=10'
   ).success (data) ->
     
     $scope.matches = data.matches
