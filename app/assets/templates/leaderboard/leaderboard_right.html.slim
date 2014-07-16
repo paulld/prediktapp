@@ -13,11 +13,11 @@ section#leaderboard.row data-ng-controller="LeaderboardCtrl"
             | Win % 
             i.fa.fa-sort
         li
-          a href="" data-ng-click="predicate = 'numberOfBets'; reverse=!reverse"
+          a href="" data-ng-click="predicate = 'tries'; reverse=!reverse"
             | Bets 
             i.fa.fa-sort
         li
-          a href="" data-ng-click="predicate = 'links.followings_as_followers.length'; reverse=!reverse"
+          a href="" data-ng-click="predicate = 'followers'; reverse=!reverse"
             | Followers 
             i.fa.fa-sort
     
@@ -47,13 +47,13 @@ section#leaderboard.row data-ng-controller="LeaderboardCtrl"
             br coins
           td.leaderboard-percent
             strong 
-              | {{user.win_percentage *100 | number:0}}%
+              | {{user.win_percent}}%
             br wins
           td.leaderboard-number-bets
             strong
-              | {{user.numberOfBets}}
+              | {{user.tries}}
             br bets
           td.leaderboard-followers
             strong
-              | {{user.links.followings_as_followers.length}} 
+              | {{user.followers}} 
             i.fa.fa-user

@@ -12,7 +12,7 @@ section#dashboard.row data-ng-controller="PrivateProfileCtrl" data-ng-if="profil
       tbody
         tr
           td
-            | {{profile.coins}}
+            | {{profile.coins | number:0}}
           td
             | {{profile.win_percentage *100 | number:1}}%
           td
