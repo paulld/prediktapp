@@ -13,10 +13,10 @@ section#leaderboard-right.row data-ng-controller="LeaderboardCtrl"
             a href="" data-ng-click="predicate = 'user_name'; reverse=!reverse"
               | Username 
               i.fa.fa-sort
-          th data-ng-click="predicate = 'links.followings_as_followers.length'; reverse=!reverse"
-            Number of Followers 
+          th data-ng-click="predicate = 'followers'; reverse=!reverse"
+            | Number of Followers 
             i.fa.fa-sort
-          th data-ng-click="predicate = 'links.followings_as_followees.length'; reverse=!reverse"
+          th data-ng-click="predicate = 'followees'; reverse=!reverse"
             | Number of Followees 
             i.fa.fa-sort
           th
@@ -51,20 +51,20 @@ section#leaderboard-right.row data-ng-controller="LeaderboardCtrl"
             a href="/#/profile/{{user.id}}"
               | {{user.user_name}}
           td.leaderboard-followers
-            | {{user.links.followings_as_followers.length}} 
+            | {{user.followers *1}} 
             i.fa.fa-user
           td.leaderboard-followers
-            | {{user.links.followings_as_followees.length}} 
+            | {{user.followees *1}} 
             i.fa.fa-user
           td.leaderboard-coins
             | {{user.coins | number:0}} coins
           td.leaderboard-percent
-            | {{user.win_percentage *100 | number:0}}% wins
+            | {{user.win_percent}}% wins
           td.leaderboard-number-bets
-            | {{user.links.bets.length}} bets
+            | {{user.tries * 1}} bets
           td.leaderboard-number-bets
-            | {{user.numberOfWins}} wins
+            | {{user.wins * 1}} wins
           td.leaderboard-number-bets
-            | {{user.numberOfLoss}} loss
+            | {{user.losses * 1}} loss
           td.leaderboard-number-bets
             | {{user.current_streak}} wins
