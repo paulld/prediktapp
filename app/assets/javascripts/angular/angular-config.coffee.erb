@@ -8,7 +8,7 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/upcoming-matches',  { templateUrl: '<%= asset_path("index_upcoming_matches.html") %>'  }
 
     .when '/completed-matches', { templateUrl: '<%= asset_path("index_completed_matches.html") %>' }
-
+    .when '/match/:matchId',  { templateUrl: '<%= asset_path("index_single_match.html") %>' }
     .when '/leaderboard',
       templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
       controller: 'LeaderboardCtrl'
@@ -38,6 +38,12 @@ predikt.directive 'completedMatches', ->
     templateUrl: '<%= asset_path("matches/completed_matches.html") %>'
     controller: 'CompletedMatchesCtrl'
   }
+predikt.directive 'singleMatch', ->
+  { 
+    restrict: 'E'
+    templateUrl: '<%= asset_path("matches/single_match.html") %>'
+    controller: 'SingleMatchCtrl'
+  }
 predikt.directive 'leaderboardRight', ->
   {
     restrict: 'E'
@@ -65,3 +71,4 @@ predikt.directive 'myDashboard', ->
 
 predikt.directive 'betsList', ->
   { restrict: 'E', templateUrl: '<%= asset_path("profile/bets_list.html") %>' }
+
