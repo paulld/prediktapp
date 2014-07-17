@@ -1,4 +1,4 @@
-predikt.controller 'PublicProfileCtrl', ($scope, $http, $routeParams, User, Message) ->
+predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Message) ->
   
   userId = $routeParams.userId
   

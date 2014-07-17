@@ -11,7 +11,7 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/upcoming/:matchId',  { templateUrl: '<%= asset_path("index_upcoming_match_item.html") %>' }
     .when '/leaderboard',
       templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
-      controller: 'LeaderboardCtrl'
+      controller: 'leaderboardCtrl'
 
     .when '/about',             { templateUrl: '<%= asset_path("misc/about.html") %>'              }
     .when '/help',              { templateUrl: '<%= asset_path("misc/help.html") %>'               }
@@ -30,13 +30,13 @@ predikt.directive 'upcomingMatches', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("matches/upcoming_matches.html") %>'
-    controller: 'UpcomingMatchesCtrl'
+    controller: 'upcomingMatchesCtrl'
   }
 predikt.directive 'completedMatches', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("matches/completed_matches.html") %>'
-    controller: 'CompletedMatchesCtrl'
+    controller: 'completedMatchesCtrl'
   }
 predikt.directive 'upcomingMatchItem', ->
   { 
@@ -48,19 +48,19 @@ predikt.directive 'leaderboardRight', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("leaderboard/leaderboard_right.html") %>'
-    controller: 'LeaderboardCtrl'
+    controller: 'leaderboardCtrl'
   }
 predikt.directive 'privateProfile', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("profile/private_profile.html") %>'
-    controller: 'PrivateProfileCtrl'
+    controller: 'privateProfileCtrl'
   }
 predikt.directive 'publicProfile', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("profile/public_profile.html") %>'
-    controller: 'PublicProfileCtrl'
+    controller: 'publicProfileCtrl'
   }
 
 predikt.directive 'totalCoins', ->
