@@ -26,15 +26,14 @@ javascript:
 section#login-signup-reset-password.row
   header
     h1.sr-only Sign up / Log in / Reset your password
-  / .login-frame.col-lg-6.col-md-8.col-md-offset-0.col-sm-10.col-sm-offset-1.col-xs-12
-  .login-fram.col-lg-6
+  .col-lg-6.col-md-8.col-sm-10.col-xs-12
     .login-form-selector
       ul.nav.nav-tabs role="menubar"
         li#login-form-login.active role="presentation"
           a.log-button href="#" role="menuitem" Log in
         li#login-form-signup role="presentation"
           a.log-button href="#" role="menuitem" Sign up
-        li#login-form-reset role="presentation"
+        li#login-form-reset.login-selector-right role="presentation"
           a.log-button href="#" role="menuitem" Reset password
     .login-form-tab
       = form_for @user, url: login_url, html: { id: 'login' } do |f|
