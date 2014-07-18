@@ -34,6 +34,9 @@
 .form-group > .field_with_errors {
   display: inline;
 }
+.login-frame {
+  width: 100%;
+}
 .login-form-selector {
   margin: 20px 0 0;
 }
@@ -47,22 +50,17 @@
 .login-form-tab {
   background-color: hsla(0, 0%, 0%, 0.5);
   border-color: transparent;
-  border-radius: 8px;
-  height: 500px;
-  margin: 10px 105px 10px 105px;
-  padding: 30px 0 70px 30px;
-  position: relative;
-  right: 395px;
+  border-radius: 0 0 8px 8px;
+  height: 550px;
+  padding: 40px 40px 0 40px;
 }
 .login-form-tab > form > fieldset > legend {
   font-size: 20px;
-  margin-bottom: 30px;
   color: #e7e7e7;
 }
 .login-form-tab > form > fieldset > div > input.btn {
   margin-left: 12px;
   margin-top: 15px;
-  min-width: 80px;
 }
 .confirm-registration {
   border-top-style: solid;
@@ -96,9 +94,8 @@
   font-style: italic;
 }
 .profile-settings {
-  background-color: hsla(240,10.3%,99.5%,1);
-  border: 1px solid #e1e1e8;
-  border-radius: 4px;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 8px;
   margin: 20px 0 40px;
   padding: 14px;
 }
@@ -110,7 +107,6 @@
 .edit-button {
   margin-right: 15px;
 }
-
 .password-match-ok {
   color: green;
   padding: 20px 3px;
@@ -120,7 +116,7 @@
   padding: 20px 3px;
 }
 .progress {
-  margin: 0;
+  margin: 11px 0 0 0;
 }
 .password-crack-time {
   color: #999;
@@ -128,18 +124,18 @@
   margin: 5px 0 0 5px;
 }
 .form-group {
-  margin-top: 10px;
+  margin: 10px -30px 10px 0;
 }
 .log-button {
   padding: 0;
 }
 #submit-button {
-  height: 35px;
-  width: 284px;
-  margin: -1px 0 0 0;
+  width: 100%;
+  margin: 0 10px 0 0;
 }
 .nav-tabs>li {
   background-color: hsla(0, 0%, 0%, 0.5);
+  font-size: 12px;
 }
 .nav-tabs>li.active>a {
   background-color: hsla(0, 0%, 0%, 0.5);

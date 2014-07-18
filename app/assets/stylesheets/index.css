@@ -5,6 +5,7 @@ html {
 body {
   background: url("pokerchip.jpg") no-repeat center center fixed;
   color: white;
+  height: 100%;
 }
 h1 {
   color: #e7e7e7;
