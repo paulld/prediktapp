@@ -34,15 +34,18 @@
 .form-group > .field_with_errors {
   display: inline;
 }
-.login-frame {
+/*.login-frame {
   width: 100%;
-}
+}*/
 .login-form-selector {
   margin: 20px 0 0;
 }
 .login-form-selector > ul > li {
   text-align: center;
   width: 33.333333%;
+}
+.login-selector-right li:hover {
+  border-radius: 0px 4px 0 0;
 }
 .login-form-selector > ul > li > a {
   margin-right: 0;

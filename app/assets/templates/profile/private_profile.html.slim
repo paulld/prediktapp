@@ -54,7 +54,7 @@ section#public-profile
         tbody
           tr
             td
-              | {{profile.coins}} coins
+              | {{profile.coins | number:0}} coins
             td
               | {{profile.win_percentage *100 | number:1}}%
             td

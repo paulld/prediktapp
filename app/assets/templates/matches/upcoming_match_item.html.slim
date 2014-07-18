@@ -1,11 +1,11 @@
 section#single-match
   header
     h1.sr-only
-      | Upcoming match: 
-      span
-        | {{match.home_team}} -
-      span
-        |  {{match.away_team}}   
+      | Upcoming match: {{match.home_team}} - {{match.away_team}}   
+    p
+      a.back-button data-ng-href="/#/upcoming"
+        i.fa.fa-arrow-left
+        span Upcoming Games
     
   .well
     .well.well-white
