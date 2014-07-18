@@ -5,13 +5,14 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
   $routeProvider
 
     .when '/',                  { templateUrl: '<%= asset_path("index.html") %>'                   }
-    .when '/upcoming-matches',  { templateUrl: '<%= asset_path("index_upcoming_matches.html") %>'  }
+    .when '/upcoming',  { templateUrl: '<%= asset_path("index_upcoming_matches_list.html") %>'  }
 
-    .when '/completed-matches', { templateUrl: '<%= asset_path("index_completed_matches.html") %>' }
-    .when '/match/:matchId',  { templateUrl: '<%= asset_path("index_single_match.html") %>' }
+    .when '/completed', { templateUrl: '<%= asset_path("index_completed_matches_list.html") %>' }
+    .when '/upcoming/:matchId',  { templateUrl: '<%= asset_path("index_upcoming_match_item.html") %>' }
+    .when '/completed/:matchId', { templateUrl: '<%= asset_path("index_completed_match_item.html") %>' }
     .when '/leaderboard',
       templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
-      controller: 'LeaderboardCtrl'
+      controller: 'leaderboardCtrl'
 
     .when '/about',             { templateUrl: '<%= asset_path("misc/about.html") %>'              }
     .when '/help',              { templateUrl: '<%= asset_path("misc/help.html") %>'               }
@@ -26,41 +27,47 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
 ]
 
 
-predikt.directive 'upcomingMatches', ->
+predikt.directive 'upcomingMatchesList', ->
   {
     restrict: 'E'
-    templateUrl: '<%= asset_path("matches/upcoming_matches.html") %>'
-    controller: 'UpcomingMatchesCtrl'
+    templateUrl: '<%= asset_path("matches/upcoming_matches_list.html") %>'
+    controller: 'upcomingMatchesListCtrl'
   }
-predikt.directive 'completedMatches', ->
+predikt.directive 'completedMatchesList', ->
   {
     restrict: 'E'
-    templateUrl: '<%= asset_path("matches/completed_matches.html") %>'
-    controller: 'CompletedMatchesCtrl'
+    templateUrl: '<%= asset_path("matches/completed_matches_list.html") %>'
+    controller: 'completedMatchesListCtrl'
   }
-predikt.directive 'singleMatch', ->
+predikt.directive 'upcomingMatchItem', ->
   { 
     restrict: 'E'
-    templateUrl: '<%= asset_path("matches/single_match.html") %>'
-    controller: 'SingleMatchCtrl'
+    templateUrl: '<%= asset_path("matches/upcoming_match_item.html") %>'
+    controller: 'upcomingMatchItemCtrl'
+  }
+predikt.directive 'completedMatchItem', ->
+  { 
+    restrict: 'E'
+    templateUrl: '<%= asset_path("matches/completed_match_item.html") %>'
+    controller: 'completedMatchItemCtrl'
   }
 predikt.directive 'leaderboardRight', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("leaderboard/leaderboard_right.html") %>'
-    controller: 'LeaderboardCtrl'
+    controller: 'leaderboardCtrl'
   }
 predikt.directive 'privateProfile', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("profile/private_profile.html") %>'
-    controller: 'PrivateProfileCtrl'
+    controller: 'privateProfileCtrl'
   }
 predikt.directive 'publicProfile', ->
   {
     restrict: 'E'
     templateUrl: '<%= asset_path("profile/public_profile.html") %>'
-    controller: 'PublicProfileCtrl'
+    controller: 'publicProfileCtrl'
   }
 
 predikt.directive 'totalCoins', ->

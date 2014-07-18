@@ -1,4 +1,4 @@
-predikt.controller 'SingleMatchCtrl', ($scope, $http, $routeParams, User, Bet, Message) ->
+predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, Bet, Message) ->
 
   matchId = $routeParams.matchId
   
