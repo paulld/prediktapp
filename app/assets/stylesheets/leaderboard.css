@@ -23,9 +23,10 @@
 }
 .leaderboard-name {
   font-size: 14px;
+  font-weight: 500;
 }
 .leaderboard-followers, .leaderboard-coins, .leaderboard-percent, .leaderboard-number-bets {
-  font-size: 11px;
+  font-size: 12px;
 }
 .pagination {
   margin: 0;

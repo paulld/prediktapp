@@ -49,8 +49,13 @@ img.away_team {
   margin-bottom: 5px;
 }
 .teams-info {
+  font-size: 17px;
   margin-top: 6px;
   text-align: center;
+  color: #fff;
+}
+a.teams-info:hover {
+  text-decoration: none;
 }
 .score {
   color: #DB082E;
@@ -102,4 +107,18 @@ border-color: #d43f3a;
 }
 .confirm-registration {
   margin-top: 70px;
+}
+.back-button i {
+  color: #e7e7e7;;
+  font-size: 25px;
+  margin: 22px 15px 0 0;
+}
+.back-button span {
+  color: #e7e7e7;;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+a.back-button:hover {
+  text-decoration: none;
 }

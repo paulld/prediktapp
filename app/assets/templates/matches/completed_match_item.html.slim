@@ -1,11 +1,11 @@
 section#single-completed-match
   header
     h1.sr-only
-      | Upcoming match: 
-      span
-        | {{match.home_team}} -
-      span
-        |  {{match.away_team}}   
+      | Completed match: {{match.home_team}} ({{match.home_score}} - {{match.away_score}}) {{match.away_team}}
+    p
+      a.back-button data-ng-href="/#/completed"
+        i.fa.fa-arrow-left
+        span Completed Games
 
   .well
     .well.well-white
