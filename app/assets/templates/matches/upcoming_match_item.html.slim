@@ -1,14 +1,20 @@
-section#upcoming-matches
+section#single-match
   header
-    h1 Upcoming Games
+    h1.sr-only
+      | Upcoming match: 
+      span
+        | {{match.home_team}} -
+      span
+        |  {{match.away_team}}   
+    
   .well
-    .well.well-white data-ng-repeat="match in matches | limitTo: 10"
+    .well.well-white
 
       .row.game-information
         .col-md-1.home-flag
           span.f32.country-flag
             .flag.selected class="{{match.home_team_iso_code}}"
-        a.col-md-7.teams-info data-ng-href="/#/match/{{match.id}}"
+        .col-md-7.teams-info
           span
             | {{match.home_team}} - 
           span

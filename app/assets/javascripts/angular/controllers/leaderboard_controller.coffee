@@ -1,4 +1,4 @@
-predikt.controller 'LeaderboardCtrl', ($scope, $http) ->
+predikt.controller 'leaderboardCtrl', ($scope, $http) ->
   $http.get('./api/leaderboard').success (data) ->
     $scope.users = data
     

@@ -1,4 +1,4 @@
-predikt.controller 'CompletedMatchesCtrl', ($scope, $http, User) ->
+predikt.controller 'completedMatchesListCtrl', ($scope, $http, User) ->
   $http.get('./api/matches/past?sort=ends_at&recent=10').success (data) ->
     $scope.matches = data.matches
 

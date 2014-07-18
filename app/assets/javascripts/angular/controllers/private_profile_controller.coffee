@@ -1,4 +1,4 @@
-predikt.controller 'PrivateProfileCtrl', ($scope, $http, $routeParams, User) ->
+predikt.controller 'privateProfileCtrl', ($scope, $http, $routeParams, User) ->
 
   $scope.profile = null
   User.getCurrentUser().then (result) ->
