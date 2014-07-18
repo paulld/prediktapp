@@ -2,7 +2,8 @@ section#complete-registration
   header
     h1.sr-only Please complete your registration
   .row
-    .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
+    / .col-lg-6.col-lg-offset-3.col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12
+    .col-lg-6
       .login-form-tab.confirm-registration
         = form_for @user, url: register_url(@registrant.registration_code), html: { id: 'registration' } do |f|
           fieldset
@@ -12,12 +13,6 @@ section#complete-registration
                 .form-group
                   = f.label :password, class: 'sr-only'
                   = f.password_field :password, placeholder: 'Please enter your password', class: 'input-field', id: 'password'
-              .col-sm-6.col-xs-12
-                .progress
-                  #password-strengh-bar.progress-bar.progress-bar-success style="width: 0%"
-                .span.password-crack-time
-                  ' Time to crack password:
-                  span#password-crack-time instant
             .row
               .col-sm-6.col-xs-10
                 .form-group
@@ -25,6 +20,13 @@ section#complete-registration
                   = f.password_field :password_confirmation, placeholder: 'Please enter your password again', class: 'input-field', id: 'password-confirmation'
               .col-sm-6.col-xs-2
                 i#password-match.fa
+            .row
+              .col-sm-6.col-xs-12
+                .progress
+                  #password-strengh-bar.progress-bar.progress-bar-success style="width: 0%"
+                .span.password-crack-time
+                  ' Time to crack password:
+                  span#password-crack-time instant
             .row
               .col-xs-12
                 .form-group
