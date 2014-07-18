@@ -1,4 +1,4 @@
-section#completed-matches
+section#completed-matches-list
   header
     h1 Game Results
   .well
@@ -8,7 +8,7 @@ section#completed-matches
         .col-md-1.home-flag
           span.f32.country-flag
             .flag.selected class="{{match.home_team_iso_code}}"
-        .col-md-7.teams-info
+        a.col-md-7.teams-info data-ng-href="/#/completed/{{match.id}}"
           span
             | {{match.home_team}}
           span.score

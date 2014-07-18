@@ -1,4 +1,4 @@
-predikt.controller 'upcomingMatchesCtrl', ($scope, $http, User, Bet, Message) ->
+predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message) ->
   $http.get(
     './api/matches/future?sort=starts_at&recent=10'
   ).success (data) ->
