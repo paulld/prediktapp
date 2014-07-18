@@ -8,16 +8,20 @@ section#password-reset.row
           fieldset
             legend Please reset your password
             .row
-              .col-xs-10
+              .col-sm-9.col-xs-9
                 .form-group
                   = f.label :password, class: 'sr-only'
                   = f.password_field :password, placeholder: 'Please enter your password', class: 'input-field', id: 'password'
+              .col-sm-3.col-xs-9.password-security
+                span#password-security-text.hide Security:
+                i#password-security.fa
             .row
-              .col-xs-10
+              .col-sm-9.col-xs-9
                 .form-group
                   = f.label :password_confirmation, class: 'sr-only'
                   = f.password_field :password_confirmation, placeholder: 'Please enter your password again', class: 'input-field', id: 'password-confirmation'
-              .col-xs-2
+              .col-sm-3.col-xs-9.password-security
+                span#password-match-text.hide Match:
                 i#password-match.fa
             .row
               .col-xs-10

@@ -2,14 +2,17 @@ $ ->
 
   MINIMUM_SCORE = 2
 
-  iconOk = ->
-    $('#password-match').removeClass('fa-times password-match-no')
-    $('#password-match').addClass('fa-check password-match-ok')
-  iconNo = ->
-    $('#password-match').addClass('fa-times password-match-no')
-    $('#password-match').removeClass('fa-check password-match-ok')
-  iconRemove = ->
-    $('#password-match').removeClass('fa-check password-match-ok fa-times password-match-no')
+  iconOk = (type) ->
+    $('#' + type).removeClass('fa-times password-match-no')
+    $('#' + type).addClass('fa-check password-match-ok')
+    $('#' + type + '-text').removeClass('hide')
+  iconNo = (type) ->
+    $('#' + type).addClass('fa-times password-match-no')
+    $('#' + type).removeClass('fa-check password-match-ok')
+    $('#' + type + '-text').removeClass('hide')
+  iconRemove = (type) ->
+    $('#' + type).removeClass('fa-check password-match-ok fa-times password-match-no')
+    $('#' + type + '-text').addClass('hide')
   
   setProgressBar = (idx, result) ->
     idx.removeClass('progress-bar-success')
@@ -35,12 +38,16 @@ $ ->
       switch score
         when 2
           setProgressBar(progressBar, 'success')
+          iconOk('password-security')
         when 3
           setProgressBar(progressBar, 'warning')
+          iconOk('password-security')
         when 4
           setProgressBar(progressBar, 'danger')
+          iconOk('password-security')
         else
           setProgressBar(progressBar, 'info')
+          iconNo('password-security')
 
       if score >= MINIMUM_SCORE then true else false
 
@@ -60,11 +67,11 @@ $ ->
 
   $('.input-field').keyup ->
     if confirmationEmpty()
-      iconRemove()
+      iconRemove('password-match')
     else if checkMatch()
-      iconOk()
+      iconOk('password-match')
     else
-      iconNo()
+      iconNo('password-match')
     
     if checkMatch() and checkPasswordStrength()
       enableSubmit()
