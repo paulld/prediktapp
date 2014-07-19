@@ -10,7 +10,7 @@ class SessionController < ApplicationController
     when "login"
       if @user = User.authenticate(params[:user][:email], params[:user][:password])
         log_user_in(@user)
-        redirect_to root_url, flash: { success: 'You were successfully logged in.' }
+        redirect_to '/#/upcoming', flash: { success: 'You were successfully logged in.' }
       else
         @user = User.new( user_params )
         # render text: 'Email and Password don\'t match. Please try again or try to reset your password.'

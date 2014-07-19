@@ -1,20 +1,32 @@
-section#public-profile
+section#private-profile
   header
-    h1.sr-only Your Profile
+    .profile-title-h1
+      h1
+        | {{profile.user_name}}'s Profile
+    .profile-link
+      a.edit-profile-button.align-right data-ng-click="viewEditProfile()"
+        span.edit-profile-text Edit Profile
+        i.fa.fa-pencil-square-o
   
   section#general-information
     header
-      h2 
-        | {{profile.user_name}}'s Profile
+      h2.sr-only General information
     .well
       .row
-        .col-md-4
-          div
-            img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
-          div
-            | {{profile.links.followings_as_followees.length}} Followers | 
-            | {{profile.links.followings_as_followers.length}} Following
-        .col-md-8
+        .col-sm-4
+          .text-center
+            img.img-thumbnail.profile-picture src="assets/private.jpeg" height="200" width="200"
+          .profile-followers
+            span.profile-followers-number
+              | {{profile.links.followings_as_followees.length}} 
+            | Followers | Following 
+            span.profile-followers-number 
+              | {{profile.links.followings_as_followers.length}}
+
+
+
+
+        .col-sm-8
           .row
             table.table
               thead
@@ -27,9 +39,9 @@ section#public-profile
                   td
                     | {{profile.user_name}}
                   td
-                    | {{profile.home_town}}, {{profile.home_country}}
+                    | {{profile.home_town}}
                   td
-                  | {{profile.website}}
+                    | {{profile.website}}
           .row
             table.table
               thead
@@ -40,7 +52,7 @@ section#public-profile
                   td
                     | {{profile.description}}
     
-  section#general-information
+  section#general-overview
     header
       h2 General Overview
     .well
@@ -64,3 +76,4 @@ section#public-profile
               | {{profile.current_streak}}
 
   bets-list
+  

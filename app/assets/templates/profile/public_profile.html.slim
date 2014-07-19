@@ -1,24 +1,32 @@
 section#private-profile
   header
-    h1.sr-only Public Profile
+    .profile-title-h1
+      h1
+        | {{user.user_name}}'s Profile
+    .profile-link
+      span.edit-profile-button
+        span.edit-profile-text
+
   
   section#general-information
     header
-      h2 
-        | {{user.user_name}}'s Profile
+      h2.sr-only General information
     .well
       .row
-        .col-md-4
-          div
-            img src="https://lh5.googleusercontent.com/-jcUXbP8TImI/UgDxPLgo5FI/AAAAAAAAACo/hS8cXGqT6RM/w800-h800/photo.jpg" height="200" width="200"
-          div
-            | {{user.links.followings_as_followees.length}} Followers | 
-            | {{user.links.followings_as_followers.length}} Following
-          div data-ng-if="profile"
-            button.btn.btn-success type="button" data-ng-click="follow(user.id)"
+        .col-sm-4
+          .text-center
+            img.img-thumbnail.profile-picture src="assets/profile.png" height="200" width="200"
+          .profile-followers
+            span.profile-followers-number
+              | {{user.links.followings_as_followees.length}} 
+            | Followers | Following 
+            span.profile-followers-number 
+              | {{user.links.followings_as_followers.length}}
+          .text-center data-ng-if="profile"
+            button.btn.btn-success.profile-follow-button type="button" data-ng-click="follow(user.id)"
               | Follow 
               i.fa.fa-plus-circle
-        .col-md-8
+        .col-sm-8
           .row
             table.table
               thead
@@ -31,9 +39,9 @@ section#private-profile
                   td
                     | {{user.user_name}}
                   td
-                    | {{user.home_town}}, {{user.home_country}}
+                    | {{user.home_town}}
                   td
-                  | {{user.website}}
+                    | {{user.website}}
           .row
             table.table
               thead

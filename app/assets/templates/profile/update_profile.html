@@ -1,0 +1,65 @@
+<section id="update-profile" class="row" data-ng-controller="updateProfileCtrl">
+  <header class="col-md-8">
+    <h1 class="profile-title-h1">Update my Profile</h1>
+    <div class="profile-link">
+      <a class="edit-profile-button" data-ng-click="viewProfile()">
+        <span class="edit-profile-text">Cancel</span>
+        <i class="fa fa-arrow-left"></i>
+      </a>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="login-form-tab update-profile-form">
+        <form name="profileDetails" novalidate role="form">
+          <fieldset>
+            <legend>Update your personal information</legend>
+            
+            <div class="row form-group">
+              <label for="user_name">Username</label>
+              <input type="text" name="user_name" data-ng-model="profile.user_name" class="form-control" placeholder="Username" required />
+            </div>
+            
+            <div class="row form-group">
+              <label for="first_name">First Name</label>
+              <input type="text" name="first_name" data-ng-model="profile.first_name" class="form-control" placeholder="First Name (not public)" />
+            </div>
+            
+            <div class="row form-group">
+              <label for="last_name">Last Name</label>
+              <input type="text" name="last_name" data-ng-model="profile.last_name" class="form-control" placeholder="Last Name (not public)" />
+            </div>
+            
+            <div class="row form-group">
+              <label for="description">Biography</label>
+              <textarea name="description" data-ng-model="profile.description" class="form-control" placeholder="About me..."></textarea>
+            </div>
+            
+            <div class="row form-group">
+              <label for="website">Website</label>
+              <input type="text" name="website" data-ng-model="profile.website" class="form-control" placeholder="Personal webpage" />
+            </div>
+
+            <div class="row form-group">
+              <label for="home_town">Home town</label>
+              <input type="text" name="home_town" data-ng-model="profile.home_town" class="form-control" placeholder="Home town" />
+            </div>
+
+            <div class="row text-center edit-profile-button">
+              <button data-ng-click="submit(profileDetails)" class="btn btn-success">
+                Save profile
+              </button>
+              <span class="btn btn-default btn-edit-profile" data-ng-click="viewProfile()">
+                Cancel
+              </span>
+              <a href="/profile/update-password" class="btn btn-default">
+                Update password
+              </a>
+            </div>
+
+          </fieldset>
+        </form>
+      </div> 
+    </div>
+  </div>
+</section>
