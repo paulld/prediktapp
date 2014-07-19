@@ -12,9 +12,9 @@ Prediktapp::Application.routes.draw do
   get     'reset/:password_reset_code'   => 'password_reset#edit',                as: :reset
   patch   'reset/:password_reset_code'   => 'password_reset#update'
 
-  get     'settings'                     => 'settings#index'
-  get     'settings/edit'                => 'settings#edit',                      as: :settings_edit
-  patch   'settings/edit'                => 'settings#update'
+  # get     'settings'                     => 'settings#index'
+  # get     'settings/edit'                => 'settings#edit',                      as: :settings_edit
+  # patch   'settings/edit'                => 'settings#update'
   get     'settings/update-password'     => 'settings#edit_password',             as: :settings_edit_password
   patch   'settings/update-password'     => 'settings#update_password'
 

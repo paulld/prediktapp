@@ -19,7 +19,7 @@ class PasswordResetController < ApplicationController
         @user.clear_reset_code
         log_user_in(@user)
         # render text: 'Your password has been updated. You are now logged in.'
-        redirect_to settings_url, flash: { success: 'Your password has been updated. You are now logged in.' }
+        redirect_to "/#/my-profile", flash: { success: 'Your password has been updated. You are now logged in.' }
       else
         @user = User.find_by_reset_code(params[:password_reset_code])
         # render text: 'Please input a valid password.'

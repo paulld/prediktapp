@@ -15,7 +15,8 @@ class RegistrationController < ApplicationController
     if @registrant = Registrant.find_by_code(params[:registration_code])
       @user = User.new( user_params.merge(
         email: @registrant.email,
-        coins: INIT_NUMBER_OF_COINS
+        coins: INIT_NUMBER_OF_COINS,
+        user_name: @registrant.email
         )
       )
 
@@ -23,7 +24,7 @@ class RegistrationController < ApplicationController
         @registrant.destroy
         log_user_in(@user)
         # render text: 'Your registration is complete! You are now logged in.'
-        redirect_to settings_url, flash: { success: 'Your registration is complete! You are now logged in.' }
+        redirect_to "/#/my-profile", flash: { success: 'Your registration is complete! You are now logged in. Please complete your profile.' }
       else
         # render text: 'Please input a valid password.'
         flash.now[:error] = 'Please input a valid password.'
