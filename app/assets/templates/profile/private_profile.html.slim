@@ -8,7 +8,7 @@ section#public-profile
         .col-xs-8
           h2 
             | {{profile.user_name}}'s Profile
-        a.col-xs-4.edit-profile-button data-ng-href="/#/my-profile/edit"
+        a.col-xs-4.edit-profile-button data-ng-click="viewEditProfile()"
           span.edit-profile-text Edit Profile
           i.fa.fa-pencil-square-o
 
@@ -36,9 +36,9 @@ section#public-profile
                   td
                     | {{profile.user_name}}
                   td
-                    | {{profile.home_town}}, {{profile.home_country}}
+                    | {{profile.home_town}}
                   td
-                  | {{profile.website}}
+                    | {{profile.website}}
           .row
             table.table
               thead

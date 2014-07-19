@@ -1,0 +1,68 @@
+<section id="update-profile" class="row" data-ng-controller="updateProfileCtrl">
+  <header>
+    <h1 class="sr-only">Update my Profile</h1>
+  </header>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-xs-8">
+          <h2>Update my Profile</h2>
+        </div>
+        <div class="col-xs-4">
+          <p class="edit-profile-button" data-ng-click="viewProfile()">
+            <span class="edit-profile-text">Cancel</span>
+            <i class="fa fa-arrow-left"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="login-form-tab confirm-registration">
+        <form name="profileDetails" novalidate role="form">
+          <fieldset>
+            <legend>Update your personal information</legend>
+            
+            <div class="form-group">
+              <label for="user_name" class="sr-only">Username</label>
+              <input type="text" name="user_name" data-ng-model="profile.user_name" class="form-control" placeholder="Username" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="first_name" class="sr-only">First Name</label>
+              <input type="text" name="first_name" data-ng-model="profile.first_name" class="form-control" placeholder="First Name (not public)" />
+            </div>
+            
+            <div class="form-group">
+              <label for="last_name" class="sr-only">Last Name</label>
+              <input type="text" name="last_name" data-ng-model="profile.last_name" class="form-control" placeholder="Last Name (not public)" />
+            </div>
+            
+            <div class="form-group">
+              <label for="description" class="sr-only">Description</label>
+              <textarea name="description" data-ng-model="profile.description" class="form-control" placeholder="Description"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="website" class="sr-only">Personal webpage</label>
+              <input type="text" name="website" data-ng-model="profile.website" class="form-control" placeholder="Personal webpage" />
+            </div>
+
+            <div class="form-group">
+              <label for="home_town" class="sr-only">Home town</label>
+              <input type="text" name="home_town" data-ng-model="profile.home_town" class="form-control" placeholder="Home town" />
+            </div>
+
+            <button data-ng-click="submit(profileDetails)" class="btn btn-success">
+              Save profile
+            </button>
+            <span class="edit-profile-button" data-ng-click="viewProfile()">
+              <span class="edit-profile-text-small">Cancel</span>
+            </span>
+          </fieldset>
+        </form>
+      </div> 
+    </div>
+  </div>
+</section>

@@ -13,8 +13,6 @@ predikt.factory 'User', ($http, Message) ->
       $http.get('./api/uuids').success (uuid) ->
         newUuid = uuid.uuids[0]
         
-        followUrl = "./api/followings/#{newUuid}"
-
         followData = {
           follower_id: followerId
           followee_id: followeeId
@@ -22,8 +20,34 @@ predikt.factory 'User', ($http, Message) ->
 
         $http(
           method: "PUT"
-          url: followUrl
+          url: './api/followings/' + newUuid
           data: followData
         ).success (followData) ->
           if followData.followings[0].followee_id is followeeId && followData.followings[0].follower_id is followerId
             Message.noty("Your are now following #{followeeUserame}", 'success', 500)
+
+    updateProfile: (userId, data) ->
+      $http(
+        method: "PUT"
+        url: "./api/users/" + userId
+        data: data
+      )
+
+    update: (userId, formData) ->
+      updateData = {
+        user_name: formData.user_name.$modelValue
+        first_name: formData.first_name.$modelValue
+        last_name: formData.last_name.$modelValue
+        description: formData.description.$modelValue
+        website: formData.website.$modelValue
+        home_town: formData.home_town.$modelValue
+      }
+      $http(
+        method: "PATCH"
+        url: './api/users/' + userId
+        data: updateData
+      )
+
+
+
+

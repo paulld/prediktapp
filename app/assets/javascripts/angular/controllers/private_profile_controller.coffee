@@ -1,4 +1,4 @@
-predikt.controller 'privateProfileCtrl', ($scope, $http, $routeParams, User) ->
+predikt.controller 'privateProfileCtrl', ($scope, $http, $location, $routeParams, User) ->
 
   $scope.profile = null
   User.getCurrentUser().then (result) ->
@@ -11,3 +11,6 @@ predikt.controller 'privateProfileCtrl', ($scope, $http, $routeParams, User) ->
         bet.status = bet.links.match.match_status
         # bet.starts_at = bet.links.match.match_starts_at
         # bet.ends_at = bet.links.match.match_ends_at
+
+  $scope.viewEditProfile = () ->
+    $location.url '/my-profile/edit'
