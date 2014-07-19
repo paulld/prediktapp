@@ -4,17 +4,26 @@ section#public-profile
   
   section#general-information
     header
-      h2 
-        | {{profile.user_name}}'s Profile
+      .row
+        .col-xs-8
+          h2 
+            | {{profile.user_name}}'s Profile
+        a.col-xs-4.edit-profile-button data-ng-href="/#/my-profile/edit"
+          span.edit-profile-text Edit Profile
+          i.fa.fa-pencil-square-o
+
     .well
       .row
-        .col-md-4
-          div
-            img src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
-          div
-            | {{profile.links.followings_as_followees.length}} Followers | 
-            | {{profile.links.followings_as_followers.length}} Following
-        .col-md-8
+        .col-sm-4
+          .text-center
+            img.img-thumbnail.profile-picture src="http://lorempixel.com/g/200/200/people/1/" height="200" width="200"
+          .profile-followers
+            span.profile-followers-number
+              | {{profile.links.followings_as_followees.length}} 
+            | Followers | Following 
+            span.profile-followers-number 
+              | {{profile.links.followings_as_followers.length}}
+        .col-sm-8
           .row
             table.table
               thead

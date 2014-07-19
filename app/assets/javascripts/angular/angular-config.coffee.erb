@@ -4,26 +4,25 @@
 predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider
 
-    .when '/',                  { templateUrl: '<%= asset_path("index.html") %>'                   }
-    .when '/upcoming',  { templateUrl: '<%= asset_path("index_upcoming_matches_list.html") %>'  }
+    .when '/',                   { templateUrl: '<%= asset_path("index.html") %>'                        }
+    .when '/upcoming',           { templateUrl: '<%= asset_path("index_upcoming_matches_list.html") %>'  }
 
-    .when '/completed', { templateUrl: '<%= asset_path("index_completed_matches_list.html") %>' }
-    .when '/upcoming/:matchId',  { templateUrl: '<%= asset_path("index_upcoming_match_item.html") %>' }
-    .when '/completed/:matchId', { templateUrl: '<%= asset_path("index_completed_match_item.html") %>' }
-    .when '/leaderboard',
-      templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'
-      controller: 'leaderboardCtrl'
+    .when '/completed',          { templateUrl: '<%= asset_path("index_completed_matches_list.html") %>' }
+    .when '/upcoming/:matchId',  { templateUrl: '<%= asset_path("index_upcoming_match_item.html") %>'    }
+    .when '/completed/:matchId', { templateUrl: '<%= asset_path("index_completed_match_item.html") %>'   }
+    .when '/leaderboard',        { templateUrl: '<%= asset_path("leaderboard/leaderboard.html") %>'      }
 
-    .when '/about',             { templateUrl: '<%= asset_path("misc/about.html") %>'              }
-    .when '/help',              { templateUrl: '<%= asset_path("misc/help.html") %>'               }
-    .when '/contact',           { templateUrl: '<%= asset_path("misc/contact.html") %>'            }
-    .when '/terms',             { templateUrl: '<%= asset_path("misc/terms.html") %>'              }
-    .when '/privacy',           { templateUrl: '<%= asset_path("misc/privacy.html") %>'            }
+    .when '/about',              { templateUrl: '<%= asset_path("misc/about.html") %>'                   }
+    .when '/help',               { templateUrl: '<%= asset_path("misc/help.html") %>'                    }
+    .when '/contact',            { templateUrl: '<%= asset_path("misc/contact.html") %>'                 }
+    .when '/terms',              { templateUrl: '<%= asset_path("misc/terms.html") %>'                   }
+    .when '/privacy',            { templateUrl: '<%= asset_path("misc/privacy.html") %>'                 }
     
-    .when '/my-profile',        { templateUrl: '<%= asset_path("index_private_profile.html") %>'   }
-    .when '/profile/:userId',   { templateUrl: '<%= asset_path("index_public_profile.html") %>'    }
+    .when '/my-profile',         { templateUrl: '<%= asset_path("index_private_profile.html") %>'        }
+    .when '/my-profile/edit',    { templateUrl: '<%= asset_path("profile/update_profile.html") %>'       }
+    .when '/profile/:userId',    { templateUrl: '<%= asset_path("index_public_profile.html") %>'         }
 
-    .otherwise                  { templateUrl: '404.html'                                          }
+    .otherwise                   { templateUrl: '404.html'                                               }
 ]
 
 
