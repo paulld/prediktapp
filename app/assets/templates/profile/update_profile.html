@@ -1,22 +1,13 @@
 <section id="update-profile" class="row" data-ng-controller="updateProfileCtrl">
-  <header>
-    <h1 class="sr-only">Update my Profile</h1>
-  </header>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-xs-8">
-          <h2>Update my Profile</h2>
-        </div>
-        <div class="col-xs-4">
-          <p class="edit-profile-button" data-ng-click="viewProfile()">
-            <span class="edit-profile-text">Cancel</span>
-            <i class="fa fa-arrow-left"></i>
-          </p>
-        </div>
-      </div>
+  <header class="col-md-8">
+    <h1 class="profile-title-h1">Update my Profile</h1>
+    <div class="profile-link">
+      <a class="edit-profile-button" data-ng-click="viewProfile()">
+        <span class="edit-profile-text">Cancel</span>
+        <i class="fa fa-arrow-left"></i>
+      </a>
     </div>
-  </div>
+  </header>
   <div class="row">
     <div class="col-md-8">
       <div class="login-form-tab update-profile-form">
@@ -54,13 +45,16 @@
               <input type="text" name="home_town" data-ng-model="profile.home_town" class="form-control" placeholder="Home town" />
             </div>
 
-            <div class="text-center">
-                <button data-ng-click="submit(profileDetails)" class="btn btn-success">
-                  Save profile
-                </button>
-                <span class="edit-profile-button" data-ng-click="viewProfile()">
-                  <span class="edit-profile-text-small">Cancel</span>
-                </span>
+            <div class="row text-center edit-profile-button">
+              <button data-ng-click="submit(profileDetails)" class="btn btn-success">
+                Save profile
+              </button>
+              <span class="btn btn-default btn-edit-profile" data-ng-click="viewProfile()">
+                Cancel
+              </span>
+              <a href="/profile/update-password" class="btn btn-default">
+                Update password
+              </a>
             </div>
 
           </fieldset>

@@ -1,11 +1,16 @@
 section#private-profile
   header
-    h1.sr-only Public Profile
+    .profile-title-h1
+      h1
+        | {{user.user_name}}'s Profile
+    .profile-link
+      span.edit-profile-button
+        span.edit-profile-text
+
   
   section#general-information
     header
-      h2 
-        | {{user.user_name}}'s Profile
+      h2.sr-only General information
     .well
       .row
         .col-sm-4
