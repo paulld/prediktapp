@@ -16,7 +16,7 @@ class RegistrationController < ApplicationController
       @user = User.new( user_params.merge(
         email: @registrant.email,
         coins: INIT_NUMBER_OF_COINS,
-        user_name: @registrant.email
+        user_name: @registrant.email.split("@")[0]
         )
       )
 

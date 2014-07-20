@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, format: { with: EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, confirmation: true
+  validates :user_name, presence: true
 
   def authenticate(password)
     self.fish == BCrypt::Engine.hash_secret(password, self.salt)
