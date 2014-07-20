@@ -33,11 +33,18 @@ class BetsController < RestController
           # If exists, return a 401
           head :unauthorized
         else
-          # If a create, save the item, return a 201 with a JSON representation
-          new_item.save
-          DebitCredit.new.debit_wager(object_params)
+          ActiveRecord::Base.transaction do
+            # If a create, save the item, return a 201 with a JSON representation
+            new_item.save
+            # Debit the wager value from the user's coin account:
+            DebitCredit.new.debit_wager(object_params)
+            
+            # Create a new CoinTransaction with all the bet information
+            DebitCredit.new.record_debit_transaction(object_params, new_item.id)
+          end
+
+          # TODO: CHECK IF NEW ITEM SAVED OTHERWISE RENDER ERROR MESSAGE? 
           
-          # puts '>>>>>>>>> BET_TYPE: ', object_params[:bet_type]
           instance_variable_set( get_name, [ new_item ] )
           render :create, status: :created
         end
