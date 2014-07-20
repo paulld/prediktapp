@@ -13,4 +13,4 @@ predikt.controller 'updateProfileCtrl', ($scope, $http, $location, $routeParams,
         $location.url '/my-profile'
         Message.noty('You profile was successfully updated.', 'success', 500)
       .error (response) ->
-        Message.noty('Your profile cannot be updated! Please try again', 'error', 402)
+        Message.noty("Your profile cannot be updated! <br>Your Username can't be blank", 'error', 1500)
