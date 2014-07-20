@@ -26,13 +26,6 @@ predikt.factory 'User', ($http, Message) ->
           if followData.followings[0].followee_id is followeeId && followData.followings[0].follower_id is followerId
             Message.noty("Your are now following #{followeeUserame}", 'success', 500)
 
-    updateProfile: (userId, data) ->
-      $http(
-        method: "PUT"
-        url: "./api/users/" + userId
-        data: data
-      )
-
     update: (userId, formData) ->
       updateData = {
         user_name: formData.user_name.$modelValue
@@ -47,7 +40,3 @@ predikt.factory 'User', ($http, Message) ->
         url: './api/users/' + userId
         data: updateData
       )
-
-
-
-
