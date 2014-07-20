@@ -8,6 +8,14 @@ predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message
     $scope.profile = null
     User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
+      
+      $scope.wagerData = [{id: 1, text: "1 coin"}]
+      for i in [2..50]
+        $scope.wagerData.push {id: i, text: "#{i} coins"}
+
+      $('.wager-select').select2(
+        data: $scope.wagerData
+      ).select2('val', '1')
 
     $scope.clickToBet = (matchId, betType, odds, wager) ->
       if $scope.profile

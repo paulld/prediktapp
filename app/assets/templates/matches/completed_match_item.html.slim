@@ -11,6 +11,9 @@ section#single-completed-match
     .well.well-white
 
       .row.game-information
+        .col-md-3.match-date
+          span
+            | {{match.starts_at | date: 'MMM d, y'}}
         .col-md-1.home-flag
           span.f32.country-flag
             .flag.selected class="{{match.home_team_iso_code}}"
@@ -24,11 +27,10 @@ section#single-completed-match
         .col-md-1.away-flag
           .f32.country-flag
             .flag.selected class="{{match.away_team_iso_code}}"
-        .col-md-3.match-date
-          span
-            | {{match.starts_at | date: 'MMM d, y'}}
 
       .row.game-buttons
+        .col-md-3
+          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button"
             .bet-type
@@ -47,10 +49,10 @@ section#single-completed-match
               | Away
             .bet-odds
               | {{match.away_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
       .row.game-buttons
+        .col-md-3
+          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button"
             .bet-type
@@ -66,10 +68,10 @@ section#single-completed-match
               | Under
             .bet-odds
               | {{match.under_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
       .row.game-buttons
+        .col-md-3
+          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button"
             .bet-type
@@ -84,5 +86,3 @@ section#single-completed-match
               | Hand {{match.away_handicap_value}}
             .bet-odds
               | {{match.away_handicap_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
