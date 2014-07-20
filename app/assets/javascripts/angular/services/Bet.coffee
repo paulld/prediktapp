@@ -1,4 +1,4 @@
-predikt.factory 'Bet', ($http, Message) ->
+predikt.factory 'Bet', ($http) ->
   Bet = 
 
     create: (profileId, matchId, betType, odds, wager) ->
@@ -13,22 +13,10 @@ predikt.factory 'Bet', ($http, Message) ->
           wager: wager
           user_id: profileId
           match_id: matchId
-          links: {
-            user: {
-              id: profileId
-            }
-            match: {
-              id: matchId
-            }
-          }
         }
 
-        console.log 'data', putData
-        console.log 'url', putUrl
         $http(
           method: "PUT"
           url: putUrl
           data: putData
         )
-        Message.noty('A bet was placed.', 'success', 700)
-    

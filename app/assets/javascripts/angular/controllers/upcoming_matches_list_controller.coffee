@@ -17,10 +17,16 @@ predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message
         data: $scope.wagerData
       ).select2('val', '1')
 
-    $scope.clickToBet = (matchId, betType, odds, wager) ->
-      if $scope.profile
-        console.log 'need to place', wager, ' on ', betType, '(odds: ', odds, ') for user ', $scope.profile.id, 'on match id: ', matchId
 
+    $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, wager) ->
+      coins = if wager is 1 then 'coin' else 'coins'
+      successMessage = 'You placed '+ wager + ' ' + coins + ' on a bet: <br>' + homeTeam + '-' + awayTeam + ' (' + betType + ')'
+
+      if $scope.profile
         Bet.create($scope.profile.id, matchId, betType, odds, wager)
+          .success () ->
+            Message.noty(successMessage, 'success', 2000)
+          .error () ->
+            Message.noty('Something went wrong! Please try again.', 'error', 700)    
       else
         Message.noty('Please log in to place a bet.', 'error', 700)

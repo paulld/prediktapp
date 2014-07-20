@@ -56,7 +56,7 @@ Prediktapp::Application.routes.draw do
     scope :bets do
       get    ''                          => 'bets#index',                         as: :bets
       get    ':ids'                      => 'bets#index',                         as: :bet
-      put    ':id'                       => 'bets#create_or_replace'
+      put    ':id'                       => 'bets#create'
       patch  ':id'                       => 'bets#update'
       delete ':id'                       => 'bets#destroy'
     end
