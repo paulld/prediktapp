@@ -1,21 +1,23 @@
-predikt App
+Predikt App
 ==========
 
-Betting App by Paul LD & Joe K. Teo
-Frameworks and languages used:
+Sports Betting App by Paul LD & Joe K. Teo
 
-* Ruby on Rails backend
-* JSON API built with Rabl on PostgreSQL
-* AngularJS frontend
+### Frameworks and languages used:
+
+* Ruby on Rails back-end
+* JSON API built-in with Rabl on PostgreSQL
+* AngularJS front-end
 * CoffeeScript
 * Slim
+* Stylus
 
 
-### Clone/Fork this repo
+### Fork this repo
 
 After forking/cloning this repo, run these commands:
 
-  $ bundle install
-  $ bundle exec rake db:create db:migrate db:seed
-  $ rails server
+    $ bundle install
+    $ bundle exec rake db:create db:migrate db:seed
+    $ rails server
 

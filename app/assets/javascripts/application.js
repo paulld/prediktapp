@@ -19,3 +19,4 @@
 //= require jquery.noty.packaged
 //= require layout
 //= require angular-application
+//= require select2
