@@ -20,6 +20,37 @@ class BetsController < RestController
   end
 
 
+
+  def create
+    # Create the new item in memory, but do not persist it yet
+    # Make sure the item's ID is the one passed in the URL
+    new_item = get_class.new( object_params.merge( id: params[:id] ) )
+
+    if new_item.valid?
+      begin
+        # Check to see if bet already exists
+        if old_item = get_class.find_by( id: params[:id] )
+          # If exists, return a 401
+          head :unauthorized
+        else
+          # If a create, save the item, return a 201 with a JSON representation
+          new_item.save
+          instance_variable_set( get_name, [ new_item ] )
+          render :create, status: :created
+        end
+      rescue
+        # If save or destroy fails, return a 500
+        head :internal_server_error
+      end
+    else
+      # Return 422 and an error hash if the new item is not valid
+      @messages = new_item.errors.messages
+      render 'common/errors', status: :unprocessable_entity
+    end
+  end
+
+
+
   protected
 
   def get_parent

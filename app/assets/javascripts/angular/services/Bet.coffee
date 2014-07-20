@@ -13,14 +13,6 @@ predikt.factory 'Bet', ($http) ->
           wager: wager
           user_id: profileId
           match_id: matchId
-          links: {
-            user: {
-              id: profileId
-            }
-            match: {
-              id: matchId
-            }
-          }
         }
 
         $http(
