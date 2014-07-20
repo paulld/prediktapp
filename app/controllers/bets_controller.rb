@@ -35,9 +35,12 @@ class BetsController < RestController
         else
           # If a create, save the item, return a 201 with a JSON representation
           new_item.save
+          # Debit the wager value from the user's coin account:
           DebitCredit.new.debit_wager(object_params)
           
-          # puts '>>>>>>>>> BET_TYPE: ', object_params[:bet_type]
+          # Create a new CoinTransaction with all the bet information
+          DebitCredit.new.record_debit_transaction(object_params, new_item.id)
+
           instance_variable_set( get_name, [ new_item ] )
           render :create, status: :created
         end
