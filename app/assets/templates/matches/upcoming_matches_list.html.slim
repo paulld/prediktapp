@@ -5,6 +5,9 @@ section#upcoming-matches-list
     .well.well-white data-ng-repeat="match in matches | limitTo: 10"
 
       .row.game-information
+        .col-md-3.match-date
+          span
+            | {{match.starts_at | date: 'MMM d, y h:mm a'}}
         .col-md-1.home-flag
           span.f32.country-flag
             .flag.selected class="{{match.home_team_iso_code}}"
@@ -16,12 +19,29 @@ section#upcoming-matches-list
         .col-md-1.away-flag
           .f32.country-flag
             .flag.selected class="{{match.away_team_iso_code}}"
-        .col-md-3.match-date
-          span
-            | {{match.starts_at | date: 'MMM d, y h:mm a'}}
 
 
       .row.game-buttons
+        / .col-md-3
+
+        .col-md-3 data-ng-include="<%= asset_path('matches/test.html') %>"
+          
+
+          / select id="ei"
+          /   option value="1" 1
+          /   option value="2" 2
+          /   option value="3" 3
+          /   option value="4" 4
+          /   option value="5" 5
+          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+
+          select id="wager"
+            option value="1" 1
+            option value="2" 2
+            option value="3" 3
+            option value="4" 4
+            option value="5" 5
+          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'home', match.home_odds, 1)"
             .bet-type
@@ -42,11 +62,11 @@ section#upcoming-matches-list
               | Away
             .bet-odds
               | {{match.away_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
 
       .row.game-buttons
+        .col-md-3
+          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'over', match.over_odds, 1)"
             .bet-type
@@ -63,11 +83,11 @@ section#upcoming-matches-list
               | Under
             .bet-odds
               | {{match.under_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
 
 
       .row.game-buttons
+        .col-md-3
+          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, 'home_handicap', match.home_handicap_odds, 1)"
             .bet-type
@@ -83,5 +103,3 @@ section#upcoming-matches-list
               | Hand {{match.away_handicap_value}}
             .bet-odds
               | {{match.away_handicap_odds}}
-        .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"

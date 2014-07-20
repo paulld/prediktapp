@@ -12,8 +12,8 @@ Prediktapp::Application.routes.draw do
   get     'reset/:password_reset_code'   => 'password_reset#edit',                as: :reset
   patch   'reset/:password_reset_code'   => 'password_reset#update'
 
-  get     'profile/update-password'     => 'settings#edit_password',             as: :settings_edit_password
-  patch   'profile/update-password'     => 'settings#update_password'
+  get     'profile/update-password'      => 'settings#edit_password',             as: :settings_edit_password
+  patch   'profile/update-password'      => 'settings#update_password'
 
 
   scope :api, defaults: { format: :json } do
