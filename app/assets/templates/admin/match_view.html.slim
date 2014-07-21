@@ -25,8 +25,7 @@ section#admin-match-item data-ng-controller="adminMatchCtrl"
             td
               | {{match.starts_at | date: 'MMM d, y h:mm a'}}
             td.admin-teams
-              a
-                | {{match.home_team}} - {{match.away_team}}
+              | {{match.home_team}} - {{match.away_team}}
             td
               | {{match.match_status}}
             td
@@ -53,3 +52,30 @@ section#admin-match-item data-ng-controller="adminMatchCtrl"
             | Set completed
           button.btn.btn-danger data-ng-click="settle({{match.id}})"
             | Settle all Bets
+  
+  .row
+    section.col-lg-8.col-md-10.sm-12
+      header.div
+        h2 Bets
+      .well
+        table.table.admin-panel-table
+          thead
+           tr
+            th Date
+            th Bet Type
+            th Odds
+            th Wager
+            th Win/Loss
+          tbody
+           tr data-ng-repeat="bet in bets"
+            td
+              | {{bet.created_at | date: 'MMM d, y h:mm a'}}
+            td
+              | {{bet.bet_type}}
+            td
+              | {{bet.odds}}
+            td 
+              | {{bet.wager}}
+            td 
+              | {{bet.is_successful}}            
+
