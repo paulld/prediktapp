@@ -1,0 +1,74 @@
+section#admin-panel data-ng-controller="adminCtrl"
+  header
+    .row
+      .col-xs-12
+        h1 Admin Panel
+  
+  .row
+    section.col-lg-8.col-md-10.sm-12
+      header.div
+        h2 Upcoming Matches
+      .well
+        table.table.admin-panel-table
+          thead
+           tr
+            th Date
+            th Teams
+            th Status
+            th # Bets
+            th Action
+          tbody
+           tr data-ng-repeat="match in upcomingMatches | limitTo: 20"
+            td
+              | {{match.starts_at | date: 'MMM d, y h:mm a'}}
+            td.admin-teams
+              a data-ng-href="/#/admin/{{match.id}}"
+                | {{match.home_team}} - {{match.away_team}}
+            td
+              | {{match.match_status}}
+            td
+              | {{match.links.bets.length}}
+            td
+              a.btn.btn-danger data-ng-href="/#/admin/{{match.id}}"
+                | Set completed
+              / a.btn.btn-danger Settle all Bets
+
+  .row
+    section.col-lg-8.col-md-10.sm-12
+      header.div
+        h2 Past Matches
+      .well
+        table.table.admin-panel-table
+          thead
+           tr
+            th Date
+            th Teams
+            th Score
+            th Status
+            th # Bets
+            th # Wins
+            th # Losses
+            th % Wins
+          tbody
+           tr data-ng-repeat="match in pastMatches | limitTo: 20"
+            td
+              | {{match.starts_at | date: 'MMM d, y h:mm a'}}
+            td.admin-teams
+              a data-ng-href="/#/admin/{{match.id}}"
+                | {{match.home_team}} - {{match.away_team}}
+            td
+              | {{match.home_score}} - {{match.away_score}}
+            td
+              | {{match.match_status}}
+            td
+              | {{match.links.bets.length}}
+            td 
+              p ??
+            td 
+              p ??
+            td 
+              p ??
+
+
+
+
