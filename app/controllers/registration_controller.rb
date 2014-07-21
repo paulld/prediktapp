@@ -15,12 +15,15 @@ class RegistrationController < ApplicationController
     if @registrant = Registrant.find_by_code(params[:registration_code])
       @user = User.new( user_params.merge(
         email: @registrant.email,
-        coins: INIT_NUMBER_OF_COINS,
+        # coins: INIT_NUMBER_OF_COINS,
+        coins: 0,
         user_name: @registrant.email.split("@")[0]
         )
       )
 
       if @user.save
+        DebitCredit.new.record_init_transaction(@user.id)
+
         @registrant.destroy
         log_user_in(@user)
         # render text: 'Your registration is complete! You are now logged in.'
