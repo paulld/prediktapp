@@ -1,29 +1,23 @@
 class DebitCredit
 
-  def debit_wager(params)
-    get_user( params[:user_id] )
-    set_new_coins( -params[:wager] )
-    
-    sql = %{
-      UPDATE "users" SET "coins" = #{@newCoins}, "updated_at" = now() at time zone 'utc'
-      WHERE "users"."id" = '#{params[:user_id]}'
-    }.squish
-    ActiveRecord::Base.connection.execute(sql).to_a
+  def initialize(user)
+    @user = user
   end
 
+  def debit_wager(wager)
+    @user.coins -= wager
+    @user.save
+  end
 
-  def record_debit_transaction(params, betId)
-    get_user( params[:user_id] )
-    set_new_coins( -params[:wager] )
-    get_uuid
-
-    sql = %{
-      INSERT INTO coin_transactions 
-        ("transaction_type", "bet_reference", "before_value", "after_value", "id", "user_id", "created_at", "updated_at") 
-      VALUES
-        ('place_bet', '#{betId}', #{@oldCoins}, #{@newCoins}, '#{@uuid}', '#{params[:user_id]}', now() at time zone 'utc', now() at time zone 'utc')
-    }.squish
-    ActiveRecord::Base.connection.execute(sql).to_a
+  def record_debit_transaction(wager, betId)
+    CoinTransaction.create(
+      id: get_uuid,
+      user_id: @user.id,
+      transaction_type: 'place_bet',
+      bet_reference: betId,
+      before_value: @user.coins + wager,
+      after_value: @user.coins
+    )
   end
 
 
