@@ -49,8 +49,8 @@ section#admin-match-item data-ng-controller="adminMatchCtrl"
           span
             | {{match.away_team}}
           button.btn.btn-danger data-ng-click="submit(matchScore)"
-            | Set completed
-          button.btn.btn-danger data-ng-click="settle({{match.id}})"
+            | Complete match
+          button.btn.btn-danger data-ng-click="settle()"
             | Settle all Bets
   
   .row
