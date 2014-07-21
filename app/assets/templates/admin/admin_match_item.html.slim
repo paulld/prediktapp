@@ -48,9 +48,11 @@ section#admin-match-item data-ng-controller="adminMatchCtrl"
           input type="text" name="away_score" class="form-control" data-ng-model="match.away_score"
           span
             | {{match.away_team}}
-          button.btn.btn-danger data-ng-click="submit(matchScore)"
-            | Set completed
-          button.btn.btn-danger data-ng-click="settle({{match.id}})"
+          button.btn.btn-danger data-ng-click="setComplete(matchScore)" data-ng-if="! isCompleted"
+            | Set Complete
+          button.btn.btn-success data-ng-click="unsetComplete()" data-ng-if="isCompleted"
+            | Unset Complete
+          button.btn.btn-danger data-ng-click="settle()" data-ng-if="isCompleted"
             | Settle all Bets
   
   .row

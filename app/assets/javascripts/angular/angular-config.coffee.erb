@@ -22,9 +22,8 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .when '/my-profile/edit',    { templateUrl: '<%= asset_path("profile/update_profile.html") %>'       }
     .when '/profile/:userId',    { templateUrl: '<%= asset_path("index_public_profile.html") %>'         }
 
-    .when '/admin',              { templateUrl: '<%= asset_path("admin/index.html") %>'                  }
-    .when '/admin/:matchId',     { templateUrl: '<%= asset_path("admin/match_view.html") %>'             }
-    # .when '/admin/:matchId/update',  { templateUrl: '<%= asset_path("admin/match_update.html") %>'       }
+    .when '/admin',              { templateUrl: '<%= asset_path("admin/admin_matches_list.html") %>'                  }
+    .when '/admin/:matchId',     { templateUrl: '<%= asset_path("admin/admin_match_item.html") %>'             }
 
     .otherwise                   { templateUrl: '404.html'                                               }
 ]
