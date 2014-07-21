@@ -1,11 +1,9 @@
 class RegistrationController < ApplicationController
 
   def new
-    # TODO: reset showTab to "" after any action ?????? cf. other Controllers too
     if @registrant = Registrant.find_by_code(params[:registration_code])
       @user = User.new(email: @registrant.email)
     else
-      # render text: 'Your registration is expired. Please sign up.'
       set_login_tab("signup")
       redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
     end
@@ -15,27 +13,22 @@ class RegistrationController < ApplicationController
     if @registrant = Registrant.find_by_code(params[:registration_code])
       @user = User.new( user_params.merge(
         email: @registrant.email,
-        # coins: INIT_NUMBER_OF_COINS,
-        coins: 0,
+        coins: INIT_NUMBER_OF_COINS,
         user_name: @registrant.email.split("@")[0]
         )
       )
 
       if @user.save
-        DebitCredit.new.record_init_transaction(@user.id)
-
         @registrant.destroy
         log_user_in(@user)
-        # render text: 'Your registration is complete! You are now logged in.'
+        DebitCredit.new(current_user).record_init_transaction
         redirect_to "/#/my-profile", flash: { success: 'Your registration is complete! You are now logged in. Please complete your profile.' }
       else
-        # render text: 'Please input a valid password.'
         flash.now[:error] = 'Please input a valid password.'
         render :new
       end
     else
       set_login_tab("signup")
-      # render text: 'Your registration is expired. Please sign up.'
       redirect_to "/login", flash: { error: 'Your registration is expired. Please sign up.' }
     end
   end

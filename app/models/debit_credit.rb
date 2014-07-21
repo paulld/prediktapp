@@ -20,38 +20,18 @@ class DebitCredit
     )
   end
 
-
-  def credit_init_coins(userId)
-    get_user( userId )
-    set_new_coins( 1000 )
-    # TODO*************
-  end
-
-  def record_init_transaction(userId)
-    get_user( userId )
-    set_new_coins( 1000 )
-    get_uuid
-
-    sql = %{
-      INSERT INTO coin_transactions 
-        ("transaction_type", "before_value", "after_value", "id", "user_id", "created_at", "updated_at") 
-      VALUES
-        ('init', #{@oldCoins}, #{@newCoins}, '#{@uuid}', '#{userId}', now() at time zone 'utc', now() at time zone 'utc')
-    }.squish
-    ActiveRecord::Base.connection.execute(sql).to_a
+  def record_init_transaction
+    CoinTransaction.create(
+      id: get_uuid,
+      user_id: @user.id,
+      transaction_type: 'init',
+      before_value: 0,
+      after_value: INIT_NUMBER_OF_COINS
+    )
   end
 
 
   protected
-
-  def get_user(userId)
-    head :not_found unless @user = User.find_by( id: userId )
-  end
-
-  def set_new_coins(credit)
-    @oldCoins = @user.coins
-    @newCoins = @oldCoins + credit
-  end
 
   def get_uuid
     @uuid = ActiveRecord::Base.connection
