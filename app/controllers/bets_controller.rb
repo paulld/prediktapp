@@ -24,29 +24,31 @@ class BetsController < RestController
   def create
     # Create the new item in memory, but do not persist it yet
     # Make sure the item's ID is the one passed in the URL
-    new_item = get_class.new( object_params.merge( id: params[:id] ) )
+    new_bet = Bet.new( object_params.merge( id: params[:id] ) )
 
-    if new_item.valid?
+    if new_bet.valid?
       begin
-        # Check to see if bet already exists
-        if old_item = get_class.find_by( id: params[:id] )
-          # If exists, return a 401
+        # If a bet already exists with this id, return a 401
+        if old_bet = Bet.find_by( id: params[:id] )
           head :unauthorized
         else
-          ActiveRecord::Base.transaction do
-            # If a create, save the item, return a 201 with a JSON representation
-            new_item.save
-            # Debit the wager value from the user's coin account:
-            DebitCredit.new.debit_wager(object_params)
-            
-            # Create a new CoinTransaction with all the bet information
-            DebitCredit.new.record_debit_transaction(object_params, new_item.id)
+          CoinTransaction.transaction do
+            begin
+              new_bet.save
+              # Debit the wager value from the user's coin account:
+              DebitCredit.new(current_user).debit_wager(object_params[:wager])
+              
+              # Create a new CoinTransaction with all the bet information
+              DebitCredit.new(current_user).record_debit_transaction(object_params[:wager], new_bet.id)
+
+              # If 3 actions successful, return a 201 with a JSON representation
+              instance_variable_set( get_name, [ new_bet ] )
+              render :create, status: :created
+            rescue
+              head :unprocessable_entity
+            end
           end
 
-          # TODO: CHECK IF NEW ITEM SAVED OTHERWISE RENDER ERROR MESSAGE? 
-          
-          instance_variable_set( get_name, [ new_item ] )
-          render :create, status: :created
         end
       rescue
         # If save or destroy fails, return a 500
@@ -54,7 +56,7 @@ class BetsController < RestController
       end
     else
       # Return 422 and an error hash if the new item is not valid
-      @messages = new_item.errors.messages
+      @messages = new_bet.errors.messages
       render 'common/errors', status: :unprocessable_entity
     end
   end
