@@ -58,6 +58,9 @@ ul.footer-nav > li > a
   background-color dark-transparent-50
   border-color transparent
 
+.navbar.navbar-default.navbar-fixed-top
+  height 78px
+
 .navbar-default .navbar-brand
   color #e1e1e8
   
@@ -82,3 +85,15 @@ ul.footer-nav > li > a
 
 .collapse.navbar-collapse
   padding 13px
+
+li.logout-nav-button a
+  font-size 1.3em
+  padding 15px 10px 10px
+  margin-left 15px
+
+li.login-nav-button a
+  padding 15px 10px
+
+@media (min-width: 768px) and (max-width: 992px)
+  header#header > div.navbar.navbar-default.navbar-fixed-top > div.container
+    width 100%

@@ -42,7 +42,7 @@ section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
               i.fa.fa-sort
 
       tbody
-        tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
+        tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 20"
           td.leaderboard-rank.text-center
             | {{$index +1}}
           td.text-center
