@@ -1,4 +1,4 @@
-predikt.controller 'adminMatchCtrl', ($scope, $http, $routeParams, Message) ->
+predikt.controller 'adminMatchCtrl', ($scope, $http, $routeParams, Match, Message) ->
   
   # TODO: CHECK IF ADMIN!
 
@@ -6,17 +6,20 @@ predikt.controller 'adminMatchCtrl', ($scope, $http, $routeParams, Message) ->
 
   $http.get('./api/matches/' + matchId ).success (matchData) ->
     $scope.match = matchData.matches[0]
+    $scope.isCompleted = if $scope.match.match_status is 'completed' then true else false
 
   $http.get('./api/matches/' + matchId + '/bets').success (betData) ->
     $scope.bets = betData.bets
 
-  $scope.submit = (formData) ->
+
+  $scope.setComplete = (formData) ->
     if formData.home_score.$pristine or formData.away_score.$pristine
       Message.noty("Please fill the final score.", 'error', 1000)
     else
-      console.log 'HOME: ', formData.home_score.$modelValue
-      console.log 'AWAY: ', formData.away_score.$modelValue
+      Match.setComplete(matchId, formData.home_score.$modelValue, formData.away_score.$modelValue)
 
+  $scope.unsetComplete = () ->
+    Match.unsetComplete(matchId)
 
   $scope.settle = () ->
     console.log 'MATCH ID: ', matchId
