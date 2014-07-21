@@ -1,0 +1,55 @@
+section#admin-match-item data-ng-controller="adminMatchCtrl"
+  header
+    .row
+      h1.sr-only
+        | Match: {{match.home_team}} ({{match.home_score}} - {{match.away_score}}) {{match.away_team}}
+      p
+        a.back-button data-ng-href="/#/admin"
+          i.fa.fa-arrow-left
+          span Admin Panel
+
+  .row
+    section.col-lg-8.col-md-10.sm-12
+      header.div
+        h2 Upcoming Matches
+      .well
+        table.table.admin-panel-table
+          thead
+           tr
+            th Date
+            th Teams
+            th Status
+            th # Bets
+          tbody
+           tr
+            td
+              | {{match.starts_at | date: 'MMM d, y h:mm a'}}
+            td.admin-teams
+              a
+                | {{match.home_team}} - {{match.away_team}}
+            td
+              | {{match.match_status}}
+            td
+              | {{match.links.bets.length}}
+
+  .row
+    section.col-lg-8.col-md-10.sm-12
+      header.div
+        h2.sr-only Actions
+      .well
+        form.admin-match-form name="matchScore"
+          span
+            | {{match.home_team}}
+          label.sr-only for="home_score"
+            | First Name
+          input type="text" name="home_score" class="form-control" data-ng-model="match.home_score"
+          span -
+          label.sr-only for="away_score"
+            | First Name
+          input type="text" name="away_score" class="form-control" data-ng-model="match.away_score"
+          span
+            | {{match.away_team}}
+          button.btn.btn-danger data-ng-click="submit(matchScore)"
+            | Set completed
+          button.btn.btn-danger data-ng-click="settle({{match.id}})"
+            | Settle all Bets
