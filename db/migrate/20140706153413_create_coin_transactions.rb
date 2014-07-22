@@ -5,6 +5,7 @@ class CreateCoinTransactions < ActiveRecord::Migration
       t.decimal :after_value
       t.string :transaction_type
       t.string :bet_reference
+      t.string :match_reference
       
       t.uuid :user_id, index: true
 

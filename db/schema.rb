@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140715191221) do
     t.decimal  "after_value"
     t.string   "transaction_type"
     t.string   "bet_reference"
+    t.string   "match_reference"
     t.uuid     "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
