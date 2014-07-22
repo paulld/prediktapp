@@ -31,6 +31,7 @@ class DebitCredit
     )
   end
 
+
   def settle_bets(matchId, homeDrawAwayResult, overUnderResult, handicapResult)
 
     betsToSettle = Bet.where(match_id: matchId)
@@ -40,15 +41,37 @@ class DebitCredit
         b.is_successful = true
         b.gain = b.wager * b.odds
         b.save
-        puts 'SUCCESSFULLY SAVED!!!!!!!!'
+
+        # credit coins to user if successful
+        credit_coins(b.user_id, b.gain, b.id, matchId)
+
       else
         b.is_successful = false
         b.gain = 0
         b.save
-        puts 'NOOOOOOOO BUT SAVED'
       end
-      # do the stuff
     end
+  end
+
+  def credit_coins(userId, gain, betId, matchId)
+    user = User.find(userId)
+    user.coins += gain
+    user.save
+
+    # create coin transaction
+    record_credit_transaction(userId, gain, user.coins, betId, matchId)
+  end
+
+  def record_credit_transaction(userId, gain, newCoins, betId, matchId)
+    CoinTransaction.create(
+      id: get_uuid,
+      user_id: userId,
+      transaction_type: 'win_bet',
+      bet_reference: betId,
+      match_reference: matchId,
+      before_value: newCoins - gain,
+      after_value: newCoins
+    )
   end
 
 

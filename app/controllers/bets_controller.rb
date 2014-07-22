@@ -71,8 +71,6 @@ class BetsController < RestController
     else
       CoinTransaction.transaction do
         begin
-          puts '>>>>>>>>>> COMPLETED, LETS GO! ID: ', matchToSettle.id
-          
           # Update all the bets with is_successful and gain depending on match result
           DebitCredit.new(current_user).settle_bets(
             params[:match_id],
@@ -81,12 +79,8 @@ class BetsController < RestController
             matchToSettle.handicap_result
           )
 
-          # credit coins to user if successful
-
-
-          # create coin transaction
-            
-
+          # credit coins to user if successful --> credit_coins (called from settle_bets)
+          # create coin transaction            --> record_credit_transaction (called from credit_coins)
 
           head :accepted
         rescue
