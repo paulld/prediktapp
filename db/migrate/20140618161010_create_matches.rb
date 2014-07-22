@@ -23,7 +23,7 @@ class CreateMatches < ActiveRecord::Migration
       t.decimal  :under_odds
 
       t.decimal  :handicap_value
-      t.string  :handicap_side
+      t.string   :handicap_side
       t.decimal  :home_handicap_odds
       t.decimal  :away_handicap_odds
 

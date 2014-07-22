@@ -16,7 +16,7 @@ predikt.controller 'adminMatchItemCtrl', ($scope, $http, $location, $routeParams
     if formData.home_score.$pristine or formData.away_score.$pristine
       Message.noty("Please fill the final score.", 'error', 1000)
     else
-      Match.setComplete(matchId, formData.home_score.$modelValue, formData.away_score.$modelValue).success () ->
+      Match.setComplete(matchId, formData.home_score.$modelValue, formData.away_score.$modelValue, $scope.match.over_under_value).success () ->
         $route.reload()
 
   $scope.unsetComplete = () ->

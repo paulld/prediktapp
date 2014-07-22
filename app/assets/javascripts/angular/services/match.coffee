@@ -1,18 +1,39 @@
 predikt.factory 'Match', ($http, Message) ->
   Match = 
 
-    setComplete: (matchId, homeScore, awayScore) ->
-      # startsAt = Date.now()
-      # endsAt = new Date()
+    # getHDAResults: (homeScore, awayScore, handicapValue, handicapSide, overUnderValue) ->
+      
+    getHomeDrawAwayResult: (homeScore, awayScore) ->
       winner = switch
         when homeScore is awayScore then 'draw'
         when homeScore > awayScore then 'home'
         when homeScore < awayScore then 'away'
 
+    getOverUnderResult: (homeScore, awayScore, overUnderValue) ->
+      winner = if (homeScore*1 + awayScore*1) > overUnderValue*1
+        'over'
+      else
+        'under'
+      winner
+    # getHandicapResult: (homeScore, awayScore, handicapValue, handicapSide) ->
+
+
+
+
+    setComplete: (matchId, homeScore, awayScore, overUnderValue) ->
+      # startsAt = Date.now()
+      # endsAt = new Date()
+
+      homeDrawAwayResult = Match.getHomeDrawAwayResult(homeScore, awayScore)
+      overUnderResult = Match.getOverUnderResult(homeScore, awayScore, overUnderValue)
+      # handicapResult = Match.getHandicapResult(homeScore, awayScore, handicapValue, handicapSide)
+
       updateData = {
         home_score: homeScore
         away_score: awayScore
-        home_draw_away: winner
+        home_draw_away_result: homeDrawAwayResult
+        over_under_result: overUnderResult
+        # handicap_result: handicapResult
         match_status: 'completed'
         starts_at: "2014-07-21 20:00:00 +0800"
         ends_at: "2014-07-21 22:00:00 +0800"
@@ -34,6 +55,9 @@ predikt.factory 'Match', ($http, Message) ->
       updateData = {
         home_score: ''
         away_score: ''
+        home_draw_away_result: ''
+        over_under_result: ''
+        handicap_result: ''
         match_status: 'pending'
         starts_at: "2014-08-21 20:00:00 +0800"
         ends_at: "2014-08-21 22:00:00 +0800"
