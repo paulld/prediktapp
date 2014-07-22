@@ -16,9 +16,9 @@ predikt.factory 'Match', ($http, Message) ->
         method: "PATCH"
         url: './api/matches/' + matchId
         data: updateData
-      ).success (message) ->
+      ).success () ->
         Message.noty('Done completed!', 'success', 2000)
-      .error (message) ->
+      .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
 
 
@@ -37,7 +37,7 @@ predikt.factory 'Match', ($http, Message) ->
         method: "PATCH"
         url: './api/matches/' + matchId
         data: updateData
-      ).success (message) ->
+      ).success () ->
         Message.noty('Done unset!', 'success', 2000)
-      .error (message) ->
+      .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   

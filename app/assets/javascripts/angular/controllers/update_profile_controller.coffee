@@ -8,9 +8,6 @@ predikt.controller 'updateProfileCtrl', ($scope, $http, $location, $routeParams,
 
   $scope.submit = (formData) ->
     # $scope.submitted = true
-    User.update($scope.profile.id, formData)
-      .success (response) ->
-        $location.url '/my-profile'
-        Message.noty('You profile was successfully updated.', 'success', 500)
-      .error (response) ->
-        Message.noty("Your profile cannot be updated! <br>Your Username can't be blank", 'error', 1500)
+    User.update($scope.profile.id, formData).success () ->
+      $location.url '/my-profile'
+      
