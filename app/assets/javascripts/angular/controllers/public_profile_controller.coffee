@@ -16,6 +16,19 @@ predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Mess
     User.getUserCoinTransactions(userId).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
 
+      for transaction in $scope.coinTransactions
+        switch transaction.transaction_type
+          when 'init'
+            transaction.matchUrl = ''
+            transaction.urlClass = 'hide'
+          when 'place_bet'
+            transaction.matchUrl = '/#/upcoming/' + transaction.match_reference
+            transaction.urlClass = 'btn-success'
+          when 'win_bet'
+            transaction.matchUrl = '/#/completed/' + transaction.match_reference
+            transaction.urlClass = 'btn-danger'
+      
+
     $scope.profile = null
     User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
