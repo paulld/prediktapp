@@ -10,5 +10,5 @@ class Match < ActiveRecord::Base
   
   validates :home_draw_away_result, inclusion: { in: HOME_DRAW_AWAY }, allow_blank: true
   validates :over_under_result, inclusion: { in: OVER_UNDER }, allow_blank: true
-  validates :handicap_result, inclusion: { in: HOME_AWAY }, allow_blank: true
+  validates :handicap_result, inclusion: { in: HANDICAP }, allow_blank: true
 end

@@ -64,16 +64,35 @@ class BetsController < RestController
 
   def settle
 
-    match = Match.find(params[:match_id])
-    
-    if match.match_status != 'completed'
+    matchToSettle = Match.find(params[:match_id])
+
+    if matchToSettle.match_status != 'completed'
       head :unprocessable_entity
     else
-      puts '>>>>>>>>>> COMPLETED, LETS GO!'
+      CoinTransaction.transaction do
+        begin
+          puts '>>>>>>>>>> COMPLETED, LETS GO! ID: ', matchToSettle.id
+          
+          # Update all the bets with is_successful and gain depending on match result
+          DebitCredit.new(current_user).settle_bets(
+            params[:match_id],
+            matchToSettle.home_draw_away_result,
+            matchToSettle.over_under_result,
+            matchToSettle.handicap_result
+          )
+
+          # credit coins to user if successful
 
 
+          # create coin transaction
+            
 
 
+          head :accepted
+        rescue
+          head :unprocessable_entity
+        end
+      end
     end
 
   end

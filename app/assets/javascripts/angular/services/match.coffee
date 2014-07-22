@@ -17,9 +17,9 @@ predikt.factory 'Match', ($http, Message) ->
     getHandicapResult: (homeScore, awayScore, handicapValue, handicapSide) ->
       scoreDiff = homeScore - awayScore
       if handicapSide is 'home'
-        winner = if (scoreDiff > handicapValue) then 'home' else 'away'
+        winner = if (scoreDiff > handicapValue) then 'home_handicap' else 'away_handicap'
       else
-        winner = if (scoreDiff < - handicapValue) then 'away' else 'home'
+        winner = if (scoreDiff < - handicapValue) then 'away_handicap' else 'home_handicap'
       winner
 
     setComplete: (matchId, homeScore, awayScore, overUnderValue, handicapValue, handicapSide) ->
