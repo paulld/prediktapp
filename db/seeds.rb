@@ -25,16 +25,16 @@ users = User.create([
     win_percentage: 0.55
   },
   {
+    user_name: "Felix",
+    email: "felix@predikt.com",
+    coins: 1320,
+    win_percentage: 0.60
+  },
+  {
     user_name: "Rage",
     email: "regis@predikt.com",
     coins: 1100,
     win_percentage: 0.55
-  },
-  {
-    user_name: "Felix",
-    email: "felix@predikt.com",
-    coins: 1200,
-    win_percentage: 0.60
   },
   {
     user_name: "Tim",
@@ -60,50 +60,50 @@ coin_transactions = CoinTransaction.create([
   { 
     user: users[0],
     before_value: 0,
-    after_value: 10,
+    after_value: 1000,
     transaction_type: "init"
   },
   { 
     user: users[0],
-    before_value: 10,
-    after_value: 20,
+    before_value: 1000,
+    after_value: 980,
+    transaction_type: "place_bet"
+  },
+  { 
+    user: users[0],
+    before_value: 980,
+    after_value: 1300,
     transaction_type: "bet_win"
   },
   { 
     user: users[0],
-    before_value: 20,
-    after_value: 10,
-    transaction_type: "bet_loss"
-  },
-  { 
-    user: users[0],
-    before_value: 10,
-    after_value: 15,
-    transaction_type: "bet_win"
+    before_value: 1300,
+    after_value: 1250,
+    transaction_type: "place_bet"
   },
   { 
     user: users[1],
     before_value: 0,
-    after_value: 10,
+    after_value: 1000,
     transaction_type: "init"
   },
   { 
     user: users[1],
-    before_value: 10,
-    after_value: 12,
+    before_value: 1000,
+    after_value: 900,
+    transaction_type: "place_bet"
+  },
+  { 
+    user: users[1],
+    before_value: 900,
+    after_value: 850,
+    transaction_type: "place_bet"
+  },
+  { 
+    user: users[1],
+    before_value: 850,
+    after_value: 1320,
     transaction_type: "bet_win"
-  },
-  { 
-    user: users[1],
-    before_value: 12,
-    after_value: 5,
-    transaction_type: "bet_loss"
-  },
-  { 
-    user: users[1],
-    before_value: 5,
-    after_value: 2,
-    transaction_type: "bet_loss"
   }
 ])
 
@@ -135,155 +135,6 @@ leagues = League.create([
 ])
 
 matches = Match.create([
-  {
-    league: leagues[0],
-    home_team: "Brazil",
-    away_team: "Argentina",
-    home_team_iso_code: "br",
-    away_team_iso_code: "ar",
-    starts_at: "2014-05-01 12:00:00 +0800",
-    ends_at: "2014-05-01 13:45:00 +0800",
-    home_odds: 1.95,
-    draw_odds: 3.40,
-    away_odds: 3.15,
-    over_under_value: 3.5,
-    over_odds: 1.78,
-    under_odds: 2.56,
-    home_handicap_value: -0.5,
-    away_handicap_value: +0.5,
-    home_handicap_odds: 2.08,
-    away_handicap_odds: 1.78,
-    match_status: "completed",
-    home_draw_away: "home",
-    home_score: 3,
-    away_score: 1
-  },
-  {
-    league: leagues[0],
-    home_team: "Spain",
-    away_team: "Portugal",
-    home_team_iso_code: "es",
-    away_team_iso_code: "pt",
-    starts_at: "2014-06-01 9:30:00 +0800",
-    ends_at: "2014-06-01 11:15:00 +0800",
-    home_odds: 1.78,
-    draw_odds: 4.22,
-    away_odds: 2.15,
-    over_under_value: 2.5,
-    over_odds: 1.82,
-    under_odds: 2.34,
-    home_handicap_value: -2.5,
-    away_handicap_value: +2.5,
-    home_handicap_odds: 1.84,
-    away_handicap_odds: 2.0,
-    match_status: "completed",
-    home_draw_away: "draw",
-    home_score: 2,
-    away_score: 2
-  },
-  {
-    league: leagues[1],
-    home_team: "England",
-    away_team: "France",
-    home_team_iso_code: "gb",
-    away_team_iso_code: "fr",
-    starts_at: "2014-07-01 10:15:00 +0800",
-    ends_at: "2014-07-01 12:00:00 +0800",
-    home_odds: 2.55,
-    draw_odds: 3.72,
-    away_odds: 2.18,
-    over_under_value: 2.5,
-    over_odds: 1.90,
-    under_odds: 3.9,
-    home_handicap_value: -3.5,
-    away_handicap_value: +3.5,
-    home_handicap_odds: 1.92,
-    away_handicap_odds: 1.88,
-    match_status: "completed",
-    home_draw_away: "away",
-    home_score: 0,
-    away_score: 1
-  },
-  {
-    league: leagues[1],
-    home_team: "Brazil",
-    away_team: "Germany",
-    home_team_iso_code: "br",
-    away_team_iso_code: "de",
-    starts_at: "2014-09-08 21:00:00 +0800",
-    ends_at: "2014-09-08 19:00:00 +0800",
-    home_odds: 1.47,
-    draw_odds: 6.72,
-    away_odds: 4.82,
-    over_under_value: 3.5,
-    over_odds: 1.48,
-    under_odds: 1.98,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
-    home_handicap_odds: 4.58,
-    away_handicap_odds: 1.62,
-    match_status: "pending"
-  },
-  {
-    league: leagues[1],
-    home_team: "Italy",
-    away_team: "Hong Kong",
-    home_team_iso_code: "it",
-    away_team_iso_code: "hk",
-    starts_at: "2014-10-11 8:30:00 +0800",
-    ends_at: "2014-10-11 10:30:00 +0800",
-    home_odds: 1.47,
-    draw_odds: 6.72,
-    away_odds: 4.82,
-    over_under_value: 3.5,
-    over_odds: 1.48,
-    under_odds: 1.98,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
-    home_handicap_odds: 1.62,
-    away_handicap_odds: 4.58,
-    match_status: "pending"
-  },
-  {
-    league: leagues[1],
-    home_team: "Canada",
-    away_team: "Switerland",
-    home_team_iso_code: "ca",
-    away_team_iso_code: "ch",
-    starts_at: "2014-10-08 8:30:00 +0800",
-    ends_at: "2014-10-08 10:30:00 +0800",
-    home_odds: 1.7,
-    draw_odds: 6.2,
-    away_odds: 4.2,
-    over_under_value: 4.5,
-    over_odds: 1.38,
-    under_odds: 1.18,
-    home_handicap_value: -2.5,
-    away_handicap_value: +2.5,
-    home_handicap_odds: 1.62,
-    away_handicap_odds: 4.58,
-    match_status: "pending"
-  },
-  {
-    league: leagues[1],
-    home_team: "French Guiana",
-    away_team: "Equatorial Guinea",
-    home_team_iso_code: "gf",
-    away_team_iso_code: "gq",
-    starts_at: "2014-09-09 8:30:00 +0800",
-    ends_at: "2014-09-09 10:30:00 +0800",
-    home_odds: 1.57,
-    draw_odds: 6.92,
-    away_odds: 4.22,
-    over_under_value: 2.5,
-    over_odds: 1.8,
-    under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
-    home_handicap_odds: 1.83,
-    away_handicap_odds: 4.52,
-    match_status: "pending"
-  },
   {
     league: leagues[2],
     home_team: "San Jose Earthquakes",
@@ -483,94 +334,6 @@ matches = Match.create([
     home_handicap_odds: 1.83,
     away_handicap_odds: 6.92,
     match_status: "pending"
-  }
-])
-
-bets = Bet.create([
-  {
-    user: users[0],
-    match: matches[0],
-    bet_type: "home",
-    wager: 20,
-    is_successful: true
-  },
-  {
-    user: users[1],
-    match: matches[0],
-    bet_type: "draw",
-    wager: 10,
-    is_successful: false
-  },
-  {
-    user: users[0],
-    match: matches[1],
-    bet_type: "draw",
-    wager: 20,
-    is_successful: true
-  },
-  {
-    user: users[1],
-    match: matches[1],
-    bet_type: "draw",
-    wager: 10,
-    is_successful: true
-  },
-  {
-    user: users[0],
-    match: matches[2],
-    bet_type: "away",
-    wager: 20,
-    is_successful: true
-  },
-  {
-    user: users[1],
-    match: matches[2],
-    bet_type: "draw",
-    wager: 10,
-    is_successful: false
-  },
-  {
-    user: users[2],
-    match: matches[2],
-    bet_type: "draw",
-    wager: 10,
-    is_successful: false
-  },
-  {
-    user: users[0],
-    match: matches[3],
-    bet_type: "over",
-    wager: 20
-  },
-  {
-    user: users[1],
-    match: matches[3],
-    bet_type: "under",
-    wager: 10
-  },
-  {
-    user: users[2],
-    match: matches[3],
-    bet_type: "home_handicap",
-    wager: 10
-  },
-  {
-    user: users[1],
-    match: matches[4],
-    bet_type: "away_handicap",
-    wager: 20
-  },
-  {
-    user: users[2],
-    match: matches[4],
-    bet_type: "under",
-    wager: 10
-  },
-  {
-    user: users[3],
-    match: matches[4],
-    bet_type: "home_handicap",
-    wager: 10
   }
 ])
 
