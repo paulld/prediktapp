@@ -1,7 +1,5 @@
 predikt.factory 'Match', ($http, Message) ->
   Match = 
-
-    # getHDAResults: (homeScore, awayScore, handicapValue, handicapSide, overUnderValue) ->
       
     getHomeDrawAwayResult: (homeScore, awayScore) ->
       winner = switch
@@ -15,25 +13,31 @@ predikt.factory 'Match', ($http, Message) ->
       else
         'under'
       winner
-    # getHandicapResult: (homeScore, awayScore, handicapValue, handicapSide) ->
 
+    getHandicapResult: (homeScore, awayScore, handicapValue, handicapSide) ->
+      scoreDiff = homeScore - awayScore
+      if handicapSide is 'home'
+        winner = if (scoreDiff > handicapValue) then 'home' else 'away'
+      else
+        winner = if (scoreDiff < - handicapValue) then 'away' else 'home'
+      winner
 
-
-
-    setComplete: (matchId, homeScore, awayScore, overUnderValue) ->
+    setComplete: (matchId, homeScore, awayScore, overUnderValue, handicapValue, handicapSide) ->
       # startsAt = Date.now()
       # endsAt = new Date()
-
       homeDrawAwayResult = Match.getHomeDrawAwayResult(homeScore, awayScore)
       overUnderResult = Match.getOverUnderResult(homeScore, awayScore, overUnderValue)
-      # handicapResult = Match.getHandicapResult(homeScore, awayScore, handicapValue, handicapSide)
+      
+      console.log 'handicapValue', handicapValue
+      console.log 'handicapSide', handicapSide
+      handicapResult = Match.getHandicapResult(homeScore, awayScore, handicapValue, handicapSide)
 
       updateData = {
         home_score: homeScore
         away_score: awayScore
         home_draw_away_result: homeDrawAwayResult
         over_under_result: overUnderResult
-        # handicap_result: handicapResult
+        handicap_result: handicapResult
         match_status: 'completed'
         starts_at: "2014-07-21 20:00:00 +0800"
         ends_at: "2014-07-21 22:00:00 +0800"
@@ -49,9 +53,6 @@ predikt.factory 'Match', ($http, Message) ->
 
 
     unsetComplete: (matchId) ->
-      # startsAt = Date.now()
-      # endsAt = new Date()
-
       updateData = {
         home_score: ''
         away_score: ''
