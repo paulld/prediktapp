@@ -1,4 +1,4 @@
-section#dashboard.row data-ng-controller="privateProfileCtrl" data-ng-if="profile"
+section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="profile"
   header
     h1.leaderboard-right-title My Dashboard
   .leaderboard-list
@@ -39,4 +39,4 @@ section#dashboard.row data-ng-controller="privateProfileCtrl" data-ng-if="profil
             td
               | {{bet.wager}}
             td
-              | {{bet.status}}
+              | {{bet.links.match.match_status}}

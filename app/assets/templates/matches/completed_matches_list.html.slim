@@ -9,20 +9,22 @@ section#completed-matches-list
           span
             | {{match.starts_at | date: 'MMM d, y'}}
         .col-md-1.home-flag
-          span.f32.country-flag
-            .flag.selected class="{{match.home_team_iso_code}}"
+          img src="/assets/{{match.home_team_iso_code}}.png"
+          / span.f32.country-flag
+          /   .flag.selected class="{{match.home_team_iso_code}}"
         a.col-md-7.teams-info data-ng-href="/#/completed/{{match.id}}"
           | {{match.home_team}}
           span.score
             | {{match.home_score}} - {{match.away_score}}
           | {{match.away_team}}
         .col-md-1.away-flag
-          .f32.country-flag
-            .flag.selected class="{{match.away_team_iso_code}}"
+          img src="/assets/{{match.away_team_iso_code}}.png"
+          / .f32.country-flag
+          /   .flag.selected class="{{match.away_team_iso_code}}"
 
       .row.game-buttons
         .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary.disabled type="button"
             .bet-type
@@ -44,7 +46,7 @@ section#completed-matches-list
 
       .row.game-buttons
         .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary.disabled type="button"
             .bet-type
@@ -63,7 +65,7 @@ section#completed-matches-list
 
       .row.game-buttons
         .col-md-3
-          img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
+          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary.disabled type="button"
             .bet-type

@@ -14,13 +14,15 @@ section#single-match
         .col-md-3.match-date
           | {{match.starts_at | date: 'MMM d, y h:mm a'}}
         .col-md-1.home-flag
-          span.f32.country-flag
-            .flag.selected class="{{match.home_team_iso_code}}"
+          img src="/assets/{{match.home_team_iso_code}}.png"
+          / span.f32.country-flag
+          /   .flag.selected class="{{match.home_team_iso_code}}"
         .col-md-7.teams-info
           | {{match.home_team}} - {{match.away_team}}
         .col-md-1.away-flag
-          .f32.country-flag
-            .flag.selected class="{{match.away_team_iso_code}}"
+          img src="/assets/{{match.away_team_iso_code}}.png"
+          / .f32.country-flag
+          /   .flag.selected class="{{match.away_team_iso_code}}"
 
 
       .row.game-buttons
