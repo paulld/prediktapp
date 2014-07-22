@@ -1,13 +1,17 @@
 predikt.factory 'User', ($http, Message) ->
   User = 
 
+    getUser: (userId) ->
+      $http.get('./api/users/' + userId).success (userData) ->
+        userData
+
     getCurrentUser: () ->
       $http.get('./api/profile/' ).success (userData) ->
         userData
 
-    # currentUserId: ->
-    #   $http.get('./api/profile/' ).success (userData) ->
-    #     userData.users[0].id
+    getUserBets: (userId) ->
+      $http.get('./api/users/' + userId + '/bets').success (betData) ->
+        betData
 
     createFollow: (followerId, followeeId, followeeUserame) ->
       $http.get('./api/uuids').success (uuid) ->

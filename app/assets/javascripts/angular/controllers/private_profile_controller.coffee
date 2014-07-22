@@ -4,7 +4,7 @@ predikt.controller 'privateProfileCtrl', ($scope, $http, $location, $routeParams
   User.getCurrentUser().then (result) ->
     $scope.profile = result.data.users[0]
 
-    $http.get('./api/users/' + $scope.profile.id + '/bets').success (betData) ->
+    User.getUserBets($scope.profile.id).success (betData) ->
       $scope.bets = betData.bets
 
       for bet in $scope.bets

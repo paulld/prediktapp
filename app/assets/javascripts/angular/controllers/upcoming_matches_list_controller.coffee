@@ -19,5 +19,6 @@ predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message
     $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, wager) ->
       if $scope.profile
         Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, wager)
+        Bet.changed = 'changed'
       else
         Message.noty('Please log in to place a bet.', 'error', 700)
