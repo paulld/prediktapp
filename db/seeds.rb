@@ -125,6 +125,10 @@ leagues = League.create([
     sport: sports[0]
   },
   { 
+    name: "Major Soccer League 2014-2015",
+    sport: sports[0]
+  },
+  { 
     name: "Premier league 2014-2015",
     sport: sports[0]
   },
@@ -147,10 +151,10 @@ matches = Match.create([
     draw_odds: 3.26,
     away_odds: 3.29,
     over_under_value: 2.5,
-    over_odds: 1.9,
+    over_odds: 2.8,
     under_odds: 1.9,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 2.5,
+    handicap_side: 'home',
     home_handicap_odds: 1.83,
     away_handicap_odds: 2.52,
     match_status: "pending"
@@ -169,8 +173,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.77,
     under_odds: 1.38,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'home',
     home_handicap_odds: 1.11,
     away_handicap_odds: 4.94,
     match_status: "pending"
@@ -189,8 +193,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'away',
     home_handicap_odds: 1.92,
     away_handicap_odds: 2.33,
     match_status: "pending"
@@ -209,8 +213,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'home',
     home_handicap_odds: 1.83,
     away_handicap_odds: 1.9,
     match_status: "pending"
@@ -229,8 +233,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 2.5,
+    handicap_side: 'away',
     home_handicap_odds: 1.85,
     away_handicap_odds: 1.85,
     match_status: "pending"
@@ -249,8 +253,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 2.5,
+    handicap_side: 'home',
     home_handicap_odds: 1.89,
     away_handicap_odds: 1.96,
     match_status: "pending"
@@ -269,8 +273,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'away',
     home_handicap_odds: 1.76,
     away_handicap_odds: 2.33,
     match_status: "pending"
@@ -289,8 +293,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 3.5,
+    handicap_side: 'away',
     home_handicap_odds: 1.97,
     away_handicap_odds: 2.42,
     match_status: "pending"
@@ -309,8 +313,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'home',
     home_handicap_odds: 3.83,
     away_handicap_odds: 1.52,
     match_status: "pending"
@@ -329,8 +333,8 @@ matches = Match.create([
     over_under_value: 2.5,
     over_odds: 1.8,
     under_odds: 1.18,
-    home_handicap_value: -1.5,
-    away_handicap_value: +1.5,
+    handicap_value: 1.5,
+    handicap_side: 'home',
     home_handicap_odds: 1.83,
     away_handicap_odds: 6.92,
     match_status: "pending"
