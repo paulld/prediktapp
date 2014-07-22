@@ -61,8 +61,9 @@ Prediktapp::Application.routes.draw do
       delete ':id'                          => 'bets#destroy'
     end
 
-    get 'matches/:match_id/bets'            => 'bets#index'
     get 'users/:user_id/bets'               => 'bets#index'
+    get 'matches/:match_id/bets'            => 'bets#index'
+    get 'matches/:match_id/settle'          => 'bets#settle'
     
     scope :coin_transactions do
       get    ''                             => 'coin_transactions#index',            as: :coin_transactions

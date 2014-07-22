@@ -17,9 +17,9 @@ predikt.factory 'Match', ($http, Message) ->
     getHandicapResult: (homeScore, awayScore, handicapValue, handicapSide) ->
       scoreDiff = homeScore - awayScore
       if handicapSide is 'home'
-        winner = if (scoreDiff > handicapValue) then 'home' else 'away'
+        winner = if (scoreDiff > handicapValue) then 'home_handicap' else 'away_handicap'
       else
-        winner = if (scoreDiff < - handicapValue) then 'away' else 'home'
+        winner = if (scoreDiff < - handicapValue) then 'away_handicap' else 'home_handicap'
       winner
 
     setComplete: (matchId, homeScore, awayScore, overUnderValue, handicapValue, handicapSide) ->
@@ -45,7 +45,7 @@ predikt.factory 'Match', ($http, Message) ->
         url: './api/matches/' + matchId
         data: updateData
       ).success () ->
-        Message.noty('Done completed!', 'success', 2000)
+        Message.noty('Done, the match is now completed.', 'success', 2000)
       .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
 
@@ -66,6 +66,18 @@ predikt.factory 'Match', ($http, Message) ->
         url: './api/matches/' + matchId
         data: updateData
       ).success () ->
-        Message.noty('Done unset!', 'success', 2000)
+        Message.noty('Done, the match is now pending.', 'success', 2000)
       .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
+
+    settle: (matchId) ->
+      console.log 'MATCH ID: ', matchId
+      $http(
+        method: "GET"
+        url: './api/matches/' + matchId + '/settle'
+      ).success () ->
+        Message.noty('Done, all bets are settled.', 'success', 2000)
+      .error () ->
+        Message.noty('Something went wrong! Please try again.', 'error', 700)         
+
+
