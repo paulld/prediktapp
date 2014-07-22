@@ -39,7 +39,7 @@ class BetsController < RestController
               DebitCredit.new(current_user).debit_wager(object_params[:wager])
               
               # Create a new CoinTransaction with all the bet information
-              DebitCredit.new(current_user).record_debit_transaction(object_params[:wager], new_bet.id)
+              DebitCredit.new(current_user).record_debit_transaction(object_params[:wager], new_bet.id, object_params[:match_id])
 
               # If 3 actions successful, return a 201 with a JSON representation
               instance_variable_set( get_name, [ new_bet ] )

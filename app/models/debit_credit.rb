@@ -9,12 +9,13 @@ class DebitCredit
     @user.save
   end
 
-  def record_debit_transaction(wager, betId)
+  def record_debit_transaction(wager, betId, matchId)
     CoinTransaction.create(
       id: get_uuid,
       user_id: @user.id,
       transaction_type: 'place_bet',
       bet_reference: betId,
+      match_reference: matchId,
       before_value: @user.coins + wager,
       after_value: @user.coins
     )

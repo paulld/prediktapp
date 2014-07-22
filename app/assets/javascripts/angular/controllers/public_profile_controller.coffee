@@ -13,6 +13,8 @@ predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Mess
         # bet.starts_at = bet.links.match.match_starts_at
         # bet.ends_at = bet.links.match.match_ends_at
           
+    User.getUserCoinTransactions(userId).success (transactionData) ->
+      $scope.coinTransactions = transactionData.coin_transactions
 
     $scope.profile = null
     User.getCurrentUser().then (result) ->
