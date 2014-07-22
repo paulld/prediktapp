@@ -85,16 +85,25 @@ section#private-profile
         thead
           tr
             th Date
-            th Debit/Credit
-            th New Total
-            th Reason
+            th.text-right Credit
+            th.text-right Debit
+            th.text-right New Total
+            th.text-right Reason
+            th.text-right Reference
         tbody
           tr data-ng-repeat="transaction in coinTransactions | orderBy : 'created_at' : reverse"
             td.bet-date
               | {{transaction.created_at | date: 'MMM d, y h:mm a'}}
-            td
-              | {{transaction.after_value - transaction.before_value | number:1}}
-            td
+            td.text-right
+              span data-ng-if="(transaction.after_value - transaction.before_value) > 0"
+                | {{transaction.after_value - transaction.before_value | number:1}}
+            td.text-right
+              span data-ng-if="(transaction.after_value - transaction.before_value) < 0"
+                | {{transaction.after_value - transaction.before_value | number:1}}
+            td.text-right
               | {{transaction.after_value}}
-            td
+            td.text-right
               | {{transaction.transaction_type}}
+            td.text-right
+              a.btn.btn-match-url data-ng-href="{{transaction.matchUrl}}" class="{{transaction.urlClass}}"
+                | view Match

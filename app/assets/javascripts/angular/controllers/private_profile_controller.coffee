@@ -14,6 +14,19 @@ predikt.controller 'privateProfileCtrl', ($scope, $http, $location, $routeParams
 
     User.getUserCoinTransactions($scope.profile.id).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
+      
+      for transaction in $scope.coinTransactions
+        switch transaction.transaction_type
+          when 'init'
+            transaction.matchUrl = ''
+            transaction.urlClass = 'hide'
+          when 'place_bet'
+            transaction.matchUrl = '/#/upcoming/' + transaction.match_reference
+            transaction.urlClass = 'btn-success'
+          when 'win_bet'
+            transaction.matchUrl = '/#/completed/' + transaction.match_reference
+            transaction.urlClass = 'btn-danger'
+
 
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'
