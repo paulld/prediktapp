@@ -8,4 +8,8 @@ MATCH_STATUS = %w{ pending ongoing delayed completed cancelled }
 
 HOME_DRAW_AWAY = %w{ home draw away }
 
+HOME_AWAY = %w{ home away }
+
+OVER_UNDER = %w{ over under }
+
 BET_TYPE = %w{ home draw away over under home_handicap away_handicap }
