@@ -13,6 +13,10 @@ predikt.factory 'User', ($http, Message) ->
       $http.get('./api/users/' + userId + '/bets').success (betData) ->
         betData
 
+    getUserCoinTransactions: (userId) ->
+      $http.get('./api/users/' + userId + '/coin_transactions').success (coinTransactionData) ->
+        coinTransactionData
+
     createFollow: (followerId, followeeId, followeeUserame) ->
       $http.get('./api/uuids').success (uuid) ->
         newUuid = uuid.uuids[0]

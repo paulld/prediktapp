@@ -28,8 +28,6 @@ predikt.factory 'Match', ($http, Message) ->
       homeDrawAwayResult = Match.getHomeDrawAwayResult(homeScore, awayScore)
       overUnderResult = Match.getOverUnderResult(homeScore, awayScore, overUnderValue)
       
-      console.log 'handicapValue', handicapValue
-      console.log 'handicapSide', handicapSide
       handicapResult = Match.getHandicapResult(homeScore, awayScore, handicapValue, handicapSide)
 
       updateData = {
