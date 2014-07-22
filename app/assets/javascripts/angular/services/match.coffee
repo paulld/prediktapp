@@ -4,10 +4,15 @@ predikt.factory 'Match', ($http, Message) ->
     setComplete: (matchId, homeScore, awayScore) ->
       # startsAt = Date.now()
       # endsAt = new Date()
+      winner = switch
+        when homeScore is awayScore then 'draw'
+        when homeScore > awayScore then 'home'
+        when homeScore < awayScore then 'away'
 
       updateData = {
         home_score: homeScore
         away_score: awayScore
+        home_draw_away: winner
         match_status: 'completed'
         starts_at: "2014-07-21 20:00:00 +0800"
         ends_at: "2014-07-21 22:00:00 +0800"
