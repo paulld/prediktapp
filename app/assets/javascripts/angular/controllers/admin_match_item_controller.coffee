@@ -14,6 +14,7 @@ predikt.controller 'adminMatchItemCtrl', ($scope, $http, $location, $routeParams
 
   $scope.setComplete = (formData) ->
     if formData.home_score.$pristine or formData.away_score.$pristine
+      # TODO: Check if scores are integer
       Message.noty("Please fill the final score.", 'error', 1000)
     else
       Match.setComplete(
@@ -31,4 +32,5 @@ predikt.controller 'adminMatchItemCtrl', ($scope, $http, $location, $routeParams
       $route.reload()
 
   $scope.settle = () ->
-    console.log 'MATCH ID: ', matchId
+    Match.settle(matchId)
+      # TODO: Reload page

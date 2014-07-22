@@ -45,7 +45,7 @@ predikt.factory 'Match', ($http, Message) ->
         url: './api/matches/' + matchId
         data: updateData
       ).success () ->
-        Message.noty('Done completed!', 'success', 2000)
+        Message.noty('Done, the match is now completed.', 'success', 2000)
       .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
 
@@ -66,6 +66,18 @@ predikt.factory 'Match', ($http, Message) ->
         url: './api/matches/' + matchId
         data: updateData
       ).success () ->
-        Message.noty('Done unset!', 'success', 2000)
+        Message.noty('Done, the match is now pending.', 'success', 2000)
       .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
+
+    settle: (matchId) ->
+      console.log 'MATCH ID: ', matchId
+      $http(
+        method: "GET"
+        url: './api/matches/' + matchId + '/settle'
+      ).success () ->
+        Message.noty('Done, all bets are settled.', 'success', 2000)
+      .error () ->
+        Message.noty('Something went wrong! Please try again.', 'error', 700)         
+
+

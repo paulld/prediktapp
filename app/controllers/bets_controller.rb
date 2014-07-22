@@ -62,6 +62,22 @@ class BetsController < RestController
   end
 
 
+  def settle
+
+    match = Match.find(params[:match_id])
+    
+    if match.match_status != 'completed'
+      head :unprocessable_entity
+    else
+      puts '>>>>>>>>>> COMPLETED, LETS GO!'
+
+
+
+
+    end
+
+  end
+
 
   protected
 
