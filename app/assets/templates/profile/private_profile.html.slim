@@ -74,3 +74,24 @@ section#private-profile
 
   bets-list
   
+  section#transactions-history
+    header
+      h2 Transactions History
+    .well
+      table.table
+        thead
+          tr
+            th Date
+            th Debit/Credit
+            th New Total
+            th Reason
+        tbody
+          tr data-ng-repeat="transaction in coinTransactions | orderBy : 'created_at' : reverse"
+            td.bet-date
+              | {{transaction.created_at | date: 'MMM d, y h:mm a'}}
+            td
+              | {{transaction.after_value - transaction.before_value | number:1}}
+            td
+              | {{transaction.after_value}}
+            td
+              | {{transaction.transaction_type}}
