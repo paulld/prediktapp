@@ -1,4 +1,4 @@
-section#admin-match-item data-ng-controller="adminMatchCtrl"
+section#admin-match-item data-ng-controller="adminMatchItemCtrl"
   header
     .row
       h1.sr-only
@@ -25,7 +25,13 @@ section#admin-match-item data-ng-controller="adminMatchCtrl"
             td
               | {{match.starts_at | date: 'MMM d, y h:mm a'}}
             td.admin-teams
-              | {{match.home_team}} - {{match.away_team}}
+              | {{match.home_team}}
+              span.score
+                | {{match.home_score}}
+              | - 
+              span.score
+                | {{match.away_score}}
+              | {{match.away_team}}
             td
               | {{match.match_status}}
             td

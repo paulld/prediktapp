@@ -57,7 +57,7 @@ section#upcoming-matches-list
           span.badge.margin-left-27
             | o/u {{match.over_under_value}}
         .col-md-3
-          button.btn.btn-warning data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'under', match.under_odds, 1)"
+          button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'under', match.under_odds, 1)"
             .bet-type
               | Under
             .bet-odds
@@ -78,7 +78,7 @@ section#upcoming-matches-list
         .col-md-3
           span.badge.handicap Handicap
         .col-md-3
-          button.btn.btn-warning data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, 1)"
+          button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, 1)"
             .bet-type
               | Hand {{match.away_handicap_value}}
             .bet-odds

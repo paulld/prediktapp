@@ -1,4 +1,4 @@
-predikt.controller 'adminMatchCtrl', ($scope, $http, $location, $routeParams, $route, Match, Message) ->
+predikt.controller 'adminMatchItemCtrl', ($scope, $http, $location, $routeParams, $route, Match, Message) ->
   
   # TODO: CHECK IF ADMIN!
 

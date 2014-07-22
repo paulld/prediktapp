@@ -32,19 +32,19 @@ section#single-completed-match
         .col-md-3
           img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
-          button.btn.btn-primary type="button"
+          button.btn.btn-primary.disabled type="button"
             .bet-type
               | Home
             .bet-odds
               | {{match.home_odds}}
         .col-md-3
-          button.btn.btn-success type="button"
+          button.btn.btn-success.disabled type="button"
             .bet-type
               | Draw
             .bet-odds
               | {{match.draw_odds}}
         .col-md-3
-          button.btn.btn-warning type="button"
+          button.btn.btn-warning.disabled type="button"
             .bet-type
               | Away
             .bet-odds
@@ -54,7 +54,7 @@ section#single-completed-match
         .col-md-3
           img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
-          button.btn.btn-primary type="button"
+          button.btn.btn-primary.disabled type="button"
             .bet-type
               | Over
             .bet-odds
@@ -63,7 +63,7 @@ section#single-completed-match
           span.badge.margin-left-27
             | o/u {{match.over_under_value}}
         .col-md-3
-          button.btn.btn-warning
+          button.btn.btn-warning.disabled type="button"
             .bet-type
               | Under
             .bet-odds
@@ -73,7 +73,7 @@ section#single-completed-match
         .col-md-3
           img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
-          button.btn.btn-primary type="button"
+          button.btn.btn-primary.disabled type="button"
             .bet-type
               | Hand {{match.home_handicap_value}}
             .bet-odds
@@ -81,7 +81,7 @@ section#single-completed-match
         .col-md-3
           span.badge.handicap Handicap
         .col-md-3
-          button.btn.btn-warning
+          button.btn.btn-warning.disabled type="button"
             .bet-type
               | Hand {{match.away_handicap_value}}
             .bet-odds

@@ -1,4 +1,4 @@
-predikt.controller 'adminCtrl', ($scope, $http) ->
+predikt.controller 'adminMatchesListCtrl', ($scope, $http) ->
 
   # TODO: CHECK IF ADMIN!
 
