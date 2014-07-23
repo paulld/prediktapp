@@ -23,6 +23,9 @@ section#private-profile
             span.profile-followers-number 
               | {{profile.links.followings_as_followers.length}}
 
+
+
+
         .col-sm-8
           .row
             table.table
@@ -54,9 +57,9 @@ section#private-profile
     header
       h2 General Overview
     .well
-      table.table
+      table.table.profile-general-overview
         thead
-          tr.text-center
+          tr
             th Coins
             th Win percentage
             th Total Bets
@@ -66,7 +69,7 @@ section#private-profile
             / th Record
             / th Current Streak
         tbody
-          tr.text-center
+          tr
             td
               | {{profile.coins | number:0}} coins
             td

@@ -37,11 +37,12 @@ section#private-profile
               tbody
                 tr
                   td
-                    | {{user.user_name}}
+                    | {{profile.user_name}}
                   td
-                    | {{user.home_town}}
+                    | {{profile.home_town}}
                   td
-                    | {{user.website}}
+                    a.profile-website data-ng-href="http://{{profile.website}}"
+                      | {{profile.website}}
           .row
             table.table
               thead
