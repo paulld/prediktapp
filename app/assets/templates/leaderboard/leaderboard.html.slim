@@ -1,59 +1,77 @@
-section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
+section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
   header
-    h1.leaderboard-title= "Leaderboard"
+    h1.leaderboard-title Leaderboard
   .leaderboard-list data-ng-init="predicate = '-coins'"
-    header.panel-heading.leaderboard-heading
 
-    table.table.leaderboard-table
+    table.table.leaderboard-table.leaderboard-complete-table
       thead
         tr
           th.text-center Rank
-          th.text-center Profile Picture
           th
-            a href="" data-ng-click="predicate = 'user_name'; reverse=!reverse"
+            a data-ng-click="predicate = 'user_name'; reverse=!reverse"
               | Username 
               i.fa.fa-sort
-          th.text-center data-ng-click="predicate = 'followees'; reverse=!reverse"
-            | Number of Followees 
+          th.text-center data-ng-click="predicate = 'followers'; reverse=!reverse"
+            | Number of Followers 
             i.fa.fa-sort
           th.text-center
-            a href="" data-ng-click="predicate = 'coins'; reverse=!reverse"
+            a data-ng-click="predicate = '-coins'; reverse=!reverse"
               | Number of Coins 
               i.fa.fa-sort
           th.text-center
-            a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse"
+            a data-ng-click="predicate = 'winPercent'; reverse=!reverse"
               | Percentage of Wins 
               i.fa.fa-sort
           th.text-center
-            | Number of Bets 
-            i.fa.fa-sort
-          th.text-center
-            | Number of Wins 
-            i.fa.fa-sort
-          th.text-center
-            a href="" data-ng-click="predicate = 'current_streak'; reverse=!reverse"
-              | Current Win Streak 
+            a data-ng-click="predicate = 'tries'; reverse=!reverse"
+              | Number of Bets 
               i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'wins'; reverse=!reverse"
+              | Number of Wins 
+            i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'losses'; reverse=!reverse"
+              | Number of Losses 
+              i.fa.fa-sort
+          / th.text-center
+          /   a data-ng-click="predicate = 'current_streak'; reverse=!reverse"
+          /     | Current Win Streak 
+          /     i.fa.fa-sort
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 20"
           td.leaderboard-rank.text-center
             | {{$index +1}}
-          td.text-center
-            img src="http://png-1.findicons.com/files/icons/1072/face_avatars/300/i04.png" width="20px" height="20px" alt="Profile Picture"
           td.leaderboard-name
             a href="/#/profile/{{user.id}}"
               | {{user.user_name}}
-          td.leaderboard-followers.text-center
-            | {{user.followees *1}} 
+          td.text-center
+            | {{user.followers | number:0}} 
             i.fa.fa-user
-          td.leaderboard-coins.text-center
-            | {{user.coins | number:0}} coins
-          td.leaderboard-percent.text-center
-            | {{user.win_percent}}% wins
-          td.leaderboard-number-bets.text-center
-            | {{user.tries * 1}} bets
-          td.leaderboard-number-bets.text-center
-            | {{user.wins * 1}} wins
-          td.leaderboard-number-bets.text-center
-            | {{user.current_streak}} wins
+          td.text-center
+            | {{user.coins | number:0}} 
+            span.leaderboard-key coins
+          td.text-center
+            span data-ng-if="user.hasResults"
+              | {{user.winPercent | number:0}}% 
+              span.leaderboard-key wins
+            span data-ng-if="!user.hasResults"
+              | -
+          td.text-center
+            | {{user.tries | number:0}} 
+            span.leaderboard-key bets
+          td.text-center
+            span data-ng-if="user.hasWins"
+              | {{user.wins | number:0}} 
+              span.leaderboard-key wins
+            span data-ng-if="!user.hasWins"
+              | -
+          td.text-center
+            span data-ng-if="user.hasLosses"
+              | {{user.losses | number:0}} 
+              span.leaderboard-key losses
+            span data-ng-if="!user.hasLosses"
+              | -
+          / td.leaderboard-number-bets.text-center
+          /   | {{user.win_streak | number:0}}

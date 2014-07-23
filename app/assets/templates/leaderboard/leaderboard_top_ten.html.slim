@@ -1,0 +1,49 @@
+section#leaderboard.row data-ng-controller="leaderboardCtrl"
+  header
+    h1.leaderboard-top-ten-title Top 10 Players
+  .leaderboard-list data-ng-init="predicate = '-coins'"
+    
+    table.table.leaderboard-table.leaderboard-top-ten-table
+      thead
+        tr
+          th
+            | &nbsp;
+            .sr-only Rank
+          th
+            | &nbsp;
+            .sr-only Username
+          th.text-center
+            a data-ng-click="predicate = '-coins'; reverse=!reverse"
+              | Coins 
+              i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'winPercent'; reverse=!reverse"
+              | Win %
+              i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'tries'; reverse=!reverse"
+              | Nb Bets
+              i.fa.fa-sort
+
+      tbody
+        tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
+          td.leaderboard-rank
+            | {{$index +1}}
+          td.leaderboard-name
+            a href="/#/profile/{{user.id}}"
+              | {{user.user_name}}
+          td.text-center
+            .leaderboard-value
+              | {{user.coins | number:0}}
+            .leaderboard-key coins
+          td.text-center
+            .leaderboard-value
+              span data-ng-if="user.hasResults"
+                | {{user.winPercent | number:0}}%
+              span data-ng-if="!user.hasResults"
+                | -
+            .leaderboard-key wins
+          td.text-center
+            .leaderboard-value
+              | {{user.tries}}
+            .leaderboard-key bets
