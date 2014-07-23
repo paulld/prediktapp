@@ -1,4 +1,4 @@
-section#pending-wagers
+section#pending-wagers data-ng-if="hasOngoingBets"
   header
     h2 Live Wagers
   .well
@@ -20,7 +20,7 @@ section#pending-wagers
           td
             | {{bet.status}}
 
-section#pending-wagers
+section#pending-wagers data-ng-if="hasPendingBets"
   header
     h2 Pending Wagers
   .well
@@ -42,7 +42,7 @@ section#pending-wagers
           td
             | {{bet.status}}
 
-section#pending-wagers
+section#pending-wagers data-ng-if="hasCompletedBets"
   header
     h2 Wager History
   .well

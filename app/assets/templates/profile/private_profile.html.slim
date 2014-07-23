@@ -75,7 +75,7 @@ section#private-profile
 
   bets-list
   
-  section#transactions-history
+  section#transactions-history data-ng-if="hasCoinTransactions"
     header
       h2 Transactions History
     .well
@@ -93,12 +93,12 @@ section#private-profile
               | {{transaction.created_at | date: 'MMM d, y h:mm a'}}
             td.text-right
               span data-ng-if="(transaction.after_value - transaction.before_value) > 0"
-                | {{transaction.after_value - transaction.before_value | number:1}}
+                | +{{transaction.after_value - transaction.before_value | number:1}}
             td.text-right
               span data-ng-if="(transaction.after_value - transaction.before_value) < 0"
                 | {{transaction.after_value - transaction.before_value | number:1}}
             td.text-right
-              | {{transaction.after_value}}
+              | {{transaction.after_value | number:1}}
             td.text-right
               | {{transaction.transaction_type}}
             
