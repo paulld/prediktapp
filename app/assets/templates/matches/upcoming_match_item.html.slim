@@ -80,7 +80,7 @@ section#single-match
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home_handicap', match.home_handicap_odds, 1)"
             .bet-type
-              | Home {{match.homeHandicap}}
+              | {{match.homeHandicap}}
             .bet-odds
               | {{match.home_handicap_odds}}
         .col-md-3
@@ -88,6 +88,6 @@ section#single-match
         .col-md-3
           button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, 1)"
             .bet-type
-              | Away {{match.awayHandicap}}
+              | {{match.awayHandicap}}
             .bet-odds
               | {{match.away_handicap_odds}}
