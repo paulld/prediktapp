@@ -26,19 +26,19 @@ section#upcoming-matches-list
               / label.sr-only.wager-label for="wager_hda" Wager value
               / input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1" name="wager_hda" data-ng-model="wager"
             .col-md-3
-              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home', match.home_odds, 1, newBet)"
+              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home', match.home_odds, newBet)"
                 .bet-type
                   | Home
                 .bet-odds
                   | {{match.home_odds}}
             .col-md-3
-              button.btn.btn-success type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'draw', match.draw_odds, 1, newBet)"
+              button.btn.btn-success type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'draw', match.draw_odds, newBet)"
                 .bet-type
                   | Draw
                 .bet-odds
                   | {{match.draw_odds}}
             .col-md-3
-              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away', match.away_odds, 1, newBet)"
+              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away', match.away_odds, newBet)"
                 .bet-type
                   | Away
                 .bet-odds
@@ -52,7 +52,7 @@ section#upcoming-matches-list
               / label.sr-only.wager-label for="wager_hda" Wager value
               / input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1" name="wager_hda" data-ng-model="wager"
             .col-md-3
-              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'over', match.over_odds, 1, newBet)"
+              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'over', match.over_odds, newBet)"
                 .bet-type
                   | Over
                 .bet-odds
@@ -61,7 +61,7 @@ section#upcoming-matches-list
               span.badge.margin-left-27
                 | o/u: {{match.over_under_value}}
             .col-md-3
-              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'under', match.under_odds, 1, newBet)"
+              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'under', match.under_odds, newBet)"
                 .bet-type
                   | Under
                 .bet-odds
@@ -73,7 +73,7 @@ section#upcoming-matches-list
               / label for="wager-select" class="wager-label sr-only" Wager value
               / input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1"
             .col-md-3
-              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home_handicap', match.home_handicap_odds, 1, newBet)"
+              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home_handicap', match.home_handicap_odds, newBet)"
                 .bet-type
                   | Home {{match.homeHandicap}}
                 .bet-odds
@@ -81,7 +81,7 @@ section#upcoming-matches-list
             .col-md-3
               span.badge.handicap Handicap
             .col-md-3
-              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, 1, newBet)"
+              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, newBet)"
                 .bet-type
                   | Away {{match.awayHandicap}}
                 .bet-odds
