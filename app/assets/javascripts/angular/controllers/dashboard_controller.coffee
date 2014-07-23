@@ -14,11 +14,13 @@ predikt.controller 'dashboardProfileCtrl', ($scope, $http, $location, $routePara
             
             User.getUserBets($scope.profile.id).success (betData) ->
               $scope.bets = betData.bets
-        $('.dashboard-bet-line:first-of-type').addClass('dashboard-highlight')
       , 500)
-      # setTimeout( () ->
-      #   # $('.dashboard-bet-line:first-of-type').addClass('dashboard-highlight')
-      # , 1500)
+      setTimeout( () ->
+        $('.dashboard-bet-line:first-of-type').addClass('dashboard-highlight')
+      , 700)
+      setTimeout( () ->
+        $('.dashboard-bet-line:first-of-type').removeClass('dashboard-highlight')
+      , 1000)
     
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'    

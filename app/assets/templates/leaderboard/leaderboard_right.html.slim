@@ -16,10 +16,6 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
           a href="" data-ng-click="predicate = 'tries'; reverse=!reverse"
             | Bets 
             i.fa.fa-sort
-        li
-          a href="" data-ng-click="predicate = 'followers'; reverse=!reverse"
-            | Followers 
-            i.fa.fa-sort
     
     table.table.leaderboard-table
       thead
@@ -53,7 +49,3 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
             strong
               | {{user.tries}}
             br bets
-          td.leaderboard-followers
-            strong
-              | {{user.followers}} 
-            i.fa.fa-user

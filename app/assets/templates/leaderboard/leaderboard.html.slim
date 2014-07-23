@@ -13,9 +13,6 @@ section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
             a href="" data-ng-click="predicate = 'user_name'; reverse=!reverse"
               | Username 
               i.fa.fa-sort
-          th.text-center data-ng-click="predicate = 'followers'; reverse=!reverse"
-            | Number of Followers 
-            i.fa.fa-sort
           th.text-center data-ng-click="predicate = 'followees'; reverse=!reverse"
             | Number of Followees 
             i.fa.fa-sort
@@ -34,9 +31,6 @@ section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
             | Number of Wins 
             i.fa.fa-sort
           th.text-center
-            | Number of Losses 
-            i.fa.fa-sort
-          th.text-center
             a href="" data-ng-click="predicate = 'current_streak'; reverse=!reverse"
               | Current Win Streak 
               i.fa.fa-sort
@@ -51,9 +45,6 @@ section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
             a href="/#/profile/{{user.id}}"
               | {{user.user_name}}
           td.leaderboard-followers.text-center
-            | {{user.followers *1}} 
-            i.fa.fa-user
-          td.leaderboard-followers.text-center
             | {{user.followees *1}} 
             i.fa.fa-user
           td.leaderboard-coins.text-center
@@ -64,7 +55,5 @@ section#leaderboard-right.row data-ng-controller="leaderboardCtrl"
             | {{user.tries * 1}} bets
           td.leaderboard-number-bets.text-center
             | {{user.wins * 1}} wins
-          td.leaderboard-number-bets.text-center
-            | {{user.losses * 1}} loss
           td.leaderboard-number-bets.text-center
             | {{user.current_streak}} wins
