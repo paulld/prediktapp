@@ -1,26 +1,13 @@
 section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="profile"
   header
     h1.leaderboard-top-ten-title My Dashboard
-  .leaderboard-list
+  .leaderboard-list.available-coins
     table.table.dashboard-bets
       thead
         tr
-          th Coins
-          th Win %
-          th Record
-          th Current Streak
-      tbody
-        tr
-          td
-            | {{profile.coins | number:0}}
-          td
-            | {{user.win_percent}}%
-            / | {{profile.win_percentage *100 | number:1}}%
-          td
-            | {{profile.record}}
-            / require profile overall record in api
-          td
-            | {{profile.current_streak}}
+            | Available Coins: 
+            span
+              | {{profile.coins | number:0}}
     
     div data-ng-if="bets"
       table.table.dashboard-bets
