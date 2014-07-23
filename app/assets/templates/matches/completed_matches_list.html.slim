@@ -12,7 +12,8 @@ section#completed-matches-list
           img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
           / span.f32.country-flag
           /   .flag.selected class="{{match.home_team_iso_code}}"
-        a.col-md-7.teams-info data-ng-href="/#/completed/{{match.id}}"
+        / a.col-md-7.teams-info data-ng-href="/#/completed/{{match.id}}"
+        .col-md-7.teams-info
           | {{match.home_team}}
           span.score
             | {{match.home_score}} - {{match.away_score}}
