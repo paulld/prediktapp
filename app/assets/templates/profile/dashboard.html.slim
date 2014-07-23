@@ -4,14 +4,14 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
   .leaderboard-list
     table.table.dashboard-bets
       thead
-        tr
-          th.dashboard-coins Coins
+        tr.dashboard-section1
+          th Coins
           th Win %
           th Record
           th Current Streak
       tbody
-        tr
-          td.dashboard-coins
+        tr.dashboard-content1
+          td
             | {{profile.coins | number:0}}
           td
             | {{user.win_percent}}%
@@ -25,13 +25,13 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
     div data-ng-if="bets"
       table.table.dashboard-bets
         thead
-          tr
+          tr.dashboard-section2
             th Teams
             th Bet
             th Wager
             th Status
         tbody
-          tr data-ng-repeat="bet in bets | limitTo: 5"
+          tr.dashboard-content2 data-ng-repeat="bet in bets | limitTo: 5"
             td.bet-teams
               | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
             td
