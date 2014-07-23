@@ -37,6 +37,19 @@ predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Mess
     User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
 
+
+    User.getLeaderboardData().success (leaderboardData) ->
+      leaderboardData = _.where(leaderboardData, { 'id': userId })[0]
+      $scope.numberTries = leaderboardData.tries
+      $scope.numberWins = leaderboardData.wins
+      $scope.numberLosses = leaderboardData.losses
+
+      if (leaderboardData.wins * 1) > 0 or (leaderboardData.losses * 1) > 0
+        $scope.winPercent = (leaderboardData.wins * 100) / (leaderboardData.wins * 1 + leaderboardData.losses * 1)
+      else
+        $scope.winPercent = 0
+
+
     $scope.follow = (userId) ->
       if $scope.profile
         User.createFollow($scope.profile.id, userId, $scope.user.user_name)

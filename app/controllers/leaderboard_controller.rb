@@ -19,9 +19,9 @@ class LeaderboardController < ApplicationController
               ON u.id = wl.id LEFT JOIN followers_followees AS ff ON u.id = ff.id;
             }.squish
 
-    @bets = ActiveRecord::Base.connection.execute(sql).to_a
+    @leaderboard = ActiveRecord::Base.connection.execute(sql).to_a
 
-    render json: @bets
+    render json: @leaderboard
   end
 
   def win_loss

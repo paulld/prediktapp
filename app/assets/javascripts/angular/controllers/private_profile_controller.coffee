@@ -33,5 +33,16 @@ predikt.controller 'privateProfileCtrl', ($scope, $http, $location, $routeParams
             transaction.transaction_type = 'Won a bet'
 
 
+    User.getLeaderboardData().success (leaderboardData) ->
+      leaderboardData = _.where(leaderboardData, { 'id': $scope.profile.id })[0]
+      
+      $scope.numberTries = leaderboardData.tries
+      $scope.numberWins = leaderboardData.wins
+      $scope.numberLosses = leaderboardData.losses
+      if (leaderboardData.wins * 1) > 0 or (leaderboardData.losses * 1) > 0
+        $scope.winPercent = (leaderboardData.wins * 100) / (leaderboardData.wins * 1 + leaderboardData.losses * 1)
+      else
+        $scope.winPercent = 0
+
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'

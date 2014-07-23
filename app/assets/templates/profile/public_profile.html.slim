@@ -58,22 +58,34 @@ section#private-profile
     .well
       table.table
         thead
-          tr
+          tr.text-center
             th Coins
             th Win percentage
-            th Record
-            th Current Streak
+            th Total Bets
+            th Wins
+            th Losses
+            th Pending Bets
+            / th Record
+            / th Current Streak
         tbody
-          tr
+          tr.text-center
             td
               | {{user.coins | number:0}} coins
             td
-              | {{user.win_percentage *100 | number:1}}%
+              | {{winPercent | number:1}}%
             td
-              | {{user.record}}
-              / require user overall record in api
+              | {{numberTries | number:0}}
             td
-              | {{user.current_streak}}
+              | {{numberWins | number:0}}
+            td
+              | {{numberLosses | number:0}}
+            td
+              | {{numberTries - numberLosses - numberWins | number:0}}
+            / td
+            /   | {{user.record}}
+            /   / require user overall record in api
+            / td
+            /   | {{user.current_streak}}
  
   bets-list
   
