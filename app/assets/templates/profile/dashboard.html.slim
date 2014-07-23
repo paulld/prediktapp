@@ -5,13 +5,13 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
     table.table.dashboard-bets
       thead
         tr
-          th.dashboard-coins Coins
+          th Coins
           th Win %
           th Record
           th Current Streak
       tbody
         tr
-          td.dashboard-coins
+          td
             | {{profile.coins | number:0}}
           td
             | {{user.win_percent}}%
