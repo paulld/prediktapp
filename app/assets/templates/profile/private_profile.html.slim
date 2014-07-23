@@ -87,7 +87,6 @@ section#private-profile
             th.text-right Debit
             th.text-right New Total
             th.text-right Reason
-            th.text-right Reference
         tbody
           tr data-ng-repeat="transaction in coinTransactions | orderBy : 'created_at' : reverse"
             td.bet-date
@@ -102,6 +101,4 @@ section#private-profile
               | {{transaction.after_value}}
             td.text-right
               | {{transaction.transaction_type}}
-            td.text-right
-              a.btn.btn-match-url data-ng-href="{{transaction.matchUrl}}" class="{{transaction.urlClass}}"
-                | view Match
+            
