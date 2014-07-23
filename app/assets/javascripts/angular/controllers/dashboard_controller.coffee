@@ -7,15 +7,15 @@ predikt.controller 'dashboardProfileCtrl', ($scope, $http, $location, $routePara
     User.getUserBets($scope.profile.id).success (betData) ->
       $scope.bets = betData.bets
 
+    $('button').on 'click', (e) ->
+      console.log 'hi'
+      setTimeout( () ->
+        User.getCurrentUser().then (result) ->
+            $scope.profile = result.data.users[0]
+            
+            User.getUserBets($scope.profile.id).success (betData) ->
+              $scope.bets = betData.bets
+      , 500)
+    
   $scope.viewEditProfile = () ->
-    $location.url '/my-profile/edit'
-
-  $('button').on 'click', (e) ->
-    setTimeout( () ->
-      User.getCurrentUser().then (result) ->
-          $scope.profile = result.data.users[0]
-          
-          User.getUserBets($scope.profile.id).success (betData) ->
-            $scope.bets = betData.bets
-    , 500)
-  
+    $location.url '/my-profile/edit'    
