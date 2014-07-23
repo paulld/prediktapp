@@ -15,10 +15,20 @@
   padding-left 0
   padding-right 0
 
+.leaderboard-table > thead
+  // -webkit-border-radius 8px 8px 0 0
+  // border-radius 8px 8px 0 0
+  background -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%)
+  background -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)))
+  background -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%)
+  background -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%)
+  background -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%)
+  background linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%)
+
 .leaderboard-table > thead > tr > th
   color #428bca
   cursor pointer
-  font-size 12px
+  font-size 14px
 
 .leaderboard-rank
   font-size 18px

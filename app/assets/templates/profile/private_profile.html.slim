@@ -2,7 +2,7 @@ section#private-profile
   header
     .profile-title-h1
       h1
-        | {{profile.user_name}}'s Profile
+        | {{profile.user_name}}
     .profile-link
       a.edit-profile-button.align-right data-ng-click="viewEditProfile()"
         span.edit-profile-text Edit Profile
@@ -22,6 +22,9 @@ section#private-profile
             | Followers | Following 
             span.profile-followers-number 
               | {{profile.links.followings_as_followers.length}}
+
+
+
 
         .col-sm-8
           .row
@@ -54,9 +57,9 @@ section#private-profile
     header
       h2 General Overview
     .well
-      table.table
+      table.table.profile-general-overview
         thead
-          tr.text-center
+          tr
             th Coins
             th Win percentage
             th Total Bets
@@ -66,7 +69,7 @@ section#private-profile
             / th Record
             / th Current Streak
         tbody
-          tr.text-center
+          tr
             td
               | {{profile.coins | number:0}} coins
             td

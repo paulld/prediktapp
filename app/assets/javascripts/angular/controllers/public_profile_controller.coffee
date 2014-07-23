@@ -13,6 +13,9 @@ predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Mess
         if bet.status is 'pending' then $scope.hasPendingBets = true
         if bet.status is 'ongoing' then $scope.hasOngoingBets = true
         if bet.status is 'completed' then $scope.hasCompletedBets = true
+
+        if bet.bet_type is 'home_handicap' then bet.bet_type = 'home handicap'
+        if bet.bet_type is 'away_handicap' then bet.bet_type = 'away handicap'
           
     User.getUserCoinTransactions(userId).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
