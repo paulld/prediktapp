@@ -17,6 +17,9 @@ predikt.factory 'User', ($http, Message) ->
       $http.get('./api/users/' + userId + '/coin_transactions').success (coinTransactionData) ->
         coinTransactionData
 
+    getLeaderboardData: () ->
+      $http.get('./api/leaderboard').success ->
+
     createFollow: (followerId, followeeId, followeeUserame) ->
       $http.get('./api/uuids').success (uuid) ->
         newUuid = uuid.uuids[0]
