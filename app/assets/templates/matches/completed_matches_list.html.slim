@@ -9,7 +9,7 @@ section#completed-matches-list
           span
             | {{match.starts_at | date: 'MMM d, y'}}
         .col-md-1.home-flag
-          img src="/assets/{{match.home_team_iso_code}}.png"
+          img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
           / span.f32.country-flag
           /   .flag.selected class="{{match.home_team_iso_code}}"
         a.col-md-7.teams-info data-ng-href="/#/completed/{{match.id}}"
@@ -18,7 +18,7 @@ section#completed-matches-list
             | {{match.home_score}} - {{match.away_score}}
           | {{match.away_team}}
         .col-md-1.away-flag
-          img src="/assets/{{match.away_team_iso_code}}.png"
+          img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
           / .f32.country-flag
           /   .flag.selected class="{{match.away_team_iso_code}}"
 
@@ -69,7 +69,7 @@ section#completed-matches-list
         .col-md-3
           button.btn.btn-primary.disabled type="button"
             .bet-type
-              | Hand {{match.homeHandicap}}
+              | Home {{match.homeHandicap}}
             .bet-odds
               | {{match.home_handicap_odds}}
         .col-md-3
@@ -77,6 +77,6 @@ section#completed-matches-list
         .col-md-3
           button.btn.btn-warning.disabled type="button"
             .bet-type
-              | Hand {{match.awayHandicap}}
+              | Away {{match.awayHandicap}}
             .bet-odds
               | {{match.away_handicap_odds}}

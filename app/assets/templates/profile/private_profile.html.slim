@@ -38,7 +38,8 @@ section#private-profile
                   td
                     | {{profile.home_town}}
                   td
-                    | {{profile.website}}
+                    a data-ng-href="http://{{profile.website}}"
+                      | {{profile.website}}
           .row
             table.table
               thead

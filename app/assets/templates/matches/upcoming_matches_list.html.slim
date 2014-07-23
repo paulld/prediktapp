@@ -8,13 +8,13 @@ section#upcoming-matches-list
         .col-md-3.match-date
           | {{match.starts_at | date: 'MMM d, y h:mm a'}}
         .col-md-1.home-flag
-          img src="/assets/{{match.home_team_iso_code}}.png"
+          img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
           / span.f32.country-flag
           /   .flag.selected class="{{match.home_team_iso_code}}"
         a.col-md-7.teams-info data-ng-href="/#/upcoming/{{match.id}}"
           | {{match.home_team}} - {{match.away_team}}
         .col-md-1.away-flag
-          img src="/assets/{{match.away_team_iso_code}}.png"
+          img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
           / .f32.country-flag
           /   .flag.selected class="{{match.away_team_iso_code}}"
 
@@ -74,7 +74,7 @@ section#upcoming-matches-list
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home_handicap', match.home_handicap_odds, 1)"
             .bet-type
-              | Hand {{match.homeHandicap}}
+              | Home {{match.homeHandicap}}
             .bet-odds
               | {{match.home_handicap_odds}}
         .col-md-3
@@ -82,6 +82,6 @@ section#upcoming-matches-list
         .col-md-3
           button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away_handicap', match.away_handicap_odds, 1)"
             .bet-type
-              | Hand {{match.awayHandicap}}
+              | Away {{match.awayHandicap}}
             .bet-odds
               | {{match.away_handicap_odds}}
