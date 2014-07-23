@@ -6,7 +6,6 @@ predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, 
     $scope.match = matchData.matches[0]
     
     if $scope.match.handicap_side is 'home'
-      console.log 'home'
       $scope.match.homeHandicap = "-#{$scope.match.handicap_value}"
       $scope.match.awayHandicap = "+#{$scope.match.handicap_value}"
     else

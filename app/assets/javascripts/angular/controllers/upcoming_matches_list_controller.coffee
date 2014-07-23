@@ -24,7 +24,9 @@ predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message
       ).select2('val', '1')
 
 
-    $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, wager) ->
+    $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, wager, selectedWager) ->
+      console.log selectedWager
+      # console.log selectedWager.wager_hda.$modelValue
       if $scope.profile
         Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, wager)
         Bet.changed = 'changed'

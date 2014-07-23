@@ -71,7 +71,6 @@ predikt.factory 'Match', ($http, Message) ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)   
 
     settle: (matchId) ->
-      console.log 'MATCH ID: ', matchId
       $http(
         method: "GET"
         url: './api/matches/' + matchId + '/settle'

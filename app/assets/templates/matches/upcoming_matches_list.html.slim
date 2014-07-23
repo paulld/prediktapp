@@ -20,35 +20,37 @@ section#upcoming-matches-list
 
 
       .row.game-buttons
-        .col-md-3
-          label for="wager-select" class="wager-label sr-only" Wager value
-          input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1"
-          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
-        .col-md-3
-          button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home', match.home_odds, 1)"
-            .bet-type
-              | Home
-            .bet-odds
-              | {{match.home_odds}}
-        .col-md-3
-          button.btn.btn-success type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'draw', match.draw_odds, 1)"
-            .bet-type
-              | Draw
-            .bet-odds
-              | {{match.draw_odds}}
-        .col-md-3
-          button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away', match.away_odds, 1)"
-            .bet-type
-              | Away
-            .bet-odds
-              | {{match.away_odds}}
+        form name="newBet" role="form"
+          fieldset
+            .col-md-3
+              label.sr-only for="wager_hda" Wager Home/Draw-Away
+              input.form-control.form-wager type="text" name="wager_hda" placeholder="wager" data-ng-model="wager"
+              / label.sr-only.wager-label for="wager_hda" Wager value
+              / input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1" name="wager_hda" data-ng-model="wager"
+            .col-md-3
+              button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home', match.home_odds, 1, newBet)"
+                .bet-type
+                  | Home
+                .bet-odds
+                  | {{match.home_odds}}
+            .col-md-3
+              button.btn.btn-success type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'draw', match.draw_odds, 1, newBet)"
+                .bet-type
+                  | Draw
+                .bet-odds
+                  | {{match.draw_odds}}
+            .col-md-3
+              button.btn.btn-warning type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'away', match.away_odds, 1, newBet)"
+                .bet-type
+                  | Away
+                .bet-odds
+                  | {{match.away_odds}}
 
 
       .row.game-buttons
         .col-md-3
           label for="wager-select" class="wager-label sr-only" Wager value
           input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1"
-          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'over', match.over_odds, 1)"
             .bet-type
@@ -70,7 +72,6 @@ section#upcoming-matches-list
         .col-md-3
           label for="wager-select" class="wager-label sr-only" Wager value
           input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1"
-          / img src="http://b.dryicons.com/images/icon_sets/colorful_stickers_part_6_icons_set/png/256x256/pie_chart.png" width="30px" height="30px" alt="HAD"
         .col-md-3
           button.btn.btn-primary type="button" data-ng-click="clickToBet(match.id, match.home_team, match.away_team, 'home_handicap', match.home_handicap_odds, 1)"
             .bet-type

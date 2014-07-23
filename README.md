@@ -1,7 +1,7 @@
 Predikt App
 ==========
 
-Sports Betting App by Paul LD & Joe K. Teo
+Sports Betting App by [Paul LD](https://github.com/paulld) & [Joe K. Teo](https://github.com/joekteo)
 
 ### Frameworks and languages used:
 
