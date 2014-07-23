@@ -1,39 +1,41 @@
 section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
   header
-    h1.leaderboard-title= "Leaderboard"
+    h1.leaderboard-title Leaderboard
   .leaderboard-list data-ng-init="predicate = '-coins'"
-    header.panel-heading.leaderboard-heading
 
-    table.table.leaderboard-table
+    table.table.leaderboard-table.leaderboard-complete-table
       thead
         tr
           th.text-center Rank
           th
-            a href="" data-ng-click="predicate = 'user_name'; reverse=!reverse"
+            a data-ng-click="predicate = 'user_name'; reverse=!reverse"
               | Username 
               i.fa.fa-sort
-          th.text-center data-ng-click="predicate = 'followees'; reverse=!reverse"
-            | Number of Followees 
+          th.text-center data-ng-click="predicate = 'followers'; reverse=!reverse"
+            | Number of Followers 
             i.fa.fa-sort
           th.text-center
-            a href="" data-ng-click="predicate = 'coins'; reverse=!reverse"
+            a data-ng-click="predicate = '-coins'; reverse=!reverse"
               | Number of Coins 
               i.fa.fa-sort
           th.text-center
-            a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse"
+            a data-ng-click="predicate = 'winPercent'; reverse=!reverse"
               | Percentage of Wins 
               i.fa.fa-sort
           th.text-center
-            | Number of Bets 
+            a data-ng-click="predicate = 'tries'; reverse=!reverse"
+              | Number of Bets 
+              i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'wins'; reverse=!reverse"
+              | Number of Wins 
             i.fa.fa-sort
           th.text-center
-            | Number of Wins 
-            i.fa.fa-sort
-          th.text-center
-            | Number of Losses 
-            i.fa.fa-sort
+            a data-ng-click="predicate = 'losses'; reverse=!reverse"
+              | Number of Losses 
+              i.fa.fa-sort
           / th.text-center
-          /   a href="" data-ng-click="predicate = 'current_streak'; reverse=!reverse"
+          /   a data-ng-click="predicate = 'current_streak'; reverse=!reverse"
           /     | Current Win Streak 
           /     i.fa.fa-sort
 
@@ -44,27 +46,31 @@ section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
           td.leaderboard-name
             a href="/#/profile/{{user.id}}"
               | {{user.user_name}}
-          td.leaderboard-followers.text-center
-            | {{user.followees *1}} 
+          td.text-center
+            | {{user.followers | number:0}} 
             i.fa.fa-user
-          td.leaderboard-coins.text-center
-
-            | {{user.coins | number:0}} coins
-          td.leaderboard-percent.text-center
+          td.text-center
+            | {{user.coins | number:0}} 
+            span.leaderboard-key coins
+          td.text-center
             span data-ng-if="user.hasResults"
-              | {{user.winPercent | number:0}}% wins
+              | {{user.winPercent | number:0}}% 
+              span.leaderboard-key wins
             span data-ng-if="!user.hasResults"
               | -
-          td.leaderboard-number-bets.text-center
-            | {{user.tries | number:0}} bets
-          td.leaderboard-number-bets.text-center
+          td.text-center
+            | {{user.tries | number:0}} 
+            span.leaderboard-key bets
+          td.text-center
             span data-ng-if="user.hasWins"
-              | {{user.wins | number:0}} wins
+              | {{user.wins | number:0}} 
+              span.leaderboard-key wins
             span data-ng-if="!user.hasWins"
               | -
-          td.leaderboard-number-bets.text-center
+          td.text-center
             span data-ng-if="user.hasLosses"
-              | {{user.losses | number:0}} losses
+              | {{user.losses | number:0}} 
+              span.leaderboard-key losses
             span data-ng-if="!user.hasLosses"
               | -
           / td.leaderboard-number-bets.text-center

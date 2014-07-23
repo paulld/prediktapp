@@ -5,16 +5,16 @@ predikt.controller 'leaderboardCtrl', ($scope, $http) ->
     for user in $scope.users
       user.hasWins = user.wins and (user.wins * 1 > 0)
       user.hasLosses = user.losses and (user.losses * 1 > 0)
-      # console.log user.hasLosses
-      # console.log user.hasWins
-
 
       if (user.hasWins is true) or (user.hasLosses is true)
-        console.log user.user_name
-        # console.log 'yes'
         user.hasResults = true
-        console.log user.winPercent = (user.wins * 100) / (user.wins * 1 + user.losses * 1)
+        user.winPercent = (user.wins * 100) / (user.wins * 1 + user.losses * 1)
       else
-        # console.log 'no'
         user.hasResults = false
         user.winPercent = 0
+
+      user.followers *= 1
+      user.coins *= 1
+      user.tries *= 1
+      user.wins *= 1
+      user.losses *= 1

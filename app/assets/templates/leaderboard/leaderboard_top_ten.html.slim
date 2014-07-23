@@ -1,31 +1,29 @@
 section#leaderboard.row data-ng-controller="leaderboardCtrl"
   header
     h1.leaderboard-top-ten-title Top 10 Players
-  .leaderboard-list
-    .panel-heading.leaderboard-heading data-ng-init="predicate = '-coins'"
-      ul.pagination.pagination-sm
-        li.active
-          a href="" data-ng-click="predicate = 'coins'; reverse=!reverse; active=!reverse"
-            | Coins 
-            i.fa.fa-sort
-        li
-          a href="" data-ng-click="predicate = 'win_percentage'; reverse=!reverse; active=reverse"
-            | Win % 
-            i.fa.fa-sort
-        li
-          a href="" data-ng-click="predicate = 'tries'; reverse=!reverse"
-            | Bets 
-            i.fa.fa-sort
+  .leaderboard-list data-ng-init="predicate = '-coins'"
     
     table.table.leaderboard-table.leaderboard-top-ten-table
       thead
         tr
-          th.sr-only Rank
-          th.sr-only Username
-          th.sr-only Number of Coins
-          th.sr-only Percentage of Wins
-          th.sr-only Number of Bets
-          th.sr-only Number of Followers
+          th
+            | &nbsp;
+            .sr-only Rank
+          th
+            | &nbsp;
+            .sr-only Username
+          th.text-center
+            a data-ng-click="predicate = '-coins'; reverse=!reverse"
+              | Coins 
+              i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'winPercent'; reverse=!reverse"
+              | Win %
+              i.fa.fa-sort
+          th.text-center
+            a data-ng-click="predicate = 'tries'; reverse=!reverse"
+              | Nb Bets
+              i.fa.fa-sort
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
@@ -40,7 +38,10 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
             .leaderboard-key coins
           td.text-center
             .leaderboard-value
-              | {{user.win_percent}}%
+              span data-ng-if="user.hasResults"
+                | {{user.winPercent | number:0}}%
+              span data-ng-if="!user.hasResults"
+                | -
             .leaderboard-key wins
           td.text-center
             .leaderboard-value
