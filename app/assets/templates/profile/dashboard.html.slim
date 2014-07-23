@@ -33,7 +33,9 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
         tbody
           tr.dashboard-bet-line data-ng-repeat="bet in bets | limitTo: 5"
             td.bet-teams
-              | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+              img.dashboard-flags data-ng-src="/assets/{{bet.links.match.home_team_iso_code}}.png"
+              img.dashboard-flags data-ng-src="/assets/{{bet.links.match.away_team_iso_code}}.png"
+              / | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
             td
               | {{bet.bet_type}}
             td
