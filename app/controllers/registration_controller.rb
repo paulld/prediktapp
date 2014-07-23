@@ -22,7 +22,7 @@ class RegistrationController < ApplicationController
         @registrant.destroy
         log_user_in(@user)
         DebitCredit.new(current_user).record_init_transaction
-        redirect_to "/#/my-profile/edit", flash: { success: 'Your registration is complete! You are now logged in. Please complete your profile.' }
+        redirect_to "/#/my-profile/edit", flash: { success: 'Your registration is complete! You were just awarded 1,000 coins.' }
       else
         flash.now[:error] = 'Please input a valid password.'
         render :new
