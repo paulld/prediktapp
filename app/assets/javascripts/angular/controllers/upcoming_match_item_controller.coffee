@@ -5,6 +5,8 @@ predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, 
   $http.get('./api/matches/' + matchId ).success (matchData) ->
     $scope.match = matchData.matches[0]
     
+    $scope.upcomingMatchView = { url: 'assets/matches/upcoming_match_buttons.html' }
+    
     if $scope.match.handicap_side is 'home'
       $scope.match.homeHandicap = "-#{$scope.match.handicap_value}"
       $scope.match.awayHandicap = "+#{$scope.match.handicap_value}"
@@ -25,8 +27,14 @@ predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, 
       ).select2('val', '1')
 
 
-    $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, wager) ->
-      if $scope.profile
-        Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, wager)
+    $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, newBetData) ->
+      if newBetData.wager_hda.$modelValue > 0 && newBetData.wager_hda.$modelValue < 51
+        if $scope.profile
+          Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, newBetData.wager_hda.$modelValue)
+          Bet.changed = 'changed'
+        else
+          Message.noty('Please log in to place a bet.', 'error', 700)
       else
-        Message.noty('Please log in to place a bet.', 'error', 700)
+        Message.noty('Please input a wager value<br>between 1 and 50 coins.', 'error', 2000)
+
+    
