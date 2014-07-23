@@ -2,25 +2,11 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
   header
     h1.leaderboard-top-ten-title My Dashboard
   .leaderboard-list
-    table.table.dashboard-bets
-      thead
-        tr
-          th Coins
-          th Win %
-          th Record
-          th Current Streak
-      tbody
-        tr
-          td
-            | {{profile.coins | number:0}}
-          td
-            | {{user.win_percent}}%
-            / | {{profile.win_percentage *100 | number:1}}%
-          td
-            | {{profile.record}}
-            / require profile overall record in api
-          td
-            | {{profile.current_streak}}
+    div.dashboard-coins
+      span.dashboard-coins-key
+        | Available Coins: 
+      span.dashboard-coins-value
+        | {{profile.coins | number:0}}
     
     div data-ng-if="bets"
       table.table.dashboard-bets
@@ -32,11 +18,11 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
             th Status
         tbody
           tr.dashboard-bet-line data-ng-repeat="bet in bets | limitTo: 5"
-            td.bet-teams
-              img.dashboard-flags data-ng-src="/assets/{{bet.links.match.home_team_iso_code}}.png"
-              img.dashboard-flags data-ng-src="/assets/{{bet.links.match.away_team_iso_code}}.png"
+            td.dashboard-flags
+              img data-ng-src="/assets/{{bet.links.match.home_team_iso_code}}.png"
+              img data-ng-src="/assets/{{bet.links.match.away_team_iso_code}}.png"
               / | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-            td
+            td.dashboard-bet-type
               | {{bet.bet_type}}
             td
               | {{bet.wager}}

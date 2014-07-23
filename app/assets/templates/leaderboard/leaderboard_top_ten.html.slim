@@ -13,17 +13,14 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
             | &nbsp;
             .sr-only Username
           th.text-center
-            a data-ng-click="predicate = '-coins'; reverse=!reverse"
-              | Coins 
-              i.fa.fa-sort
+            a data-ng-click="predicate = '-coins'"
+              | Coins
           th.text-center
-            a data-ng-click="predicate = 'winPercent'; reverse=!reverse"
+            a data-ng-click="predicate = '-winPercent'"
               | Win %
-              i.fa.fa-sort
           th.text-center
-            a data-ng-click="predicate = 'tries'; reverse=!reverse"
+            a data-ng-click="predicate = '-tries'"
               | Nb Bets
-              i.fa.fa-sort
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
@@ -35,15 +32,15 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
           td.text-center
             .leaderboard-value
               | {{user.coins | number:0}}
-            .leaderboard-key coins
+            / .leaderboard-key coins
           td.text-center
             .leaderboard-value
               span data-ng-if="user.hasResults"
                 | {{user.winPercent | number:0}}%
               span data-ng-if="!user.hasResults"
                 | -
-            .leaderboard-key wins
+            / .leaderboard-key wins
           td.text-center
             .leaderboard-value
               | {{user.tries}}
-            .leaderboard-key bets
+            / .leaderboard-key bets

@@ -2,7 +2,7 @@ section#private-profile
   header
     .profile-title-h1
       h1
-        | {{user.user_name}}'s Profile
+        | {{user.user_name}}
     .profile-link
       span.edit-profile-button
         span.edit-profile-text
@@ -52,13 +52,13 @@ section#private-profile
                   td
                     | {{user.description}}
 
-  section#general-information
+  section#general-overview
     header
       h2 General Overview
     .well
-      table.table
+      table.table.profile-general-overview
         thead
-          tr.text-center
+          tr
             th Coins
             th Win percentage
             th Total Bets
@@ -68,7 +68,7 @@ section#private-profile
             / th Record
             / th Current Streak
         tbody
-          tr.text-center
+          tr
             td
               | {{user.coins | number:0}} coins
             td

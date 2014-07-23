@@ -12,7 +12,7 @@ section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
               | Username 
               i.fa.fa-sort
           th.text-center data-ng-click="predicate = 'followers'; reverse=!reverse"
-            | Number of Followers 
+            | Followers 
             i.fa.fa-sort
           th.text-center
             a data-ng-click="predicate = '-coins'; reverse=!reverse"
@@ -24,15 +24,15 @@ section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
               i.fa.fa-sort
           th.text-center
             a data-ng-click="predicate = 'tries'; reverse=!reverse"
-              | Number of Bets 
+              | Total Bets 
               i.fa.fa-sort
           th.text-center
             a data-ng-click="predicate = 'wins'; reverse=!reverse"
-              | Number of Wins 
+              | Wins 
             i.fa.fa-sort
           th.text-center
             a data-ng-click="predicate = 'losses'; reverse=!reverse"
-              | Number of Losses 
+              | Losses 
               i.fa.fa-sort
           / th.text-center
           /   a data-ng-click="predicate = 'current_streak'; reverse=!reverse"
@@ -51,7 +51,7 @@ section#leaderboard-top-ten.row data-ng-controller="leaderboardCtrl"
             i.fa.fa-user
           td.text-center
             | {{user.coins | number:0}} 
-            span.leaderboard-key coins
+            / span.leaderboard-key coins
           td.text-center
             span data-ng-if="user.hasResults"
               | {{user.winPercent | number:0}}% 
