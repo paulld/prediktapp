@@ -31,7 +31,7 @@ section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="prof
             th Wager
             th Status
         tbody
-          tr data-ng-repeat="bet in bets | limitTo: 5"
+          tr.dashboard-bet-line data-ng-repeat="bet in bets | limitTo: 5"
             td.bet-teams
               | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
             td
