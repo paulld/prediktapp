@@ -7,15 +7,17 @@ section#upcoming-matches-list
       .row.game-information
         .col-md-3.match-date
           | {{match.starts_at | date: 'd MMM - h:mm a'}}
-        .col-md-1.home-flag
-          img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
-          / span.f32.country-flag
-          /   .flag.selected class="{{match.home_team_iso_code}}"
-        a.col-md-7.teams-info data-ng-href="/#/upcoming/{{match.id}}"
-          | {{match.home_team}} - {{match.away_team}}
-        .col-md-1.away-flag
-          img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
-          / .f32.country-flag
-          /   .flag.selected class="{{match.away_team_iso_code}}"
+        .col-md-9
+          .match-home-flag
+            img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
+            / span.f32.country-flag
+            /   .flag.selected class="{{match.home_team_iso_code}}"
+          .match-away-flag
+            img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
+            / .f32.country-flag
+            /   .flag.selected class="{{match.away_team_iso_code}}"
+          .match-teams-info
+            a data-ng-href="/#/upcoming/{{match.id}}"
+              | {{match.home_team}} - {{match.away_team}}
 
       div  data-ng-include="upcomingMatchView.url"
