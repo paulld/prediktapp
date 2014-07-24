@@ -20,39 +20,69 @@ registrants = Registrant.create([
 users = User.create([
   {
     user_name: "Bob",
-    email: "robert@predikt.com",
-    coins: 1250,
-    win_percentage: 0.55
+    email: "bob@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
   },
   {
-    user_name: "Felix",
-    email: "felix@predikt.com",
-    coins: 1320,
-    win_percentage: 0.60
+    user_name: "Stan",
+    email: "stan@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
   },
   {
-    user_name: "Rage",
-    email: "regis@predikt.com",
-    coins: 1100,
-    win_percentage: 0.55
+    user_name: "Phil",
+    email: "phil@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
+  },
+  {
+    user_name: "Jimmer",
+    email: "jimjim@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
   },
   {
     user_name: "Tim",
     email: "timmy@predikt.com",
-    coins: 950,
-    win_percentage: 0.45
+    coins: 1000,
+    win_percentage: 0.00
+  },
+  {
+    user_name: "Kenny",
+    email: "kenny@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
   },
   {
     user_name: "Vlad",
     email: "vladimir@predikt.com",
-    coins: 888,
-    win_percentage: 0.35
+    coins: 1000,
+    win_percentage: 0.00
   },
   {
-    user_name: "kate",
+    user_name: "Kate",
     email: "missk@predikt.com",
-    coins: 1980,
-    win_percentage: 0.71
+    coins: 1000,
+    win_percentage: 0.00
+  },
+  {
+    user_name: "Cartman",
+    email: "cartman@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
+  },
+  {
+    user_name: "Floyd",
+    email: "floyd@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
+  },
+  {
+    user_name: "Kyle",
+    email: "kyle@predikt.com",
+    coins: 1000,
+    win_percentage: 0.00
   }
 ])
 
@@ -90,7 +120,7 @@ leagues = League.create([
 matches = Match.create([
   {
     league: leagues[2],
-    home_team: "San Jose Earthquakes",
+    home_team: "San Jose Quakes",
     away_team: "Chicago Fire",
     home_team_iso_code: "sj",
     away_team_iso_code: "chi",
@@ -106,7 +136,12 @@ matches = Match.create([
     handicap_side: 'home',
     home_handicap_odds: 1.83,
     away_handicap_odds: 2.52,
-    match_status: "pending"
+    match_status: "completed",
+    home_score: 5,
+    away_score: 1,
+    home_draw_away_result: "home",
+    over_under_result: "over",
+    handicap_result: "home_handicap"
   },
   {
     league: leagues[2],
@@ -151,7 +186,7 @@ matches = Match.create([
   {
     league: leagues[2],
     home_team: "Toronto FC",
-    away_team: "Sporting Kansas City",
+    away_team: "Sporting KC",
     home_team_iso_code: "tor",
     away_team_iso_code: "skc",
     starts_at: "2014-07-27 7:00:00 +0800",
@@ -170,7 +205,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "New England Revolution",
+    home_team: "NE Revolution",
     away_team: "Columbus Crew",
     home_team_iso_code: "ne",
     away_team_iso_code: "clb",
@@ -190,7 +225,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "Vancouver Whitecaps FC",
+    home_team: "Vancouver Caps",
     away_team: "FC Dallas",
     home_team_iso_code: "van",
     away_team_iso_code: "dal",
@@ -230,7 +265,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "Seattle Sounders FC",
+    home_team: "Seattle Sounders",
     away_team: "LA Galaxy",
     home_team_iso_code: "sea",
     away_team_iso_code: "la",
@@ -270,7 +305,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "New England Revolution",
+    home_team: "NE Revolution",
     away_team: "Colorado Rapids",
     home_team_iso_code: "ne",
     away_team_iso_code: "col",
@@ -315,12 +350,12 @@ profile_comments = ProfileComment.create([
     profile_commentee: users[3]
   },
   {
-    content: "Lorem",
+    content: "Amazing bet!",
     profile_commentor: users[5],
     profile_commentee: users[2]
   },
   {
-    content: "Ipsum",
+    content: "Good thing I followed",
     profile_commentor: users[5],
     profile_commentee: users[1]
   },
