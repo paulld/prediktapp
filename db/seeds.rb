@@ -21,70 +21,129 @@ users = User.create([
   {
     user_name: "Bob",
     email: "bob@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Stan",
     email: "stan@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Phil",
     email: "phil@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Jimmer",
     email: "jimjim@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Tim",
     email: "timmy@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Kenny",
     email: "kenny@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Vlad",
     email: "vladimir@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Kate",
     email: "missk@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Cartman",
     email: "cartman@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Floyd",
     email: "floyd@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   },
   {
     user_name: "Kyle",
     email: "kyle@predikt.com",
-    coins: 1000,
-    win_percentage: 0.00
+    coins: 1000
   }
 ])
+
+coin_transaction = CoinTransaction.create([
+  {
+    user: users[0],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[1],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[2],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[3],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[4],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[5],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[6],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[7],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[8],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[9],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+  {
+    user: users[10],
+    before_value: 0,
+    after_value: 1000,
+    transaction_type: "init"
+  },
+])
+
 
 sports = Sport.create([
   { 
