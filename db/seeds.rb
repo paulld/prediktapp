@@ -90,7 +90,7 @@ leagues = League.create([
 matches = Match.create([
   {
     league: leagues[2],
-    home_team: "San Jose Earthquakes",
+    home_team: "San Jose Quakes",
     away_team: "Chicago Fire",
     home_team_iso_code: "sj",
     away_team_iso_code: "chi",
@@ -151,7 +151,7 @@ matches = Match.create([
   {
     league: leagues[2],
     home_team: "Toronto FC",
-    away_team: "Sporting Kansas City",
+    away_team: "Sporting KC",
     home_team_iso_code: "tor",
     away_team_iso_code: "skc",
     starts_at: "2014-07-27 7:00:00 +0800",
@@ -170,7 +170,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "New England Revolution",
+    home_team: "NE Revolution",
     away_team: "Columbus Crew",
     home_team_iso_code: "ne",
     away_team_iso_code: "clb",
@@ -190,7 +190,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "Vancouver Whitecaps FC",
+    home_team: "Vancouver Caps",
     away_team: "FC Dallas",
     home_team_iso_code: "van",
     away_team_iso_code: "dal",
@@ -230,7 +230,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "Seattle Sounders FC",
+    home_team: "Seattle Sounders",
     away_team: "LA Galaxy",
     home_team_iso_code: "sea",
     away_team_iso_code: "la",
@@ -270,7 +270,7 @@ matches = Match.create([
   },
   {
     league: leagues[2],
-    home_team: "New England Revolution",
+    home_team: "NE Revolution",
     away_team: "Colorado Rapids",
     home_team_iso_code: "ne",
     away_team_iso_code: "col",
