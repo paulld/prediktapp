@@ -14,20 +14,19 @@ section#single-completed-match
         .col-md-3.match-date
           span
             | {{match.starts_at | date: 'MMM d, y'}}
-        .col-md-1.home-flag
-          img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
-          / span.f32.country-flag
-          /   .flag.selected class="{{match.home_team_iso_code}}"
-        .col-md-7.teams-info
-          span
+        .col-md-9
+          .match-home-flag
+            img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
+            / span.f32.country-flag
+            /   .flag.selected class="{{match.home_team_iso_code}}"
+          .match-away-flag
+            img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
+            / .f32.country-flag
+            /   .flag.selected class="{{match.away_team_iso_code}}"
+          .match-teams-info
             | {{match.home_team}}
-          span.score
-            | {{match.home_score}} - {{match.away_score}}
-          span
+            span.score
+              | {{match.home_score}} - {{match.away_score}}
             | {{match.away_team}}
-        .col-md-1.away-flag
-          img data-ng-src="/assets/{{match.away_team_iso_code}}.png"
-          / .f32.country-flag
-          /   .flag.selected class="{{match.away_team_iso_code}}"
 
       div data-ng-include="completedMatchView.url"
