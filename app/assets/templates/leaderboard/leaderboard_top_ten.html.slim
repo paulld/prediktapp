@@ -20,7 +20,7 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
               | Win %
           th.text-center
             a data-ng-click="predicate = '-tries'"
-              | Nb Bets
+              | # Bets
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"

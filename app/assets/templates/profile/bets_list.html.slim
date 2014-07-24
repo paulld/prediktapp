@@ -13,7 +13,7 @@ section#pending-wagers data-ng-if="hasOngoingBets"
       tbody
         tr data-ng-repeat="bet in bets | filter:{ status: 'ongoing' } "
           td.bet-date
-            | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+            | {{bet.links.match.starts_at | date: 'd MMM yy, ha'}}
           td.bet-teams
             | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
           td.bet-wager-gain.text-center
@@ -38,7 +38,7 @@ section#pending-wagers data-ng-if="hasPendingBets"
       tbody
         tr data-ng-repeat="bet in bets | filter:{ status: 'pending' } "
           td.bet-date
-            | {{bet.links.match.starts_at | date: 'MMM d, y h:mm a'}}
+            | {{bet.links.match.starts_at | date: 'd MMM yy, ha'}}
           td.bet-teams
             | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
           td.bet-wager-gain.text-center
@@ -64,7 +64,7 @@ section#pending-wagers data-ng-if="hasCompletedBets"
       tbody
         tr data-ng-repeat="bet in bets | filter:{ status: 'completed' } "
           td.bet-date
-            | {{bet.links.match.starts_at | date: 'MMM d, y'}}
+            | {{bet.links.match.starts_at | date: 'd MMM yy'}}
           td.bet-teams
             | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
           td.bet-wager-gain.text-center

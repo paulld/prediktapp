@@ -18,13 +18,13 @@ predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, 
     User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
 
-      wagerData = [{id: 1, text: "1 coin"}]
-      for i in [2..50]
-        wagerData.push {id: i, text: "#{i} coins"}
+      # wagerData = [{id: 1, text: "1 coin"}]
+      # for i in [2..50]
+      #   wagerData.push {id: i, text: "#{i} coins"}
 
-      $('.wager-select').select2(
-        data: wagerData
-      ).select2('val', '1')
+      # $('.wager-select').select2(
+      #   data: wagerData
+      # ).select2('val', '1')
 
 
     $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, newBetData) ->
