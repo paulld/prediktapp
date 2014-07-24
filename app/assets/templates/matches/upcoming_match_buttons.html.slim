@@ -27,7 +27,7 @@ form name="newBet" role="form"
     .row.game-buttons
       .col-md-3.form-wager-field
         label.sr-only for="wager_hda" Wager Home/Draw-Away
-        input.form-control.form-wager-select type="number" name="wager_hda" placeholder="wager" data-ng-model="wager" min="1" max="50"
+        input.form-control.form-wager-select type="number" name="wager_hda" placeholder="Wager value" data-ng-model="wager" min="1" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Wager value'"
         / label.sr-only.wager-label for="wager_hda" Wager value
         / input.wager-select.select2-offscreen type="hidden" style="width:90px" tabindex="-1" name="wager_hda" data-ng-model="wager"
       .col-md-3

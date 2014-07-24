@@ -20,11 +20,11 @@ section#leaderboard.row data-ng-controller="leaderboardCtrl"
               | Win %
           th.text-center
             a data-ng-click="predicate = '-tries'"
-              | Nb Bets
+              | # Bets
 
       tbody
         tr data-ng-repeat="user in users | orderBy:predicate:reverse | limitTo: 10"
-          td.leaderboard-rank
+          td.leaderboard-rank.text-center
             | {{$index +1}}
           td.leaderboard-name
             a href="/#/profile/{{user.id}}"

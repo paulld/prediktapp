@@ -6,7 +6,7 @@ section#upcoming-matches-list
 
       .row.game-information
         .col-md-3.match-date
-          | {{match.starts_at | date: 'MMM d, y h:mm a'}}
+          | {{match.starts_at | date: 'd MMM - h:mm a'}}
         .col-md-1.home-flag
           img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
           / span.f32.country-flag

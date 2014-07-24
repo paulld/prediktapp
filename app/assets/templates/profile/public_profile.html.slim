@@ -1,7 +1,7 @@
 section#private-profile
   header
     .profile-title-h1
-      h1
+      h1.sr-only
         | {{user.user_name}}
     .profile-link
       span.edit-profile-button
@@ -17,41 +17,41 @@ section#private-profile
           .text-center
             img.img-thumbnail.profile-picture src="assets/profile.png" height="200" width="200"
           .profile-followers
-            span.profile-followers-number
-              | {{user.links.followings_as_followees.length}} 
-            | Followers | Following 
-            span.profile-followers-number 
-              | {{user.links.followings_as_followers.length}}
+            div
+              div Followers
+              .profile-followers-number
+                | {{profile.links.followings_as_followees.length}} 
+            div
+              div Following 
+              .profile-followers-number 
+                | {{profile.links.followings_as_followers.length}}
           .text-center data-ng-if="profile"
             button.btn.btn-success.profile-follow-button type="button" data-ng-click="follow(user.id)"
               | Follow 
               i.fa.fa-plus-circle
         .col-sm-8
+          .row.profile-description
+            .col-xs-4.profile-description-name
+                | {{user.user_name}}
+            .col-xs-8
+              p data-ng-if="user.home_town"
+                i.fa.fa-home.profile-icon
+                span.profile-description-data
+                  | {{user.home_town}}
+              p data-ng-if="user.website"
+                i.fa.fa-link.profile-icon
+                a.profile-website.profile-description-data data-ng-href="http://{{profile.website}}"
+                  | {{user.website}}
           .row
-            table.table
-              thead
-                tr
-                  th Username
-                  th Location
-                  th Website
-              tbody
-                tr
-                  td
-                    | {{profile.user_name}}
-                  td
-                    | {{profile.home_town}}
-                  td
-                    a.profile-website data-ng-href="http://{{profile.website}}"
-                      | {{profile.website}}
-          .row
-            table.table
-              thead
-                tr
-                  th Biography
-              tbody
-                tr
-                  td
-                    | {{user.description}}
+            .col-xs-12
+              table.table
+                thead
+                  tr
+                    th About me:
+                tbody
+                  tr
+                    td.profile-description-data
+                      | {{user.description}}
 
   section#general-overview
     header
@@ -106,7 +106,7 @@ section#private-profile
         tbody
           tr data-ng-repeat="transaction in coinTransactions | orderBy : 'created_at' : reverse"
             td.bet-date
-              | {{transaction.created_at | date: 'MMM d, y h:mm a'}}
+              | {{transaction.created_at | date: 'd MMM yy, h:mm a'}}
             td.text-right
               span data-ng-if="(transaction.after_value - transaction.before_value) > 0"
                 | +{{transaction.after_value - transaction.before_value | number:1}}
