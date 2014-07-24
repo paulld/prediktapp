@@ -17,11 +17,14 @@ section#private-profile
           .text-center
             img.img-thumbnail.profile-picture src="assets/private.jpeg" height="200" width="200"
           .profile-followers
-            span.profile-followers-number
-              | {{profile.links.followings_as_followees.length}} 
-            | Followers | Following 
-            span.profile-followers-number 
-              | {{profile.links.followings_as_followers.length}}
+            div
+              div Followers
+              .profile-followers-number
+                | {{profile.links.followings_as_followees.length}} 
+            div
+              div Following 
+              .profile-followers-number 
+                | {{profile.links.followings_as_followers.length}}
 
 
 
