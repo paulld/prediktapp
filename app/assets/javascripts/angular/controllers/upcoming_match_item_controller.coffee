@@ -1,4 +1,4 @@
-predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, Bet, Message) ->
+predikt.controller 'upcomingMatchItemCtrl', ["$scope", "$http", "$routeParams", "User", "Bet", "Message", ($scope, $http, $routeParams, User, Bet, Message) ->
 
   matchId = $routeParams.matchId
   
@@ -36,5 +36,4 @@ predikt.controller 'upcomingMatchItemCtrl', ($scope, $http, $routeParams, User, 
           Message.noty('Please log in to place a bet.', 'error', 700)
       else
         Message.noty('Please input a wager value<br>between 1 and 50 coins.', 'error', 2000)
-
-    
+]

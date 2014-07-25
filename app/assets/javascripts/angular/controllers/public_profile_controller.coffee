@@ -1,4 +1,4 @@
-predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Message) ->
+predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "User", "Message", ($scope, $http, $routeParams, User, Message) ->
   
   userId = $routeParams.userId
   
@@ -58,3 +58,4 @@ predikt.controller 'publicProfileCtrl', ($scope, $http, $routeParams, User, Mess
         User.createFollow($scope.profile.id, userId, $scope.user.user_name)
       else
         Message.noty('Please log in to follow.', 'error', 700)
+]

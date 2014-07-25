@@ -1,4 +1,4 @@
-predikt.controller 'dashboardProfileCtrl', ($scope, $http, $location, $routeParams, $route, User) ->
+predikt.controller 'dashboardProfileCtrl', ["$scope", "$http", "$location", "$routeParams", "$route", "User", ($scope, $http, $location, $routeParams, $route, User) ->
 
   $scope.profile = null
   User.getCurrentUser().then (result) ->
@@ -31,3 +31,4 @@ predikt.controller 'dashboardProfileCtrl', ($scope, $http, $location, $routePara
     
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'    
+]

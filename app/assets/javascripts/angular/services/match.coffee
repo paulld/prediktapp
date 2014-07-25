@@ -1,4 +1,4 @@
-predikt.factory 'Match', ($http, Message) ->
+predikt.factory 'Match', ["$http", "Message", ($http, Message) ->
   Match = 
       
     getHomeDrawAwayResult: (homeScore, awayScore) ->
@@ -78,5 +78,4 @@ predikt.factory 'Match', ($http, Message) ->
         Message.noty('Done, all bets are settled.', 'success', 2000)
       .error () ->
         Message.noty('Something went wrong! Please try again.', 'error', 700)         
-
-
+]

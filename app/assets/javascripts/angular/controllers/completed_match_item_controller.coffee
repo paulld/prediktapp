@@ -1,4 +1,4 @@
-predikt.controller 'completedMatchItemCtrl', ($scope, $http, $routeParams, User) ->
+predikt.controller 'completedMatchItemCtrl', ["$scope", "$http", "$routeParams", "User", ($scope, $http, $routeParams, User) ->
 
   matchId = $routeParams.matchId
   
@@ -17,3 +17,4 @@ predikt.controller 'completedMatchItemCtrl', ($scope, $http, $routeParams, User)
   $scope.profile = null
   User.getCurrentUser().then (result) ->
     $scope.profile = result.data.users[0]
+]

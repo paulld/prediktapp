@@ -1,4 +1,4 @@
-predikt.controller 'updateProfileCtrl', ($scope, $http, $location, $routeParams, User, Message) ->
+predikt.controller 'updateProfileCtrl', ["$scope", "$http", "$location", "$routeParams", "User", "Message", ($scope, $http, $location, $routeParams, User, Message) ->
   $scope.profile = null
   User.getCurrentUser().then (result) ->
     $scope.profile = result.data.users[0]
@@ -10,4 +10,4 @@ predikt.controller 'updateProfileCtrl', ($scope, $http, $location, $routeParams,
     # $scope.submitted = true
     User.update($scope.profile.id, formData).success () ->
       $location.url '/my-profile'
-      
+]

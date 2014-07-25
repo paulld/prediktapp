@@ -1,4 +1,4 @@
-predikt.controller 'adminMatchesListCtrl', ($scope, $http) ->
+predikt.controller 'adminMatchesListCtrl', ["$scope", "$http", ($scope, $http) ->
 
   # TODO: CHECK IF ADMIN!
 
@@ -7,3 +7,4 @@ predikt.controller 'adminMatchesListCtrl', ($scope, $http) ->
 
   $http.get('./api/matches/past?sort=starts_at').success (data) ->
     $scope.pastMatches = data.matches
+]
