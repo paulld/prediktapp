@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: prediktapi_main_dev
+  pool: 5
+  username: rails
+  password: 'rails123'
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: prediktapi_main_test
+  pool: 5
+  username: rails
+  password: 'rails123'
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: prediktapi_main_production
+  pool: 5
+  username: rails
+  password: 'rails123'

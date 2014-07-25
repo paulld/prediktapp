@@ -18,5 +18,7 @@
 //= require lodash
 //= require jquery.noty.packaged
 //= require layout
+//= require session
+//= require password-check
 //= require angular-application
 //= require select2
