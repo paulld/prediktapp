@@ -1,4 +1,4 @@
-predikt.factory 'Bet', ($http, Message) ->
+predikt.factory 'Bet', ["$http", "Message", ($http, Message) ->
   Bet = 
 
     create: (profileId, matchId, homeTeam, awayTeam, betType, odds, wager) ->
@@ -28,3 +28,4 @@ predikt.factory 'Bet', ($http, Message) ->
             Message.noty(successMessage, 'success', 2000)
           .error (message) ->
             Message.noty('Something went wrong! Please try again.', 'error', 700)   
+]

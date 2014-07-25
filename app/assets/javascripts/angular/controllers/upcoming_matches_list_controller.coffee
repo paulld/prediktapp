@@ -1,4 +1,4 @@
-predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message) ->
+predikt.controller 'upcomingMatchesListCtrl', ["$scope", "$http", "User", "Bet", "Message", ($scope, $http, User, Bet, Message) ->
   
   $http.get( './api/matches/future?sort=starts_at&recent=10').success (data) ->
     $scope.matches = data.matches
@@ -39,4 +39,4 @@ predikt.controller 'upcomingMatchesListCtrl', ($scope, $http, User, Bet, Message
           Message.noty('Please log in to place a bet.', 'error', 700)
       else
         Message.noty('Please input a wager value<br>between 1 and 50 coins.', 'error', 2000)
-
+]

@@ -1,4 +1,4 @@
-predikt.factory 'User', ($http, Message) ->
+predikt.factory 'User', ["$http", "Message", ($http, Message) ->
   User = 
 
     getUser: (userId) ->
@@ -54,4 +54,4 @@ predikt.factory 'User', ($http, Message) ->
         Message.noty('You profile was successfully updated.', 'success', 500)
       .error () ->
         Message.noty("Your profile cannot be updated! <br>Your Username can't be blank", 'error', 1500)
-
+]

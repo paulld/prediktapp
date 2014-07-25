@@ -1,4 +1,4 @@
-predikt.controller 'leaderboardCtrl', ($scope, $http) ->
+predikt.controller 'leaderboardCtrl', ["$scope", "$http", ($scope, $http) ->
   $http.get('./api/leaderboard').success (data) ->
     $scope.users = data
     
@@ -18,3 +18,4 @@ predikt.controller 'leaderboardCtrl', ($scope, $http) ->
       user.tries *= 1
       user.wins *= 1
       user.losses *= 1
+]
