@@ -28,12 +28,18 @@ predikt.controller 'upcomingMatchItemCtrl', ["$scope", "$http", "$routeParams", 
 
 
     $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, newBetData) ->
-      if newBetData.wager_hda.$modelValue > 0 && newBetData.wager_hda.$modelValue < 51
-        if $scope.profile
-          Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, newBetData.wager_hda.$modelValue).success ->
-            $('.form-wager-select').val('')
-        else
-          Message.noty('Please log in to place a bet.', 'error', 700)
+      if !$scope.profile
+        Message.noty('Please log in to place a bet.', 'error', 1500)
       else
-        Message.noty('Please input a wager value<br>between 1 and 50 coins.', 'error', 2000)
+        if newBetData.wager.$modelValue > $scope.profile.coins
+          Message.noty("You don't have sufficient coins.", 'error', 1500)
+        else
+          if !(0 < newBetData.wager.$modelValue < 51)
+            Message.noty('Please input a wager value<br>between 1 and 50 coins.', 'error', 2000)
+          else
+            Bet.create($scope.profile.id, matchId, homeTeam, awayTeam, betType, odds, newBetData.wager.$modelValue).success ->
+              $('.form-wager-select').val('')
+              User.getCurrentUser().then (result) ->
+                $scope.profile = result.data.users[0]
+                      
 ]

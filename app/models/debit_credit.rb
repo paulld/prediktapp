@@ -6,7 +6,11 @@ class DebitCredit
 
   def debit_wager(wager)
     @user.coins -= wager
-    @user.save
+    if wager > 0 and wager < 51 and @user.coins > 0
+      @user.save
+    else
+      false
+    end
   end
 
   def record_debit_transaction(wager, betId, matchId)
