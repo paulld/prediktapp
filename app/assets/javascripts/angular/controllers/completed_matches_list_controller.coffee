@@ -2,7 +2,7 @@ predikt.controller 'completedMatchesListCtrl', ["$scope", "$http", "User", ($sco
   $http.get('./api/matches/past?sort=ends_at&recent=10').success (data) ->
     $scope.matches = data.matches
     
-    $scope.completedMatchView = { url: 'assets/matches/completed_match_buttons.html' }
+    $scope.completedMatchButtons = { url: 'assets/matches/completed_match_buttons.html' }
     
     for match in $scope.matches
       if match.handicap_side is 'home'

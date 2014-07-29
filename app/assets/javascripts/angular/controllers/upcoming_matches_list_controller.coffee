@@ -7,7 +7,7 @@ predikt.controller 'upcomingMatchesListCtrl', ["$scope", "$http", "User", "Bet",
     #   console.log 'hi'
     #   $(@).attr('placeholder','')
     
-    $scope.upcomingMatchView = { url: 'assets/matches/upcoming_match_buttons.html' }
+    $scope.upcomingMatchButtons = { url: 'assets/matches/upcoming_match_buttons.html' }
     
     for match in $scope.matches
       if match.handicap_side is 'home'
