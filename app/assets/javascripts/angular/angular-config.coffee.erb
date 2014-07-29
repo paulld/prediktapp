@@ -28,52 +28,39 @@ predikt.config  ["$routeProvider", "$locationProvider", ($routeProvider, $locati
     .otherwise                   { templateUrl: '404.html'                                               }
 ]
 
-predikt.directive 'upcomingMatchesList', ->
-  {
-    restrict: 'E'
-    templateUrl: '<%= asset_path("matches/upcoming_matches_list.html") %>'
-    controller: 'upcomingMatchesListCtrl'
-  }
-predikt.directive 'completedMatchesList', ->
-  {
-    restrict: 'E'
-    templateUrl: '<%= asset_path("matches/completed_matches_list.html") %>'
-    controller: 'completedMatchesListCtrl'
-  }
-predikt.directive 'upcomingMatchItem', ->
-  { 
-    restrict: 'E'
-    templateUrl: '<%= asset_path("matches/upcoming_match_item.html") %>'
-    controller: 'upcomingMatchItemCtrl'
-  }
-predikt.directive 'completedMatchItem', ->
-  { 
-    restrict: 'E'
-    templateUrl: '<%= asset_path("matches/completed_match_item.html") %>'
-    controller: 'completedMatchItemCtrl'
-  }
-predikt.directive 'leaderboardTopTen', ->
-  {
-    restrict: 'E'
-    templateUrl: '<%= asset_path("leaderboard/leaderboard_top_ten.html") %>'
-    controller: 'leaderboardCtrl'
-  }
-predikt.directive 'privateProfile', ->
-  {
-    restrict: 'E'
-    templateUrl: '<%= asset_path("profile/private_profile.html") %>'
-    controller: 'privateProfileCtrl'
-  }
-predikt.directive 'publicProfile', ->
-  {
-    restrict: 'E'
-    templateUrl: '<%= asset_path("profile/public_profile.html") %>'
-    controller: 'publicProfileCtrl'
-  }
-
 predikt.directive 'myDashboard', ->
-  { restrict: 'E', templateUrl: '<%= asset_path("profile/dashboard.html") %>' }
+  { restrict: 'E', templateUrl: '<%= asset_path("profile/dashboard.html") %>'                 }
+
+predikt.directive 'privateProfile', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("profile/private_profile.html") %>'           }
+
+predikt.directive 'publicProfile', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("profile/public_profile.html") %>'            }
 
 predikt.directive 'betsList', ->
-  { restrict: 'E', templateUrl: '<%= asset_path("profile/bets_list.html") %>' }
+  { restrict: 'E', templateUrl: '<%= asset_path("profile/bets_list.html") %>'                 }
+
+
+predikt.directive 'upcomingMatchesList', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/upcoming_matches_list.html") %>'     }
+
+predikt.directive 'upcomingMatchItem', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/upcoming_match_item.html") %>'       }
+
+predikt.directive 'upcomingMatchButtons', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/upcoming_match_buttons.html") %>'    }
+
+
+predikt.directive 'completedMatchesList', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/completed_matches_list.html") %>'    }
+
+predikt.directive 'completedMatchItem', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/completed_match_item.html") %>'      }
+
+predikt.directive 'completedMatchButtons', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("matches/completed_match_buttons.html") %>'   }
+
+
+predikt.directive 'leaderboardTopTen', ->
+  { restrict: 'E', templateUrl: '<%= asset_path("leaderboard/leaderboard_top_ten.html") %>'   }
 

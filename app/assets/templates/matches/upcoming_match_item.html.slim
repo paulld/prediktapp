@@ -1,4 +1,4 @@
-section#single-match
+section#single-match data-ng-controller="upcomingMatchItemCtrl"
   header
     h1.sr-only
       | Upcoming match: {{match.home_team}} - {{match.away_team}}   
@@ -27,7 +27,7 @@ section#single-match
             a data-ng-href="/#/upcoming/{{match.id}}"
               | {{match.home_team}} - {{match.away_team}}
 
-      div data-ng-include="upcomingMatchButtons.url"
+      upcoming-match-buttons
 
       div
         h2 REAL SALT LAKE
