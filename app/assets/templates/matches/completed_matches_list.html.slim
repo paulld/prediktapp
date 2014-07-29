@@ -6,8 +6,7 @@ section#completed-matches-list
 
       .row.game-information
         .col-md-3.match-date
-          span
-            | {{match.starts_at | date: 'MMM d, y'}}
+          | {{match.starts_at | date: 'MMM d, y'}}
         .col-md-9
           .match-home-flag
             img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
