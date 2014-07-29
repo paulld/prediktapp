@@ -28,6 +28,10 @@ predikt.controller 'dashboardProfileCtrl', ["$scope", "$http", "$location", "$ro
       setTimeout( () ->
         $('.dashboard-bet-line:first-of-type').removeClass('dashboard-highlight')
       , 1000)
+
+
+    $('.show-button').on 'click', (e) ->
+      $('#' + e.currentTarget.id + '-data').toggleClass('hide')
     
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'    

@@ -9,13 +9,13 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
       $scope.bets = betData.bets
 
       for bet in $scope.bets
-        bet.status = bet.links.match.match_status
-        if bet.status is 'pending' then $scope.hasPendingBets = true
-        if bet.status is 'ongoing' then $scope.hasOngoingBets = true
-        if bet.status is 'completed' then $scope.hasCompletedBets = true
-
-        if bet.bet_type is 'home_handicap' then bet.bet_type = 'home handicap'
-        if bet.bet_type is 'away_handicap' then bet.bet_type = 'away handicap'
+        switch bet.status = bet.links.match.match_status
+          when 'pending' then $scope.hasPendingBets = true
+          when 'ongoing' then $scope.hasOngoingBets = true
+          when 'completed' then $scope.hasCompletedBets = true
+        bet.bet_type = switch
+          when bet.bet_type is 'home_handicap' then 'home handicap'
+          when bet.bet_type is 'away_handicap' then 'away handicap'
           
     User.getUserCoinTransactions(userId).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
@@ -23,18 +23,9 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
 
       for transaction in $scope.coinTransactions
         switch transaction.transaction_type
-          when 'init'
-            transaction.matchUrl = ''
-            transaction.urlClass = 'hide'
-            transaction.transaction_type = 'Awarded at sign up'
-          when 'place_bet'
-            transaction.matchUrl = '/#/completed/' + transaction.match_reference
-            transaction.urlClass = 'btn-danger'
-            transaction.transaction_type = 'Placed a bet'
-          when 'win_bet'
-            transaction.matchUrl = '/#/completed/' + transaction.match_reference
-            transaction.urlClass = 'btn-success'
-            transaction.transaction_type = 'Won a bet'
+          when 'init' then transaction.transaction_type = 'Awarded at sign up'
+          when 'place_bet' then transaction.transaction_type = 'Placed a bet'
+          when 'win_bet' then transaction.transaction_type = 'Won a bet'
 
     $scope.profile = null
     User.getCurrentUser().then (result) ->
