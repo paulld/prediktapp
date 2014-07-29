@@ -18,3 +18,8 @@ $ ->
 
   $('#footer-navlinks li').on 'click', (e) ->
     unsetActive()
+
+  $('.nav.navbar-nav').on 'click', (e) ->
+    $('.navbar-collapse.collapse.in').removeClass('in')
+  $('main').on 'click', (e) ->
+    $('.navbar-collapse.collapse.in').removeClass('in')
