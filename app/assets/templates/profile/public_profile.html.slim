@@ -92,8 +92,10 @@ section#private-profile
   
   section#transactions-history data-ng-if="hasCoinTransactions"
     header
-      h2 Transactions History
-    .well
+      h2
+        | Transactions History
+      a#transaction-history-show.show-button show / hide
+    .well#transaction-history-show-data.hide
       table.table
         thead
           tr

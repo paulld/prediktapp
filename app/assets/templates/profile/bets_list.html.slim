@@ -1,7 +1,9 @@
-section#pending-wagers data-ng-if="hasOngoingBets"
+section#live-wagers data-ng-if="hasOngoingBets"
   header
-    h2 Live Wagers
-  .well
+    h2
+      | Live Wagers
+    a#live-wagers-show.show-button show / hide
+  .well#live-wagers-show-data.hide
     table.table.profile-bets-table
       thead
         tr
@@ -25,8 +27,10 @@ section#pending-wagers data-ng-if="hasOngoingBets"
 
 section#pending-wagers data-ng-if="hasPendingBets"
   header
-    h2 Pending Wagers
-  .well
+    h2
+      | Pending Wagers
+    a#pending-wagers-show.show-button show / hide
+  .well#pending-wagers-show-data.hide
     table.table.profile-bets-table
       thead
         tr
@@ -48,10 +52,12 @@ section#pending-wagers data-ng-if="hasPendingBets"
           td.text-center
             | {{bet.status}}
 
-section#pending-wagers data-ng-if="hasCompletedBets"
+section#wager-history data-ng-if="hasCompletedBets"
   header
-    h2 Wager History
-  .well
+    h2
+      | Wager History
+    a#transaction-history-show.show-button show / hide
+  .well#transaction-history-show-data.hide
     table.table.profile-bets-table
       thead
         tr
