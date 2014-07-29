@@ -1,4 +1,4 @@
-section#single-completed-match
+section#single-completed-match data-ng-controller="completedMatchItemCtrl"
   header
     h1.sr-only
       | Completed match: {{match.home_team}} ({{match.home_score}} - {{match.away_score}}) {{match.away_team}}
@@ -29,4 +29,4 @@ section#single-completed-match
               | {{match.home_score}} - {{match.away_score}}
             | {{match.away_team}}
 
-      div data-ng-include="completedMatchView.url"
+      completed-match-buttons

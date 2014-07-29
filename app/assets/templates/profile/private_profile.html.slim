@@ -1,4 +1,4 @@
-section#private-profile
+section#private-profile data-ng-controller="privateProfileCtrl"
   header
     .profile-title-h1
       h1.sr-only
@@ -93,7 +93,7 @@ section#private-profile
   section#transaction-history data-ng-if="hasCoinTransactions"
     header
       h2
-        | Transactions History
+        | Transaction History
       a#transaction-history-show.show-button show / hide
     .well#transaction-history-show-data.hide
       table.table

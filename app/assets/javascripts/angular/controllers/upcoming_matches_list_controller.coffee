@@ -7,8 +7,6 @@ predikt.controller 'upcomingMatchesListCtrl', ["$scope", "$http", "User", "Bet",
     #   console.log 'hi'
     #   $(@).attr('placeholder','')
     
-    $scope.upcomingMatchView = { url: 'assets/matches/upcoming_match_buttons.html' }
-    
     for match in $scope.matches
       if match.handicap_side is 'home'
         match.homeHandicap = "-#{match.handicap_value}"
@@ -20,15 +18,6 @@ predikt.controller 'upcomingMatchesListCtrl', ["$scope", "$http", "User", "Bet",
     $scope.profile = null
     User.getCurrentUser().then (result) ->
       $scope.profile = result.data.users[0]
-      
-      # wagerData = [{id: 1, text: "1 coin"}]
-      # for i in [2..50]
-      #   wagerData.push {id: i, text: "#{i} coins"}
-
-      # $('.wager-select').select2(
-      #   data: wagerData
-      # ).select2('val', '1')
-      # NB: use $scope.wagerData ?
 
     $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, newBetData) ->
       if !$scope.profile

@@ -5,8 +5,6 @@ predikt.controller 'completedMatchItemCtrl', ["$scope", "$http", "$routeParams",
   $http.get('./api/matches/' + matchId ).success (matchData) ->
     $scope.match = matchData.matches[0]
     
-    $scope.completedMatchView = { url: 'assets/matches/completed_match_buttons.html' }
-
     if $scope.match.handicap_side is 'home'
       $scope.match.homeHandicap = "-#{$scope.match.handicap_value}"
       $scope.match.awayHandicap = "+#{$scope.match.handicap_value}"

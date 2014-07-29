@@ -1,4 +1,4 @@
-section#completed-matches-list
+section#completed-matches-list data-ng-controller="completedMatchesListCtrl"
   header
     h1 Game Results
   .well
@@ -22,4 +22,4 @@ section#completed-matches-list
               | {{match.home_score}} - {{match.away_score}}
             | {{match.away_team}}
 
-      div data-ng-include="completedMatchView.url"
+      completed-match-buttons

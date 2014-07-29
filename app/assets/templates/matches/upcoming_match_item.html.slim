@@ -1,4 +1,4 @@
-section#single-match
+section#single-match data-ng-controller="upcomingMatchItemCtrl"
   header
     h1.sr-only
       | Upcoming match: {{match.home_team}} - {{match.away_team}}   
@@ -10,10 +10,10 @@ section#single-match
   .well
     .well.well-white
       img.preview-img src="/assets/preview_match.jpg"
-      hr
+      
       .row.game-information
         .col-md-3.match-date
-          | {{match.starts_at | date: 'MMM d, y h:mm a'}}
+          | {{match.starts_at | date: 'd MMM - h:mm a'}}
         .col-md-9
           .match-home-flag
             img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
@@ -27,16 +27,24 @@ section#single-match
             a data-ng-href="/#/upcoming/{{match.id}}"
               | {{match.home_team}} - {{match.away_team}}
 
-      div data-ng-include="upcomingMatchView.url"
-      hr
-      h2 REAL SALT LAKE
-      p Real Salt Lake started their homestand with a result, coming back for a 1-1 draw with Vancouver Whitecaps FC on Saturday evening at Rio Tinto Stadium. RSL are in a tie for second place in the Western Conference with 29 points from 19 matches.
-      ' 
-      h2 MONTREAL IMPACT
-      p The Montréal Impact had their losing run extended to three games, starting their road swing with a 2-1 loss to the Columbus Crew on Saturday evening at Crew Stadium. The Impact are in 10th place in the Eastern Conference with 14 points from 17 games.
-      hr
-      p REFEREE: Drew Fischer. AR1 (bench): George Gansner; AR2 (opposite): Mike Rottersman; 4th: Daniel Radford
-      p MLS CAREER: 32 games; FC/gm: 26.4; Y/gm: 3.0; R: 2; pens: 9
-      p ALL-TIME (2 meetings): Real 1 win, 3 goals. Impact 1 win, 3 goals. Ties 0
-      p AT SALT LAKE (1 meeting): Real 1 win, 1 goal. Impact 0 wins, 0 goals. Ties 0
-      
+      upcoming-match-buttons
+
+      div
+        h2 REAL SALT LAKE
+        p 
+          | Real Salt Lake started their homestand with a result, coming back for a 1-1 draw with Vancouver Whitecaps FC on Saturday evening at Rio Tinto Stadium. RSL are in a tie for second place in the Western Conference with 29 points from 19 matches.
+
+        h2 MONTREAL IMPACT
+        p 
+          | The Montréal Impact had their losing run extended to three games, starting their road swing with a 2-1 loss to the Columbus Crew on Saturday evening at Crew Stadium. The Impact are in 10th place in the Eastern Conference with 14 points from 17 games.
+        
+        h2 MATCH INFORMATION
+        p
+          | REFEREE: Drew Fischer. AR1 (bench): George Gansner; AR2 (opposite): Mike Rottersman; 4th: Daniel Radford
+        p 
+          | MLS CAREER: 32 games; FC/gm: 26.4; Y/gm: 3.0; R: 2; pens: 9
+        p 
+          | ALL-TIME (2 meetings): Real 1 win, 3 goals. Impact 1 win, 3 goals. Ties 0
+        p 
+          | AT SALT LAKE (1 meeting): Real 1 win, 1 goal. Impact 0 wins, 0 goals. Ties 0
+        

@@ -1,30 +1,31 @@
-section#dashboard.row data-ng-controller="dashboardProfileCtrl" data-ng-if="profile"
-  header
-    h1.leaderboard-top-ten-title My Dashboard
-  .leaderboard-list
-    div.dashboard-coins
-      span.dashboard-coins-key
-        | Available Coins: 
-      span.dashboard-coins-value
-        | {{profile.coins | number:0}}
-    
-    div data-ng-if="bets"
-      table.table.dashboard-bets
-        thead
-          tr
-            th Teams
-            th Bet
-            th Wager
-            th Status
-        tbody
-          tr.dashboard-bet-line data-ng-repeat="bet in bets | limitTo: 5"
-            td.dashboard-flags
-              img data-ng-src="/assets/{{bet.links.match.home_team_iso_code}}.png"
-              img data-ng-src="/assets/{{bet.links.match.away_team_iso_code}}.png"
-              / | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
-            td.dashboard-bet-type
-              | {{bet.bet_type}}
-            td
-              | {{bet.wager}}
-            td
-              | {{bet.links.match.match_status}}
+div data-ng-controller="dashboardCtrl"
+  section#dashboard.row data-ng-if="profile"
+    header
+      h1.leaderboard-top-ten-title My Dashboard
+    .leaderboard-list
+      div.dashboard-coins
+        span.dashboard-coins-key
+          | Available Coins: 
+        span.dashboard-coins-value
+          | {{profile.coins | number:0}}
+      
+      div data-ng-if="bets"
+        table.table.dashboard-bets
+          thead
+            tr
+              th Teams
+              th Bet
+              th Wager
+              th Status
+          tbody
+            tr.dashboard-bet-line data-ng-repeat="bet in bets | limitTo: 5"
+              td.dashboard-flags
+                img data-ng-src="/assets/{{bet.links.match.home_team_iso_code}}.png"
+                img data-ng-src="/assets/{{bet.links.match.away_team_iso_code}}.png"
+                / | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+              td.dashboard-bet-type
+                | {{bet.bet_type}}
+              td
+                | {{bet.wager}}
+              td
+                | {{bet.links.match.match_status}}

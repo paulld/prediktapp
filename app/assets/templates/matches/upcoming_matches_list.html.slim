@@ -5,9 +5,9 @@ section#upcoming-matches-list
     .well.well-white data-ng-repeat="match in matches | limitTo: 10"
 
       .row.game-information
-        .col-md-3.match-date
+        .col-sm-3.match-date
           | {{match.starts_at | date: 'd MMM - h:mm a'}}
-        .col-md-9
+        .col-sm-9
           .match-home-flag
             img data-ng-src="/assets/{{match.home_team_iso_code}}.png"
             / span.f32.country-flag
@@ -20,4 +20,4 @@ section#upcoming-matches-list
             a data-ng-href="/#/upcoming/{{match.id}}"
               | {{match.home_team}} - {{match.away_team}}
 
-      div data-ng-include="upcomingMatchView.url"
+      upcoming-match-buttons
