@@ -10,7 +10,11 @@ predikt.controller 'adminMatchItemCtrl', ["$scope", "$http", "$location", "$rout
 
   $http.get('./api/matches/' + matchId + '/bets').success (betData) ->
     $scope.bets = betData.bets
-
+    for bet in $scope.bets
+      bet.is_successful = switch
+        when bet.is_successful is true then 'WIN'
+        when bet.is_successful is false then 'LOSS'
+        else 'pending'
 
   $scope.setComplete = (formData) ->
     if formData.home_score.$pristine or formData.away_score.$pristine

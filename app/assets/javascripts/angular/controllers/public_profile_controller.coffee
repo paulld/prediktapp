@@ -16,6 +16,7 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
         bet.bet_type = switch
           when bet.bet_type is 'home_handicap' then 'home handicap'
           when bet.bet_type is 'away_handicap' then 'away handicap'
+          else bet.bet_type
           
     User.getUserCoinTransactions(userId).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
