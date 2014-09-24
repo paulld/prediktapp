@@ -7,12 +7,19 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
 
     User.getUserBets($scope.user.id).success (betData) ->
       $scope.bets = betData.bets
+      $scope.totalPendingBets = $scope.totalOngoingBets = $scope.totalCompletedBets = 0
 
       for bet in $scope.bets
         switch bet.status = bet.links.match.match_status
-          when 'pending' then $scope.hasPendingBets = true
-          when 'ongoing' then $scope.hasOngoingBets = true
-          when 'completed' then $scope.hasCompletedBets = true
+          when 'pending'
+            $scope.hasPendingBets = true
+            $scope.totalPendingBets += 1
+          when 'ongoing'
+            $scope.hasOngoingBets = true
+            $scope.totalOngoingBets += 1
+          when 'completed'
+            $scope.hasCompletedBets = true
+            $scope.totalCompletedBets += 1
         bet.bet_type = switch
           when bet.bet_type is 'home_handicap' then 'home handicap'
           when bet.bet_type is 'away_handicap' then 'away handicap'
