@@ -1,8 +1,10 @@
 section#live-wagers data-ng-if="hasOngoingBets"
   header
     h2
-      | Live Wagers ({{totalPendingBets}})
-    a#live-wagers-show.show-button show / hide
+      | Live Wagers 
+      span.profile-total-number
+        | ({{totalPendingBets}})
+    / a#live-wagers-show.show-button show / hide
   .well#live-wagers-show-data.hide
     table.table.profile-bets-table
       thead
@@ -28,8 +30,10 @@ section#live-wagers data-ng-if="hasOngoingBets"
 section#pending-wagers data-ng-if="hasPendingBets"
   header
     h2
-      | Pending Wagers ({{totalPendingBets}})
-    a#pending-wagers-show.show-button show / hide
+      | Pending Wagers 
+      span.profile-total-number
+        | ({{totalPendingBets}})
+    / a#pending-wagers-show.show-button show / hide
   .well#pending-wagers-show-data
     table.table.profile-bets-table
       thead
@@ -52,11 +56,42 @@ section#pending-wagers data-ng-if="hasPendingBets"
           td.text-center
             | {{bet.status}}
 
-section#wager-history data-ng-if="hasCompletedBets"
+section#completed-wagers data-ng-if="hasCompletedBets"
   header
     h2
-      | Wager History ({{totalCompletedBets}})
-    a#wager-history-show.show-button show / hide
+      | Completed / not yet Setteld Wagers 
+      span.profile-total-number
+        | ({{totalCompletedBets}})
+    / a#completed-wagers-show.show-button show / hide
+  .well#completed-wagers-show-data
+    table.table.profile-bets-table
+      thead
+        tr
+          th Match starts at
+          th Teams
+          th.text-center Wager
+          th.text-center Bet type
+          th.text-center Status
+      tbody
+        tr data-ng-repeat="bet in bets | filter:{ status: 'completed' } "
+          td.bet-date
+            | {{bet.links.match.starts_at | date: 'd MMM yy, ha'}}
+          td.bet-teams
+            | {{bet.links.match.home_team}} {{bet.links.match.home_score}} - {{bet.links.match.away_score}} {{bet.links.match.away_team}}
+          td.bet-wager-gain.text-center
+            | {{bet.wager}}
+          td.text-center
+            | {{bet.bet_type}}
+          td.text-center
+            | {{bet.status}}
+
+section#wager-history data-ng-if="hasSettledBets"
+  header
+    h2
+      | Wager History 
+      span.profile-total-number
+        | ({{totalSettledBets}})
+    / a#wager-history-show.show-button show / hide
   .well#wager-history-show-data
     table.table.profile-bets-table
       thead
@@ -68,7 +103,7 @@ section#wager-history data-ng-if="hasCompletedBets"
           th.text-center Win/Loss
           th.text-center Status
       tbody
-        tr data-ng-repeat="bet in bets | filter:{ status: 'completed' } "
+        tr data-ng-repeat="bet in bets | filter:{ status: 'settled' } "
           td.bet-date
             | {{bet.links.match.starts_at | date: 'd MMM yy'}}
           td.bet-teams

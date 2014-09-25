@@ -7,7 +7,7 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
 
     User.getUserBets($scope.user.id).success (betData) ->
       $scope.bets = betData.bets
-      $scope.totalPendingBets = $scope.totalOngoingBets = $scope.totalCompletedBets = 0
+      $scope.totalPendingBets = $scope.totalOngoingBets = $scope.totalCompletedBets = $scope.totalSettledBets = 0
 
       for bet in $scope.bets
         switch bet.status = bet.links.match.match_status
@@ -20,6 +20,9 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
           when 'completed'
             $scope.hasCompletedBets = true
             $scope.totalCompletedBets += 1
+          when 'settled'
+            $scope.hasSettledBets = true
+            $scope.totalSettledBets += 1
         bet.bet_type = switch
           when bet.bet_type is 'home_handicap' then 'home handicap'
           when bet.bet_type is 'away_handicap' then 'away handicap'
@@ -32,7 +35,7 @@ predikt.controller 'publicProfileCtrl', ["$scope", "$http", "$routeParams", "Use
       for transaction in $scope.coinTransactions
         switch transaction.transaction_type
           when 'init' then transaction.transaction_type = 'Awarded at sign up'
-          when 'place_bet' then transaction.transaction_type = 'Placed a bet'
+          when 'place_bet' then transaction.transaction_type = 'Placed a new bet'
           when 'win_bet' then transaction.transaction_type = 'Won a bet'
 
     $scope.profile = null

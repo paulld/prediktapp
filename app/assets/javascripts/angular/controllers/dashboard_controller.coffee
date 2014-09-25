@@ -29,9 +29,10 @@ predikt.controller 'dashboardCtrl', ["$scope", "$http", "$location", "$routePara
         $('.dashboard-bet-line:first-of-type').removeClass('dashboard-highlight')
       , 1000)
 
-
-    $('.show-button').on 'click', (e) ->
-      $('#' + e.currentTarget.id + '-data').toggleClass('hide')
+    $('.show-button button').on 'click', (e) ->
+      console.log 'hi'
+    # $('.show-button').on 'click', (e) ->
+    #   $('#' + e.currentTarget.id + '-data').toggleClass('hide')
     
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'    
