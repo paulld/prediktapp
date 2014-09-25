@@ -79,6 +79,20 @@ class DebitCredit
   end
 
 
+  def unsettle_bets(matchId)
+    betsToUnsettle = Bet.where(match_id: matchId)
+    betsToUnsettle.each do |b|     
+      # uncredit coins to user was successful
+      if b.is_successful = true
+        credit_coins(b.user_id, -b.gain, b.id, matchId)
+      end
+      
+      b.is_successful = ''
+      b.gain = ''
+      b.save
+    end
+  end
+
   protected
 
   def get_uuid

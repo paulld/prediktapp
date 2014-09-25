@@ -8,6 +8,12 @@ predikt.controller 'adminMatchItemCtrl', ["$scope", "$http", "$location", "$rout
     $scope.match = matchData.matches[0]
     $scope.isCompleted = if $scope.match.match_status is 'completed' then true else false
 
+    $scope.showCompleteButton =
+      if $scope.match.match_status is 'pending' or $scope.match.match_status is 'ongoing' then true else false
+    $scope.showUncompleteButton = if $scope.match.match_status is 'completed' then true else false
+    $scope.showSettleButton = if $scope.match.match_status is 'completed' then true else false
+    $scope.showUnsettleButton = if $scope.match.match_status is 'settled' then true else false
+
   $http.get('./api/matches/' + matchId + '/bets').success (betData) ->
     $scope.bets = betData.bets
     for bet in $scope.bets
@@ -36,6 +42,10 @@ predikt.controller 'adminMatchItemCtrl', ["$scope", "$http", "$location", "$rout
       $route.reload()
 
   $scope.settle = () ->
-    Match.settle(matchId)
-      # TODO: Reload page
+    Match.settle(matchId).success () ->
+      $route.reload()
+
+  $scope.unsettle = () ->
+    Match.unsettle(matchId).success () ->
+      $route.reload()
 ]

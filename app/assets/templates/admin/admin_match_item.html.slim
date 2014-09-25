@@ -54,12 +54,14 @@ section#admin-match-item data-ng-controller="adminMatchItemCtrl"
           input type="text" name="away_score" class="form-control" data-ng-model="match.away_score"
           span
             | {{match.away_team}}
-          button.btn.btn-danger data-ng-click="setComplete(matchScore)" data-ng-if="! isCompleted"
+          button.btn.btn-success data-ng-click="setComplete(matchScore)" data-ng-if="showCompleteButton"
             | Set Complete
-          button.btn.btn-success data-ng-click="unsetComplete()" data-ng-if="isCompleted"
+          button.btn.btn-danger data-ng-click="unsetComplete()" data-ng-if="showUncompleteButton"
             | Unset Complete
-          button.btn.btn-danger data-ng-click="settle()" data-ng-if="isCompleted"
+          button.btn.btn-success data-ng-click="settle()" data-ng-if="showSettleButton"
             | Settle all Bets
+          button.btn.btn-danger data-ng-click="unsettle()" data-ng-if="showUnsettleButton"
+            | Unsettle all Bets
   
   .row
     section.col-lg-8.col-md-10.sm-12
