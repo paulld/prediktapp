@@ -78,7 +78,10 @@ class BetsController < RestController
             matchToSettle.over_under_result,
             matchToSettle.handicap_result
           )
-
+          
+          matchToSettle.match_status = 'settled'
+          matchToSettle.save
+          
           # credit coins to user if successful --> credit_coins (called from settle_bets)
           # create coin transaction            --> record_credit_transaction (called from credit_coins)
 
