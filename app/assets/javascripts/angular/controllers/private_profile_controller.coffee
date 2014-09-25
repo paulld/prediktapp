@@ -6,7 +6,7 @@ predikt.controller 'privateProfileCtrl', ["$scope", "$http", "$location", "$rout
 
     User.getUserBets($scope.profile.id).success (betData) ->
       $scope.bets = betData.bets
-      $scope.totalPendingBets = $scope.totalOngoingBets = $scope.totalCompletedBets = 0
+      $scope.totalPendingBets = $scope.totalOngoingBets = $scope.totalCompletedBets = $scope.totalSettledBets = 0
 
       for bet in $scope.bets
         switch bet.status = bet.links.match.match_status
@@ -19,6 +19,9 @@ predikt.controller 'privateProfileCtrl', ["$scope", "$http", "$location", "$rout
           when 'completed'
             $scope.hasCompletedBets = true
             $scope.totalCompletedBets += 1
+          when 'settled'
+            $scope.hasSettledBets = true
+            $scope.totalSettledBets += 1
         bet.bet_type = switch
           when bet.bet_type is 'home_handicap' then 'home handicap'
           when bet.bet_type is 'away_handicap' then 'away handicap'
@@ -27,7 +30,7 @@ predikt.controller 'privateProfileCtrl', ["$scope", "$http", "$location", "$rout
     User.getUserCoinTransactions($scope.profile.id).success (transactionData) ->
       $scope.coinTransactions = transactionData.coin_transactions
       if $scope.coinTransactions.length > 0 then $scope.hasCoinTransactions = true
-            
+
       for transaction in $scope.coinTransactions
         switch transaction.transaction_type
           when 'init' then transaction.transaction_type = 'Awarded at sign up'
@@ -45,6 +48,10 @@ predikt.controller 'privateProfileCtrl', ["$scope", "$http", "$location", "$rout
         $scope.winPercent = (leaderboardData.wins * 100) / (leaderboardData.wins * 1 + leaderboardData.losses * 1)
       else
         $scope.winPercent = 0
+
+    # $('.show-button button').on 'click', (e) ->
+    #   console.log 'hi'
+    #   $('#' + e.currentTarget.id + '-data').toggleClass('hide')
 
   $scope.viewEditProfile = () ->
     $location.url '/my-profile/edit'

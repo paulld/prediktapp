@@ -93,8 +93,10 @@ section#private-profile data-ng-controller="publicProfileCtrl"
   section#transaction-history data-ng-if="hasCoinTransactions"
     header
       h2
-        | Transaction History
-      a#transaction-history-show.show-button show / hide
+        | Transaction History 
+        span.profile-total-number
+         | ({{coinTransactions.length}})
+      / a#transaction-history-show.show-button show / hide
     .well#transaction-history-show-data
       table.table
         thead

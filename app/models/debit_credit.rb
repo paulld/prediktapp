@@ -82,7 +82,8 @@ class DebitCredit
   def unsettle_bets(matchId)
     betsToUnsettle = Bet.where(match_id: matchId)
     betsToUnsettle.each do |b|     
-      # uncredit coins to user was successful
+      # uncredit coins to user was successful 
+      # (TODO: remove credit transaction instead of having 2 netted transactions?)
       if b.is_successful = true
         credit_coins(b.user_id, -b.gain, b.id, matchId)
       end
