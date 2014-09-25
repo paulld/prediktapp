@@ -44,5 +44,8 @@ predikt.controller 'adminMatchItemCtrl', ["$scope", "$http", "$location", "$rout
   $scope.settle = () ->
     Match.settle(matchId).success () ->
       $route.reload()
-      # TODO: Reload page
+
+  $scope.unsettle = () ->
+    Match.unsettle(matchId).success () ->
+      $route.reload()
 ]

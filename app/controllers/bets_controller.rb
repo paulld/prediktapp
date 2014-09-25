@@ -94,6 +94,35 @@ class BetsController < RestController
 
   end
 
+  def unsettle
+
+    matchToUnsettle = Match.find(params[:match_id])
+
+    if matchToUnsettle.match_status != 'settled'
+      head :unprocessable_entity
+    else
+      CoinTransaction.transaction do
+        begin
+          # Update all the bets with is_successful & gain = null
+          DebitCredit.new(current_user).unsettle_bets(
+            params[:match_id]
+          )
+          
+          matchToUnsettle.match_status = 'completed'
+          matchToUnsettle.save
+          
+          # uncredit coins to user if was successful --> credit_coins (called from settle_bets)
+          # create or remove coin transaction ??           --> record_credit_transaction (called from credit_coins)
+
+          head :accepted
+        rescue
+          head :unprocessable_entity
+        end
+      end
+    end
+
+  end
+
 
   protected
 

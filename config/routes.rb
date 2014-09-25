@@ -64,6 +64,7 @@ Prediktapp::Application.routes.draw do
     get 'users/:user_id/bets'               => 'bets#index'
     get 'matches/:match_id/bets'            => 'bets#index'
     get 'matches/:match_id/settle'          => 'bets#settle'
+    get 'matches/:match_id/unsettle'        => 'bets#unsettle'
     
     scope :coin_transactions do
       get    ''                             => 'coin_transactions#index',            as: :coin_transactions

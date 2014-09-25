@@ -77,5 +77,14 @@ predikt.factory 'Match', ["$http", "Message", ($http, Message) ->
       ).success () ->
         Message.noty('Done, all bets are settled.', 'success', 2000)
       .error () ->
-        Message.noty('Something went wrong! Please try again.', 'error', 700)         
+        Message.noty('Something went wrong! Please try again.', 'error', 700)
+
+    unsettle: (matchId) ->
+      $http(
+        method: "GET"
+        url: './api/matches/' + matchId + '/unsettle'
+      ).success () ->
+        Message.noty('Done, all bets are unsettled.', 'success', 2000)
+      .error () ->
+        Message.noty('Something went wrong! Please try again.', 'error', 700)
 ]
