@@ -14,10 +14,13 @@ predikt.controller 'upcomingMatchesListCtrl', ["$scope", "$http", "User", "Bet",
       else
         match.homeHandicap = "+#{match.handicap_value}"
         match.awayHandicap = "-#{match.handicap_value}"
-    
+
     $scope.profile = null
-    User.getCurrentUser().then (result) ->
-      $scope.profile = result.data.users[0]
+    $http.get('./api/profile/' ).success (resultData) ->
+      if ! resultData.users[0]
+        $scope.profile = null
+      else
+        $scope.profile = resultData.users[0]
 
     $scope.clickToBet = (matchId, homeTeam, awayTeam, betType, odds, newBetData) ->
       if !$scope.profile
