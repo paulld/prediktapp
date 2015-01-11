@@ -21,4 +21,3 @@
 //= require session
 //= require password-check
 //= require angular-application
-//= require select2

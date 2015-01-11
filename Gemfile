@@ -15,7 +15,7 @@ gem 'jquery-ui-rails'
 gem 'coffee-script'
 gem "font-awesome-rails"
 gem "world-flags"
-gem "select2-rails"
+# gem "select2-rails"
 gem 'uglifier'
 
 gem 'rails_12factor', group: :production

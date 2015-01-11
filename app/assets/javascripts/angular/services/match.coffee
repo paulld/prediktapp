@@ -37,8 +37,8 @@ predikt.factory 'Match', ["$http", "Message", ($http, Message) ->
         over_under_result: overUnderResult
         handicap_result: handicapResult
         match_status: 'completed'
-        starts_at: "2014-09-21 20:00:00 +0800"
-        ends_at: "2014-09-21 22:00:00 +0800"
+        starts_at: "2015-01-02 20:00:00 +0800"
+        ends_at: "2015-01-02 22:00:00 +0800"
       }
       $http(
         method: "PATCH"
@@ -58,8 +58,8 @@ predikt.factory 'Match', ["$http", "Message", ($http, Message) ->
         over_under_result: ''
         handicap_result: ''
         match_status: 'pending'
-        starts_at: "2014-10-21 20:00:00 +0800"
-        ends_at: "2014-10-21 22:00:00 +0800"
+        starts_at: "2015-05-21 20:00:00 +0800"
+        ends_at: "2015-05-21 22:00:00 +0800"
       }
       $http(
         method: "PATCH"
